@@ -24,3 +24,9 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logoutt');
 Route::post('login', 'Auth\LoginController@authenticate')->name('loginn');
 
 Route::get('/home', 'backend\HomeController@index')->name('home');
+Route::get('manage-user', 'Backend\UserController@index')->name('user');
+Route::get('manage-user/detail/{id}', 'Backend\UserController@detail')->name('detail');
+Route::get('manage-user/edit/{id}', 'Backend\UserController@edit')->name('edit');
+Route::patch('manage-user/update/{id}', 'Backend\UserController@update')->name('update');
+Route::delete('manage-user/delete/{id}', 'Backend\UserController@delete')->name('delete');
+Route::get('manage-user/create','Backend\UserController@create')->name('create');
