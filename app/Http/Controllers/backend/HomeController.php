@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -27,6 +28,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend/index');
+        if (Auth::check() && Auth::user()->role == 0) {
+            return view('backend/index');
+        } else {
+            return redirect ('index');
+        }
+        
     }
 }

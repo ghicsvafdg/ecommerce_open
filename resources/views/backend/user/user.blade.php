@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -28,10 +30,10 @@
                     <a href="../../index3.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="{{ route('logoutt') }}" class="nav-link">Đăng Xuất</a>
                 </li>
             </ul>
-            
+
             <!-- SEARCH FORM -->
             <form class="form-inline ml-3">
                 <div class="input-group input-group-sm">
@@ -43,7 +45,7 @@
                     </div>
                 </div>
             </form>
-            
+
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
@@ -139,30 +141,27 @@
             </ul>
         </nav>
         <!-- /.navbar -->
-        
+
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index3.html" class="brand-link">
-                <img src="../../dist/img/AdminLTELogo.png"
-                alt="AdminLTE Logo"
-                class="brand-image img-circle elevation-3"
-                style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <a href="index3.html" class="brand-link">
+                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light"><a href="/home">Home</a></span>
             </a>
-            
+
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user (optional) -->
+                <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">{{Auth::user()->name}}</a>
                     </div>
                 </div>
-                
+
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -192,136 +191,138 @@
                         </a>
                     </ul>
                 </nav>
-                <!-- /.sidebar -->
-            </aside>
-            
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                            {{-- <div class="col-sm-12">
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        {{-- <div class="col-sm-12">
                                 <h1 style="text-align: center">Quản lý ngươi</h1>
                             </div> --}}
-                            <div class="col-sm-12">
-                                <ol class="breadcrumb float-sm-left">
-                                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                                    <li class="breadcrumb-item active" >Quản lý người dùng</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div><!-- /.container-fluid -->
-                </section>
-                
-                <!-- Main content -->
-                <section class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 style="text-align: center">Quản lý người dùng</h3>
-                                    </div>
-                                    
-                                    @if(session()->has('msg'))
-                                    <div class="alert" style="background: #5CB85C">
-                                        <h4 style="text-align: center">{{ session()->get('msg') }}</h4>
-                                    </div>
-                                    @endif
-                                    <br>
-                                    
-                                    <!-- /.card-header -->
-                                    <div class="card-body">
-                                        <a href="{{route('create')}}" class="btn btn-primary btn-small" style="width: 17%">
-                                            <span class="btn-label">
-                                                <i class="fa fa-plus"></i>
-                                            </span>
-                                            Thêm người dùng
-                                        </a>
-                                        <p></p>
-                                        <table class="table table-bordered">
-                                            <thead>                  
-                                                <tr>
-                                                    <th style="width: 10px">ID</th>
-                                                    <th>Họ tên</th>
-                                                    <th>Email</th>
-                                                    <th style="width: 20% text-align:center">Vai trò</th>
-                                                    <th >Thao tác</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($user as $user)
-                                                <tr>
-                                                    
-                                                    <td>{{$user->id}}</td>
-                                                    <td>{{$user->name}}</td>
-                                                    <td>{{$user->email}}</td>
-                                                    @if($user->role==0)
-                                                    <td>
-                                                        Admin
-                                                    </td>
-                                                    @elseif($user->role==1)
-                                                    <td>User</td>
-                                                    @endif
-                                                    <td> 
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <a href="{{route('detail', $user->id)}}"  data-toggle="tooltip" data-placement="bottom"  title="View" class="btn btn-icon btn-primary btn-xs"><i class="fas fa-eye"></i> </a>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <a href="{{route('edit', $user->id)}}" data-toggle="tooltip" data-placement="bottom" title="Edit" class="btn btn-icon btn-secondary btn-xs"><i class="fas fa-pencil-alt"></i></a>
-                                                            </div>
-                                                            <form action="{{route('delete', $user->id)}}" method="post" class="test col-4">
-                                                                @method('DELETE')
-                                                                @csrf
-                                                                <button type="submit" class="btn btn-icon btn-danger btn-xs" onclick="return confirm('Bạn có muốn xóa người dùng này không?');" data-toggle="tooltip" data-placement="bottom" title="Delete">
-                                                                    <i class="fas fa-trash"></i>  
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.card-body -->
-                                </div>
-                                <!-- /.card -->
-                            </div>
+                        <div class="col-sm-12">
+                            <ol class="breadcrumb float-sm-left">
+                                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                                <li class="breadcrumb-item active">Quản lý người dùng</li>
+                            </ol>
                         </div>
                     </div>
-                    <!-- /.col -->
-                </section>
-                <!-- /.content -->
-            </div>
-            <!-- /.content-wrapper -->
-            <footer class="main-footer">
-                <div class="float-right d-none d-sm-block">
-                    <b>Version</b> 3.0.4
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 style="text-align: center">Quản lý người dùng</h3>
+                                </div>
+
+                                @if(session()->has('msg'))
+                                <div class="alert" style="background: #5CB85C">
+                                    <h4 style="text-align: center">{{ session()->get('msg') }}</h4>
+                                </div>
+                                @endif
+                                <br>
+
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <a href="{{route('create')}}" class="btn btn-primary btn-small" style="width: 17%">
+                                        <span class="btn-label">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                        Thêm người dùng
+                                    </a>
+                                    <p></p>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10px">ID</th>
+                                                <th>Họ tên</th>
+                                                <th>Email</th>
+                                                <th style="width: 20% text-align:center">Vai trò</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($user as $user)
+                                            <tr>
+
+                                                <td>{{$user->id}}</td>
+                                                <td>{{$user->name}}</td>
+                                                <td>{{$user->email}}</td>
+                                                @if($user->role==0)
+                                                <td>
+                                                    Admin
+                                                </td>
+                                                @elseif($user->role==1)
+                                                <td>User</td>
+                                                @endif
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <a href="{{route('detail', $user->id)}}" data-toggle="tooltip" data-placement="bottom" title="View" class="btn btn-icon btn-primary btn-xs"><i class="fas fa-eye"></i> </a>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <a href="{{route('edit', $user->id)}}" data-toggle="tooltip" data-placement="bottom" title="Edit" class="btn btn-icon btn-secondary btn-xs"><i class="fas fa-pencil-alt"></i></a>
+                                                        </div>
+                                                        <form action="{{route('delete', $user->id)}}" method="post" class="test col-4">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-icon btn-danger btn-xs" onclick="return confirm('Bạn có muốn xóa người dùng này không?');" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
                 </div>
-                <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-                reserved.
-            </footer>
-            
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
+                <!-- /.col -->
+            </section>
+            <!-- /.content -->
         </div>
-        <!-- ./wrapper -->
-        
-        <!-- jQuery -->
-        <script src="../../plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap 4 -->
-        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="../../dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="../../dist/js/demo.js"></script>
-    </body>
-    </html>
-    
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.0.4
+            </div>
+            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+
+</html>
