@@ -21,12 +21,12 @@ use Faker\Generator as Faker;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => 'Phạm Văn Hưng',
-        'role'=>'1',
+        'role'=>'0',
         'password' => bcrypt('12345678'),
         'address'=>'Thanh Hương, Thanh Liêm, Hà Nam',
         'phone'=>'0348600111',
         'dob'=>'21/09/1998',
-        'email'=>'pham.vanhung.963871@gmail.com',
+        'email'=>'admin@gmail.com',
         'remember_token' => Str::random(10),
     ];
 });
