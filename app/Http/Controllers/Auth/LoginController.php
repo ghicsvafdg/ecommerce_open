@@ -59,9 +59,9 @@ class LoginController extends Controller
         $email = $request->input('login');
         $password = $request->input('password');
 
-        if (Auth::attempt(['email' => $email, 'password' => $password, 'role' => 1, 'status' => 1])) {
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'role' => 1])) {
             return redirect()->intended('index');
-        } elseif (Auth::attempt(['email' => $email, 'password' => $password, 'role' => 0, 'status' => 1])) {
+        } elseif (Auth::attempt(['email' => $email, 'password' => $password, 'role' => 0])) {
             return redirect()->intended('home');
         } else {
             return redirect()->back()->with('error', "Sai tên tài khoản hoặc mật khẩu");

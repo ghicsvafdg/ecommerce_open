@@ -21,7 +21,6 @@ use Faker\Generator as Faker;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => 'Phạm Văn Hưng',
-        'username' => 'phamhung2109',
         'role'=>'1',
         'password' => bcrypt('12345678'),
         'address'=>'Thanh Hương, Thanh Liêm, Hà Nam',
