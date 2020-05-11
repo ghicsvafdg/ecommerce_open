@@ -206,7 +206,7 @@
                 <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-left">
                     <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                    <li class="breadcrumb-item active">Quản lý bài viết</li>
+                    <li class="breadcrumb-item active">Quản lý sản phẩm</li>
                 </ol>
                 </div>
             </div>
@@ -223,37 +223,92 @@
                 <!-- Horizontal Form -->
                 <div class="card card-info">
                     <div class="card-header" style="text-align: center">
-                    <h3>Chi tiết bài viết</h3>
+                    <h3>Chi tiết sản phẩm</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="{{route('manage-post.edit', $post->id)}}" method="GET">
+                    <form class="form-horizontal" action="{{route('manage-product.edit', $product->id)}}" method="GET">
                         <div class="card-body">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Tên bài viết</label>
+                                <label class="col-sm-2 col-form-label">Tên sản phẩm</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="title" value="{{$post->title}}" required disabled>
+                                    <input class="form-control" type="text" name="title" value="{{$product->name}}" required disabled>
+                                </div>product
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Danh mục sản phẩm</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control"  readonly value="{{$product->category_id}}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label  class="col-sm-2 col-form-label">Ảnh đại diện bài viết</label>
+                                <label class="col-sm-2 col-form-label">Tag của sản phẩm</label>
                                 <div class="col-sm-10">
-                                    <img src="{{asset('images/'.$post->image)}}" alt="khong co anh" height="150px" width="150px">
+                                    <input type="text" class="form-control"  readonly value="{{$product->tag_id}}">
                                 </div>
                             </div>
-    
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Ảnh</label>
+                                <div class="col-sm-10">
+                                    @foreach ($image as $img)
+                                        <img src="{{asset('images/'.$img)}}" alt="" height="100" width="100">
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Số lượng</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="quantity" class="form-control" disabled value="{{$product->quantity}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Các màu của sản phẩm (nếu có)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="color" class="form-control" disabled value="{{$product->color}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Các size của sản phẩm (nếu có)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="size" class="form-control" disabled value="{{$product->size}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Giá gốc 1 sản phẩm (nghìn VNĐ)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="price" class="form-control" disabled value="{{number_format( $product->price*1000, 0, ',', ' ' )}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Giá khuyến mại 1 sản phẩm (nếu có) (nghìn VNĐ)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="promition" class="form-control" disabled 
+                                    value="@isset($product->promotion)
+                                    {{number_format( $product->promotion*1000, 0, ',', ' ' )}}
+                                    @endisset">
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <label  class="col-sm-2 col-form-label">Mô tả</label>
                                 <div class="col-sm-10">
-                                    <textarea name="description" id="" cols="30" rows="10" disabled placeholder="Phần mô tả ngắn sẽ hiện lên trang chủ cùng tiêu đề" class="form-control @error('description') is-invalid @enderror" required>{{$post->description}}</textarea>
+                                    <textarea name="description" id="editor2" cols="30" rows="10" 
+                                    class="form-control" disabled>{{$product->description}}</textarea>
                                 </div>
                             </div>
-    
+
                             <div class="form-group row">
-                                <label  class="col-sm-2 col-form-label">Chi tiết bài viết</label>
+                                <label  class="col-sm-2 col-form-label">Chi tiết sản phẩm</label>
                                 <div class="col-sm-10">
-                                    <textarea name="content" class="form-control" disabled rows="10" id="editor1">{{$post->content}}</textarea>
+                                    <textarea name="content" class="form-control" id="editor1" disabled>{{$product->detail}}</textarea>
                                 </div>
                             </div>
                         </div>

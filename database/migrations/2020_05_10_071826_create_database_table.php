@@ -92,8 +92,8 @@ class CreateDatabaseTable extends Migration
 
             $table->string('title');
             $table->string('slug');
-            $table->integer('description');
-            $table->string('content');
+            $table->text('description');
+            $table->text('content');
             $table->string('image');
             
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

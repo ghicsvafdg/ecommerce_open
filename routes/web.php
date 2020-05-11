@@ -38,10 +38,7 @@ Route::get('manage-user/create','Backend\UserController@create')->name('create')
 Route::post('manage-user/store','Backend\USerController@store')->name('store');
 
 // manage post backend
-Route::get('manage-post', 'Backend\PostController@index')->name('post');
-Route::get('manage-post/detail/{id}', 'Backend\PostController@detail')->name('detail');
-Route::get('manage-post/edit/{id}', 'Backend\PostController@edit')->name('edit');
-Route::patch('manage-post/update/{id}', 'Backend\PostController@update')->name('update');
-Route::delete('manage-post/delete/{id}', 'Backend\PostController@delete')->name('delete');
-Route::get('manage-post/create','Backend\PostController@create')->name('create');
-Route::post('manage-post/store','Backend\PostController@store')->name('store');
+Route::resource('manage-post', 'Backend\PostController');
+
+// manage product backend
+Route::resource('manage-product', 'Backend\ProductController');

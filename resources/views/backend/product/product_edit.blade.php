@@ -2,20 +2,20 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | General Form Elements</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | General Form Elements</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -25,13 +25,13 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                <a href="../../index3.html" class="nav-link">Home</a>
+                    <a href="../../index3.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('logoutt') }}" class="nav-link">Đăng Xuất</a>
+                    <a href="{{ route('logoutt') }}" class="nav-link">Đăng Xuất</a>
                 </li>
             </ul>
 
@@ -206,7 +206,7 @@
                 <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-left">
                     <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                    <li class="breadcrumb-item active">Quản lý bài viết</li>
+                    <li class="breadcrumb-item active">Quản lý sản phẩm</li>
                 </ol>
                 </div>
             </div>
@@ -223,43 +223,111 @@
                 <!-- Horizontal Form -->
                 <div class="card card-info">
                     <div class="card-header" style="text-align: center">
-                    <h3>Chi tiết bài viết</h3>
+                    <h3>Chi tiết sản phẩm</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" action="{{route('manage-post.edit', $post->id)}}" method="GET">
+                    <form class="form-horizontal" action="{{route('manage-product.update', $product->id)}}" method="post" enctype="multipart/form-data">
+                        @method('PATCH')
+                        @csrf
                         <div class="card-body">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Tên bài viết</label>
+                                <label class="col-sm-2 col-form-label">Tên sản phẩm</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="title" value="{{$post->title}}" required disabled>
+                                    <input class="form-control" type="text" name="name" value="{{$product->name}}" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label  class="col-sm-2 col-form-label">Ảnh đại diện bài viết</label>
+                                <label class="col-sm-2 col-form-label">Danh mục sản phẩm</label>
                                 <div class="col-sm-10">
-                                    <img src="{{asset('images/'.$post->image)}}" alt="khong co anh" height="150px" width="150px">
+                                    <select class="form-control" name="category">
+                                        <option value="1">cate</option>
+                                        <option value="2" selected>cate2</option>
+                                    </select>
                                 </div>
                             </div>
-    
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Tag của sản phẩm</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="tag">
+                                        <option value="1">tag1</option>
+                                        <option value="2" selected>tag2</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Ảnh</label>
+                                <div class="col-sm-10">
+                                    @foreach ($image as $img)
+                                        <img src="{{asset('images/'.$img)}}" alt="" height="100" width="100">
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Thay ảnh (không bắt buộc)</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="filename[]" id="file" accept="image/*" multiple/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Số lượng</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="quantity" class="form-control" value="{{$product->quantity}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Các màu của sản phẩm (nếu có)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="color" class="form-control" value="{{$product->color}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Các size của sản phẩm (nếu có)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="size" class="form-control" value="{{$product->size}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Giá gốc 1 sản phẩm (nghìn VNĐ)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="price" class="form-control" value="{{number_format( $product->price, 0, ',', ' ' )}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Giá khuyến mại 1 sản phẩm (nếu có) (nghìn VNĐ)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="promition" class="form-control" 
+                                    value="@isset($product->promotion){{number_format( $product->promotion, 0, ',', ' ')}}@endisset">
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <label  class="col-sm-2 col-form-label">Mô tả</label>
                                 <div class="col-sm-10">
-                                    <textarea name="description" id="" cols="30" rows="10" disabled placeholder="Phần mô tả ngắn sẽ hiện lên trang chủ cùng tiêu đề" class="form-control @error('description') is-invalid @enderror" required>{{$post->description}}</textarea>
+                                    <textarea name="description" id="editor2" cols="30" rows="10" 
+                                    class="form-control">{{$product->description}}</textarea>
                                 </div>
                             </div>
-    
+
                             <div class="form-group row">
-                                <label  class="col-sm-2 col-form-label">Chi tiết bài viết</label>
+                                <label  class="col-sm-2 col-form-label">Chi tiết sản phẩm</label>
                                 <div class="col-sm-10">
-                                    <textarea name="content" class="form-control" disabled rows="10" id="editor1">{{$post->content}}</textarea>
+                                    <textarea name="detail" class="form-control" id="editor1">{{$product->detail}}</textarea>
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="" style="margin-left: 50%">
-                            <button type="submit" class="btn btn-info">Chỉnh sửa</button>
+                            <button type="submit" class="btn btn-info">Cập nhật</button>
                         </div>
                         <br>
                         <!-- /.card-footer -->
