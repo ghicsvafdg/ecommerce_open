@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\User ;
+use App\Models\User;
 // use App\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
@@ -19,23 +19,14 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(User::class, function (Faker $faker) {
-    return ([ 
-        ['name' => 'A B C',
-        'role'=>'1',
+    return [
+        'name' => 'D E F',
+        'role' => '0',
         'password' => bcrypt('12345678'),
-        'address'=>'',
-        'phone'=>'',
-        'dob'=>'',
-        'email'=>'admin@admin.com',
-        'remember_token' => Str::random(10),],
-
-        ['name' => 'D E F',
-        'role'=>'0',
-        'password' => bcrypt('12345678'),
-        'address'=>'',
-        'phone'=>'',
-        'dob'=>'',
-        'email'=>'admin2@admin.com',
-        'remember_token' => Str::random(10),]
-    ]);
+        'address' => '',
+        'phone' => '',
+        'dob' => '',
+        'email' => 'admin2@admin.com',
+        'remember_token' => Str::random(10),
+    ];
 });
