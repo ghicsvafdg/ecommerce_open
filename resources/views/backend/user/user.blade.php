@@ -247,7 +247,7 @@
                                                 <th style="width: 10px">ID</th>
                                                 <th>Họ tên</th>
                                                 <th>Email</th>
-                                                <th style="width: 20% text-align:center">Vai trò</th>
+                                                <th style="width: 20%; text-align:center">Vai trò</th>
                                                 <th>Thao tác</th>
                                             </tr>
                                         </thead>
