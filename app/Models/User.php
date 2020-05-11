@@ -17,19 +17,12 @@ class User extends Authenticatable implements CanResetPassword
     protected $table = 'users';
     
     protected $fillable = [
-        'email', 'password', 'role', 'status','gender', 'name', 'dob', 'phone', 'avatar', 'address', 'provider','provider_id'
+        'name', 'email', 'password', 'role', 'address', 'phone', 'dob'
     ];
 
     protected $hidden =[ 
         'password', 'remember_token'
     ];
 
-    public function address(){
-        return $this->hasMany('App\Models\Address','user_id','id');
-    }
-
-    public function comments()
-    {
-        return $this->hasMany('App\Models\Comment');
-    }
+   
 }

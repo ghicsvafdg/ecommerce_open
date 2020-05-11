@@ -30,3 +30,4 @@ Route::get('manage-user/edit/{id}', 'Backend\UserController@edit')->name('edit')
 Route::patch('manage-user/update/{id}', 'Backend\UserController@update')->name('update');
 Route::delete('manage-user/delete/{id}', 'Backend\UserController@delete')->name('delete');
 Route::get('manage-user/create','Backend\UserController@create')->name('create');
+Route::post('manage-user/store','Backend\USerController@store')->name('store');
