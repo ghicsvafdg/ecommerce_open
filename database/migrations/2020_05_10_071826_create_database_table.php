@@ -40,7 +40,7 @@ class CreateDatabaseTable extends Migration
 
             $table->unsignedInteger('tag_id');
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
-
+            $table->string('slug')->nullable();
             $table->longText('name');
             $table->decimal('price');
             $table->mediumText('image');

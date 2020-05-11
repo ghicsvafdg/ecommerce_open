@@ -20,13 +20,13 @@ use Faker\Generator as Faker;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => 'D E F',
+        'name' => 'Pham Hưng',
         'role' => '0',
         'password' => bcrypt('12345678'),
-        'address' => '',
-        'phone' => '',
-        'dob' => '',
-        'email' => 'admin2@admin.com',
+        'address' => 'Ha Nam',
+        'phone' => '0348600111',
+        'dob' => '21/09/1998',
+        'email' => 'admin@gmail.com',
         'remember_token' => Str::random(10),
     ];
 });
