@@ -40,7 +40,7 @@ class CreateDatabaseTable extends Migration
 
             $table->unsignedInteger('tag_id');
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
-
+            $table->string('slug')->nullable();
             $table->longText('name');
             $table->decimal('price');
             $table->mediumText('image');
@@ -92,8 +92,8 @@ class CreateDatabaseTable extends Migration
 
             $table->string('title');
             $table->string('slug');
-            $table->integer('description');
-            $table->integer('content');
+            $table->text('description');
+            $table->text('content');
             $table->string('image');
             
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
