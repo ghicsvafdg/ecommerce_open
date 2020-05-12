@@ -54,6 +54,7 @@ class ProductController extends Controller
             return redirect('index');
         }
 
+        // validate product name
         $request->validate([
             'name' => 'required|unique:products'
         ]);

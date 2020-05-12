@@ -56,6 +56,7 @@ class PostController extends Controller
             exit();
         }
 
+        // validate title post
         $rules = ([
             'title' => ['unique:posts']
         ]);
