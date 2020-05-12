@@ -31,7 +31,7 @@ class HomeController extends Controller
         if (Auth::check() && Auth::user()->role == 0) {
             return view('backend/index');
         } else {
-            return redirect ('index');
+            return redirect ('login');
         }
         
     }

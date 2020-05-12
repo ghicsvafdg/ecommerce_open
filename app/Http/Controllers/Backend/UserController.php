@@ -47,7 +47,6 @@ class UserController extends Controller
         if (Auth::check() && Auth::user()->role == 0) {
             $user = User::find($id);
             $user->name = $request->input('name');
-            $user->username = $request->input('username');
             $user->emaiL = $request->input('email');
             $user->role = $request->input('role');
             $user->address = $request->input('address');

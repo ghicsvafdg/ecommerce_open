@@ -252,8 +252,8 @@
                                 <label class="col-sm-2 col-form-label">Tag của sản phẩm</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="tag">
-                                        <option value="1">tag1</option>
-                                        <option value="2" selected>tag2</option>
+                                        <option value="3">tag1</option>
+                                        <option value="4" selected>tag2</option>
                                     </select>
                                 </div>
                             </div>

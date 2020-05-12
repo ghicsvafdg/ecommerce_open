@@ -231,10 +231,15 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group row">
-                        <label  class="col-sm-2 col-form-label">Tên sản phẩm</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="name" class="form-control" value="" required>
-                        </div>
+                          <label  class="col-sm-2 col-form-label">Tên sản phẩm</label>
+                          <div class="col-sm-10">
+                              <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+                              @error('name')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                              @enderror
+                          </div>
                         </div>
 
                         <div class="form-group row">
@@ -251,8 +256,8 @@
                             <label  class="col-sm-2 col-form-label">Chọn tag</label>
                             <div class="col-sm-10">
                             <select class="form-control" name="tag">
-                                <option value="1">tag1</option>
-                                <option value="2" selected>tag2</option>
+                                <option value="3">tag1</option>
+                                <option value="4" selected>tag2</option>
                             </select>
                             </div>
                         </div>
@@ -316,7 +321,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Chi tiết sản phẩm</label>
                             <div class="col-sm-10">
-                                <textarea name="detail" class="form-control @error('detail') is-invalid @enderror" id="editor2"></textarea>
+                                <textarea name="detail" rows="10" class="form-control @error('detail') is-invalid @enderror" id="editor2"></textarea>
                             </div>
                         </div>
                     </div>

@@ -291,9 +291,7 @@
                                 <label  class="col-sm-2 col-form-label">Giá khuyến mại 1 sản phẩm (nếu có) (nghìn VNĐ)</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="promition" class="form-control" disabled 
-                                    value="@isset($product->promotion)
-                                    {{number_format( $product->promotion*1000, 0, ',', ' ' )}}
-                                    @endisset">
+                                    value="@isset($product->promotion){{number_format( $product->promotion*1000, 0, ',', ' ' )}}@endisset">
                                 </div>
                             </div>
 
