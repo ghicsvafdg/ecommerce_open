@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\Tag;
 
 class ProductController extends Controller
 {
@@ -34,7 +37,9 @@ class ProductController extends Controller
     public function create()
     {
         if (Auth::check() && Auth::user()->role == 0) {
-            return view('backend.product.product_create');
+            $tag = Tag::all();
+            $category = ProductCategory::all();
+            return view('backend.product.product_create', compact('tag', 'category'));
         } else {
             return redirect('index');
         }

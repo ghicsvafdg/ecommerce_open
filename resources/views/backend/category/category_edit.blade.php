@@ -200,16 +200,16 @@
               </p>
             </a>
           </ul>
-          <br>
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="{{ route('manage-category.index') }}" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Quản lý danh mục
-              </p>
-            </a>
-          </ul>
         </nav>
+        <br>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <a href="{{ route('manage-category.index') }}" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    Quản lý danh mục
+                </p>
+            </a>
+        </ul>
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
@@ -224,7 +224,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-left">
                 <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                <li class="breadcrumb-item active">Quản lý người dùng</li>
+                <li class="breadcrumb-item active">Quản lý sản phẩm</li>
               </ol>
             </div>
           </div>
@@ -241,75 +241,32 @@
               <!-- Horizontal Form -->
               <div class="card card-info">
                 <div class="card-header" style="text-align: center">
-                  <h3>Chi tiết người dùng</h3>
+                  <h3>Thêm mới sản phẩm</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{route('update', $user->id)}}" method="post">
+                <form class="form-horizontal" action="{{route('manage-category.update', $category->id)}}" method="POST">
                   @method('PATCH')
                   @csrf
                   <div class="card-body">
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Họ tên</label>
+                      <label  class="col-sm-2 col-form-label">Tên danh mục</label>
                       <div class="col-sm-10">
-                        <input type="text" name="name" class="form-control" id="inputEmail3" value="{{old('name')? old('name'): $user->name}}" required>
-                      </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                      <div class="col-sm-10">
-                        <input type="email" name="email" class="form-control" id="inputEmail3" value="{{old('email')? old('email'): $user->email}}" required>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Vai trò</label>
-                      <div class="col-sm-10">
-                        @if($user->role==0)
-                        <select class="form-control" name="role">
-                          <option value="0" selected>Admin</option>
-                          <option value="1">User</option>
-                        </select>
-                        @else
-                        <select class="form-control" name="role">
-                          <option value="0">Admin</option>
-                          <option value="1" selected>User</option>
-                        </select>
-                        @endif
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Địa chỉ</label>
-                      <div class="col-sm-10">
-                        <input type="text" name="address" class="form-control" id="inputEmail3" value="{{old('address')? old('address'): $user->address}}" required>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Số điện thoại</label>
-                      <div class="col-sm-10">
-                        <input type="text" name="phone" class="form-control" id="inputEmail3" value="{{old('phone')? old('phone'): $user->phone}}" required>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Ngày sinh</label>
-                      <div class="col-sm-10">
-                        <input type="text" name="dob" class="form-control" id="inputEmail3" value="{{old('dob')? old('dob'): $user->dob}}" required>
+                        <input type="text" name="name" class="form-control" value="{{$category->name}}" required>
                       </div>
                     </div>
                     
                   </div>
                   <!-- /.card-body -->
                   <div class="" style="margin-left: 50%">
-                    <button type="submit" class="btn btn-info">Cập nhật</button>
+                    <button type="submit" class="btn btn-info">Lưu thay đổi</button>
                   </div>
                   <br>
                   <!-- /.card-footer -->
                 </form>
               </div>
               <!-- /.card -->
-              
             </div>
-            
           </div>
           <!-- /.row -->
         </div><!-- /.container-fluid -->

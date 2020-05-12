@@ -7,7 +7,7 @@
   <title>AdminLTE 3 | General Form Elements</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -34,7 +34,7 @@
           <a href="{{ route('logoutt') }}" class="nav-link">Đăng Xuất</a>
         </li>
       </ul>
-
+      
       <!-- SEARCH FORM -->
       <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
@@ -46,7 +46,7 @@
           </div>
         </div>
       </form>
-
+      
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
@@ -142,7 +142,7 @@
       </ul>
     </nav>
     <!-- /.navbar -->
-
+    
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
@@ -150,7 +150,7 @@
         <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"><a href="/home">Home</a></span>
       </a>
-
+      
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
@@ -162,7 +162,7 @@
             <a href="#" class="d-block">{{Auth::user()->name}}</a>
           </div>
         </div>
-
+        
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -175,7 +175,7 @@
           </ul>
           <br>
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="{{route('user')}}" class="nav-link active">
+            <a href="{{ route('manage-product.index') }}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Quản lý sản phẩm
@@ -184,10 +184,28 @@
           </ul>
           <br>
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="{{route('user')}}" class="nav-link active">
+            <a href="{{ route('manage-post.index') }}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Quản lý bài viết
+              </p>
+            </a>
+          </ul>
+          <br>
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <a href="{{ route('manage-tag.index') }}" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Quản lý thẻ tag
+              </p>
+            </a>
+          </ul>
+          <br>
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <a href="{{ route('manage-category.index') }}" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Quản lý danh mục
               </p>
             </a>
           </ul>
@@ -196,7 +214,7 @@
       </div>
       <!-- /.sidebar -->
     </aside>
-
+    
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -212,14 +230,14 @@
           </div>
         </div><!-- /.container-fluid -->
       </section>
-
+      
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
           <div class="row">
             <!-- left column -->
             <div class="col-md-12">
-
+              
               <!-- Horizontal Form -->
               <div class="card card-info">
                 <div class="card-header" style="text-align: center">
@@ -236,19 +254,19 @@
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                          <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                       </div>
                     </div>
-
+                    
                     <div class="form-group row">
                       <label  class="col-sm-2 col-form-label">Email</label>
                       <div class="col-sm-10">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" required>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                          <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                       </div>
@@ -259,7 +277,7 @@
                         <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" required>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                          <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                       </div>
@@ -273,7 +291,7 @@
                     <div class="form-group row">
                       <label  class="col-sm-2 col-form-label">Vai trò</label>
                       <div class="col-sm-10">
-
+                        
                         <select class="form-control" name="role">
                           <option value="1">Admin</option>
                           <option value="0" selected>User</option>
@@ -298,7 +316,7 @@
                         <input type="text" name="dob" class="form-control" value="" required>
                       </div>
                     </div>
-
+                    
                   </div>
                   <!-- /.card-body -->
                   <div class="" style="margin-left: 50%">
@@ -309,9 +327,9 @@
                 </form>
               </div>
               <!-- /.card -->
-
+              
             </div>
-
+            
           </div>
           <!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -326,7 +344,7 @@
       <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
       reserved.
     </footer>
-
+    
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
@@ -334,7 +352,7 @@
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
-
+  
   <!-- jQuery -->
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->

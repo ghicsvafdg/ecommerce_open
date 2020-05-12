@@ -200,6 +200,15 @@
                             </p>
                         </a>
                     </ul>
+                    <br>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <a href="{{ route('manage-category.index') }}" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Quản lý danh mục
+                            </p>
+                        </a>
+                    </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -219,22 +228,6 @@
                             </ol>
                         </div>
                     </div>
-<<<<<<< HEAD
-                </div><!-- /.container-fluid -->
-            </section>
-            
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <!-- left column -->
-                        <div class="col-md-12">
-                            
-                            <!-- Horizontal Form -->
-                            <div class="card card-info">
-                                <div class="card-header" style="text-align: center">
-                                    <h3>Chi tiết sản phẩm</h3>
-=======
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form class="form-horizontal" action="{{route('manage-product.update', $product->id)}}" method="post" enctype="multipart/form-data">
@@ -317,7 +310,6 @@
                                 <div class="col-sm-10">
                                     <input type="text" name="promition" class="form-control" 
                                     value="@isset($product->promotion){{number_format( $product->promotion, 0, ',', ' ')}}@endisset">
->>>>>>> db66643c3c78380cea32179915b3d75e344e560c
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->

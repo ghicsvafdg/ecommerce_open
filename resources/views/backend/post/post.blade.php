@@ -174,7 +174,7 @@
                     </ul>
                     <br>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <a href="{{route('manage-product.index')}}" class="nav-link active">
+                        <a href="{{ route('manage-product.index') }}" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Quản lý sản phẩm
@@ -183,10 +183,28 @@
                     </ul>
                     <br>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <a href="{{route('manage-post.index')}}" class="nav-link active">
+                        <a href="{{ route('manage-post.index') }}" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Quản lý bài viết
+                            </p>
+                        </a>
+                    </ul>
+                    <br>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <a href="{{ route('manage-tag.index') }}" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Quản lý thẻ tag
+                            </p>
+                        </a>
+                    </ul>
+                    <br>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <a href="{{ route('manage-category.index') }}" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Quản lý danh mục
                             </p>
                         </a>
                     </ul>

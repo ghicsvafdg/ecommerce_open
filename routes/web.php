@@ -44,3 +44,5 @@ Route::resource('manage-post', 'Backend\PostController');
 Route::resource('manage-product', 'Backend\ProductController');
 
 Route::resource('manage-tag', 'Backend\TagController');
+
+Route::resource('manage-category', 'Backend\CategoryController');

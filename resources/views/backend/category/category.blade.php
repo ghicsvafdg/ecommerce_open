@@ -33,7 +33,7 @@
                     <a href="{{ route('logoutt') }}" class="nav-link">Đăng Xuất</a>
                 </li>
             </ul>
-
+            
             <!-- SEARCH FORM -->
             <form class="form-inline ml-3">
                 <div class="input-group input-group-sm">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </form>
-
+            
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
@@ -141,7 +141,7 @@
             </ul>
         </nav>
         <!-- /.navbar -->
-
+        
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
@@ -149,7 +149,7 @@
                 <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light"><a href="/home">Home</a></span>
             </a>
-
+            
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
@@ -161,7 +161,7 @@
                         <a href="#" class="d-block">{{Auth::user()->name}}</a>
                     </div>
                 </div>
-
+                
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -192,10 +192,10 @@
                     </ul>
                     <br>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <a href="{{ route('manage-tag.index') }}" class="nav-link active">
+                        <a href="{{ route('manage-category.index') }}" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Quản lý thẻ tag
+                                Quản lý danh mục
                             </p>
                         </a>
                     </ul>
@@ -213,7 +213,7 @@
             </div>
             <!-- /.sidebar -->
         </aside>
-
+        
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -221,18 +221,18 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         {{-- <div class="col-sm-12">
-                                <h1 style="text-align: center">Quản lý ngươi</h1>
-                            </div> --}}
+                            <h1 style="text-align: center">Quản lý ngươi</h1>
+                        </div> --}}
                         <div class="col-sm-12">
                             <ol class="breadcrumb float-sm-left">
                                 <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                                <li class="breadcrumb-item active">Quản lý người dùng</li>
+                                <li class="breadcrumb-item active">Quản lý danh mục</li>
                             </ol>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
-
+            
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
@@ -240,61 +240,50 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 style="text-align: center">Quản lý người dùng</h3>
+                                    <h3 style="text-align: center">Quản lý thẻ danh mục</h3>
                                 </div>
-
+                                
                                 @if(session()->has('msg'))
                                 <div class="alert" style="background: #5CB85C">
                                     <h4 style="text-align: center">{{ session()->get('msg') }}</h4>
                                 </div>
                                 @endif
                                 <br>
-
+                                
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <a href="{{route('create')}}" class="btn btn-primary btn-small" style="width: 17%">
+                                    <a href="{{route('manage-category.create')}}" class="btn btn-primary btn-small" style="width: 17%">
                                         <span class="btn-label">
                                             <i class="fa fa-plus"></i>
                                         </span>
-                                        Thêm người dùng
+                                        Thêm danh mục
                                     </a>
                                     <p></p>
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" style="width: 50%">
                                         <thead>
                                             <tr>
                                                 <th style="width: 10px">ID</th>
-                                                <th>Họ tên</th>
-                                                <th>Email</th>
-                                                <th style="width: 20%; text-align:center">Vai trò</th>
-                                                <th>Thao tác</th>
+                                                <th style="width: 200px">Tên danh mục</th>
+                                                <th style="width: 70px">Thao tác</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($user as $user)
+                                            @foreach ($category as $category)
                                             <tr>
-
-                                                <td>{{$user->id}}</td>
-                                                <td>{{$user->name}}</td>
-                                                <td>{{$user->email}}</td>
-                                                @if($user->role==0)
-                                                <td>
-                                                    Admin
-                                                </td>
-                                                @elseif($user->role==1)
-                                                <td>User</td>
-                                                @endif
+                                                
+                                                <td>{{$category->id}}</td>
+                                                <td>{{$category->name}}</td>
+                                                
                                                 <td>
                                                     <div class="row">
+                                                        
                                                         <div class="col-4">
-                                                            <a href="{{route('detail', $user->id)}}" data-toggle="tooltip" data-placement="bottom" title="View" class="btn btn-icon btn-primary btn-xs"><i class="fas fa-eye"></i> </a>
+                                                            <a href="{{route('manage-category.edit', $category->id)}}" data-toggle="tooltip" data-placement="bottom" title="Edit" class="btn btn-icon btn-secondary btn-xs"><i class="fas fa-pencil-alt"></i></a>
                                                         </div>
-                                                        <div class="col-4">
-                                                            <a href="{{route('edit', $user->id)}}" data-toggle="tooltip" data-placement="bottom" title="Edit" class="btn btn-icon btn-secondary btn-xs"><i class="fas fa-pencil-alt"></i></a>
-                                                        </div>
-                                                        <form action="{{route('delete', $user->id)}}" method="post" class="test col-4">
+                                                        <form action="{{route('manage-category.destroy', $category->id)}}" method="post" class="test col-4">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button type="submit" class="btn btn-icon btn-danger btn-xs" onclick="return confirm('Bạn có muốn xóa người dùng này không?');" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                                            <button type="submit" class="btn btn-icon btn-danger btn-xs" onclick="return confirm('Bạn có muốn xóa category này không?');" data-toggle="tooltip" data-placement="bottom" title="Delete">
                                                                 <i class="fas fa-trash"></i>
                                                             </button>
                                                         </form>
@@ -302,7 +291,7 @@
                                                 </td>
                                             </tr>
                                             @endforeach
-
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -324,7 +313,7 @@
             <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
             reserved.
         </footer>
-
+        
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
@@ -332,7 +321,7 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
+    
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
