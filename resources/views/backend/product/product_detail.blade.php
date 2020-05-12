@@ -329,8 +329,38 @@
                                     <!-- /.card-footer -->
                                 </form>
                             </div>
+<<<<<<< HEAD
                             <!-- /.card -->
                             
+=======
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Giá khuyến mại 1 sản phẩm (nếu có) (nghìn VNĐ)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="promition" class="form-control" disabled 
+                                    value="@isset($product->promotion){{number_format( $product->promotion*1000, 0, ',', ' ' )}}@endisset">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Mô tả</label>
+                                <div class="col-sm-10">
+                                    <textarea name="description" id="editor2" cols="30" rows="10" 
+                                    class="form-control" disabled>{{$product->description}}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Chi tiết sản phẩm</label>
+                                <div class="col-sm-10">
+                                    <textarea name="content" class="form-control" id="editor1" disabled>{{$product->detail}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="" style="margin-left: 50%">
+                            <button type="submit" class="btn btn-info">Chỉnh sửa</button>
+>>>>>>> db66643c3c78380cea32179915b3d75e344e560c
                         </div>
                         
                     </div>

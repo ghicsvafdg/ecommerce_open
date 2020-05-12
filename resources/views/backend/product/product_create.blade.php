@@ -237,6 +237,7 @@
                 <!-- /.card-header -->
                 <!-- form start -->
                 <form class="form-horizontal" action="{{route('manage-product.store')}}" method="POST" enctype="multipart/form-data">
+<<<<<<< HEAD
                   @csrf
                   <div class="card-body">
                     <div class="form-group row">
@@ -264,6 +265,104 @@
                           <option value="2" selected>tag2</option>
                         </select>
                       </div>
+=======
+                    @csrf
+                    <div class="card-body">
+                        <div class="form-group row">
+                          <label  class="col-sm-2 col-form-label">Tên sản phẩm</label>
+                          <div class="col-sm-10">
+                              <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+                              @error('name')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                              @enderror
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Danh mục</label>
+                            <div class="col-sm-10">
+                            <select class="form-control" name="category">
+                                <option value="1">cate1</option>
+                                <option value="2" selected>cate2</option>
+                            </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Chọn tag</label>
+                            <div class="col-sm-10">
+                            <select class="form-control" name="tag">
+                                <option value="3">tag1</option>
+                                <option value="4" selected>tag2</option>
+                            </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Ảnh</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" name="filename[]" id="file" accept="image/*" multiple required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Số lượng</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="quantity" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Các màu của sản phẩm (nếu có)</label>
+                            <strong>ghi tên màu sản phẩm dưới dạng: đỏ, xanh, vàng, tím,...</strong>
+                            <div class="col-sm-10">
+                                <input type="text" name="color" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Các size của sản phẩm (nếu có)</label>
+                            <strong>ghi tên size sản phẩm dưới dạng: S, X, XL,... hoặc 35, 38, 40...</strong>
+                            <div class="col-sm-10">
+                                <input type="text" name="size" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Giá gốc 1 sản phẩm (nghìn VNĐ):</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="price" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Giá khuyến mại 1 sản phẩm (nếu có) (nghìn VNĐ):</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="promotion" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Mô tả</label>
+                            <div class="col-sm-10">
+                                <textarea name="description" id="editor1" cols="30" rows="10" 
+                                placeholder="Điền các thông số như là:
+                                                Thương hiệu: 
+                                                Xuất xứ: 
+                                                ..."
+                                class="form-control @error('description') is-invalid @enderror" required>{{ old('description') }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Chi tiết sản phẩm</label>
+                            <div class="col-sm-10">
+                                <textarea name="detail" rows="10" class="form-control @error('detail') is-invalid @enderror" id="editor2"></textarea>
+                            </div>
+                        </div>
+>>>>>>> db66643c3c78380cea32179915b3d75e344e560c
                     </div>
                     
                     <div class="form-group row">

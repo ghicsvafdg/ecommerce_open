@@ -231,32 +231,47 @@
                   @csrf
                   <div class="card-body">
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Họ tên</label>
+                      <label  class="col-sm-2 col-form-label">Họ tên</label>
                       <div class="col-sm-10">
-                        <input type="text" name="name" class="form-control" id="inputEmail3" value="" required>
+                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                     </div>
 
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                      <label  class="col-sm-2 col-form-label">Email</label>
                       <div class="col-sm-10">
-                        <input type="email" name="email" class="form-control" id="inputEmail3" value="" required>
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" required>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Mật khẩu</label>
+                      <label  class="col-sm-2 col-form-label">Mật khẩu</label>
                       <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control" id="inputEmail3" value="" required>
+                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" required>
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Nhập lại mật khẩu</label>
+                      <label  class="col-sm-2 col-form-label">Nhập lại mật khẩu</label>
                       <div class="col-sm-10">
-                        <input type="password" name="password_confirmation" class="form-control" id="inputEmail3" value="" required>
+                        <input type="password" name="password_confirmation" class="form-control"  value="" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Vai trò</label>
+                      <label  class="col-sm-2 col-form-label">Vai trò</label>
                       <div class="col-sm-10">
 
                         <select class="form-control" name="role">
@@ -266,21 +281,21 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Địa chỉ</label>
+                      <label  class="col-sm-2 col-form-label">Địa chỉ</label>
                       <div class="col-sm-10">
-                        <input type="text" name="address" class="form-control" id="inputEmail3" value="" required>
+                        <input type="text" name="address" class="form-control" value="" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Số điện thoại</label>
+                      <label  class="col-sm-2 col-form-label">Số điện thoại</label>
                       <div class="col-sm-10">
-                        <input type="text" name="phone" class="form-control" id="inputEmail3" value="" required>
+                        <input type="text" name="phone" class="form-control" value="" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Ngày sinh</label>
+                      <label  class="col-sm-2 col-form-label">Ngày sinh</label>
                       <div class="col-sm-10">
-                        <input type="text" name="dob" class="form-control" id="inputEmail3" value="" required>
+                        <input type="text" name="dob" class="form-control" value="" required>
                       </div>
                     </div>
 

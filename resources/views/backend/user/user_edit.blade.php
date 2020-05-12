@@ -247,7 +247,7 @@
                     <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 col-form-label">Vai trò</label>
                       <div class="col-sm-10">
-                        @if($user->role==1)
+                        @if($user->role==0)
                         <select class="form-control" name="role">
                           <option value="0" selected>Admin</option>
                           <option value="1">User</option>

@@ -219,6 +219,7 @@
                             </ol>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div><!-- /.container-fluid -->
             </section>
             
@@ -233,6 +234,90 @@
                             <div class="card card-info">
                                 <div class="card-header" style="text-align: center">
                                     <h3>Chi tiết sản phẩm</h3>
+=======
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal" action="{{route('manage-product.update', $product->id)}}" method="post" enctype="multipart/form-data">
+                        @method('PATCH')
+                        @csrf
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Tên sản phẩm</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="name" value="{{$product->name}}" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Danh mục sản phẩm</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="category">
+                                        <option value="1">cate</option>
+                                        <option value="2" selected>cate2</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Tag của sản phẩm</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="tag">
+                                        <option value="3">tag1</option>
+                                        <option value="4" selected>tag2</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Ảnh</label>
+                                <div class="col-sm-10">
+                                    @foreach ($image as $img)
+                                        <img src="{{asset('images/'.$img)}}" alt="" height="100" width="100">
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Thay ảnh (không bắt buộc)</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="filename[]" id="file" accept="image/*" multiple/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Số lượng</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="quantity" class="form-control" value="{{$product->quantity}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Các màu của sản phẩm (nếu có)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="color" class="form-control" value="{{$product->color}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Các size của sản phẩm (nếu có)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="size" class="form-control" value="{{$product->size}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Giá gốc 1 sản phẩm (nghìn VNĐ)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="price" class="form-control" value="{{number_format( $product->price, 0, ',', ' ' )}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label  class="col-sm-2 col-form-label">Giá khuyến mại 1 sản phẩm (nếu có) (nghìn VNĐ)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="promition" class="form-control" 
+                                    value="@isset($product->promotion){{number_format( $product->promotion, 0, ',', ' ')}}@endisset">
+>>>>>>> db66643c3c78380cea32179915b3d75e344e560c
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
