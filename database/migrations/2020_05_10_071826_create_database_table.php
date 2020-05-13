@@ -145,6 +145,11 @@ class CreateDatabaseTable extends Migration
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
+
+        Schema::create('posts', function(Blueprint $table){
+
+            $table->text('description')->change();
+        });
     }
 
     /**
@@ -154,14 +159,15 @@ class CreateDatabaseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_categories');
-        Schema::dropIfExists('tags');
-        Schema::dropIfExists('products');
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('vouchers');
-        Schema::dropIfExists('posts');
-        Schema::dropIfExists('carts');
-        Schema::dropIfExists('payments');
-        Schema::dropIfExists('orders');
+        Schema::drop('users');
+        Schema::drop('vouchers');
+        Schema::drop('posts');
+        Schema::drop('carts');
+        Schema::drop('payments');
+        Schema::drop('orders');
+        Schema::drop('tags');
+        Schema::drop('product_categories');
+        Schema::drop('products');
+
     }
 }
