@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout')->name('logoutt');
 Route::post('login', 'Auth\LoginController@authenticate')->name('loginn');
 
-Route::get('/home', 'backend\HomeController@index')->name('home');
+Route::get('/home', 'Backend\HomeController@index')->name('home');
 
 // manage user backend
 Route::get('manage-user', 'Backend\UserController@index')->name('user');
