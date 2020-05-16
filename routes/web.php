@@ -48,3 +48,12 @@ Route::resource('manage-tag', 'Backend\TagController');
 Route::resource('manage-category', 'Backend\CategoryController');
 
 Route::resource('manage-banner', 'Backend\BannerController');
+
+//excel
+// Route::get('export', 'MyController@export')->name('export');
+// Route::get('importExportView', 'MyController@importExportView');
+// Route::post('import', 'MyController@import')->name('import');
+
+Route::get('/import_excel', 'Backend\ImportExcelController@index')->name('import_excel');
+Route::post('import_excel/import', 'Backend\ImportExcelController@import');
+Route::get('export', 'Backend\ImportExcelController@export')->name('export');

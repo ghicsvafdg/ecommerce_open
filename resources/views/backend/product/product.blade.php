@@ -185,6 +185,12 @@
                                         </span>
                                         Thêm sản phẩm
                                     </a>
+                                    <a href="{{route('import_excel')}}" class="btn btn-primary btn-small" style="width: 17%">
+                                      <span class="btn-label">
+                                          <i class="fa fa-plus"></i>
+                                      </span>
+                                      Nhập sản phẩm bằng file excel
+                                  </a>
                                     <p></p>
                                     <table class="table table-bordered">
                                         <thead>

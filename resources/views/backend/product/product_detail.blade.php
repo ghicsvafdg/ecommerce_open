@@ -178,7 +178,7 @@
                                             <label class="col-sm-2 col-form-label">Tên sản phẩm</label>
                                             <div class="col-sm-10">
                                                 <input class="form-control" type="text" name="title" value="{{$product->name}}" required disabled>
-                                            </div>product
+                                            </div>
                                         </div>
                                         
                                         <div class="form-group row">
