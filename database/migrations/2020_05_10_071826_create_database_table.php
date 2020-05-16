@@ -145,11 +145,20 @@ class CreateDatabaseTable extends Migration
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
-
-        Schema::create('posts', function(Blueprint $table){
-
-            $table->text('description')->change();
+        
+        Schema::create('banners', function (Blueprint $table) {
+            $table->Increments('id');
+            $table->string('name');
+            $table->string('section');
+            $table->text('filename');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
+        // Schema::create('posts', function(Blueprint $table){
+
+        //     $table->text('description')->change();
+        // });
+
     }
 
     /**
@@ -168,6 +177,7 @@ class CreateDatabaseTable extends Migration
         Schema::drop('tags');
         Schema::drop('product_categories');
         Schema::drop('products');
+        Schema::drop('banners');
 
     }
 }
