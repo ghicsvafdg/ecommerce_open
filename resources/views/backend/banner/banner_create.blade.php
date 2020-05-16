@@ -4,10 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | General Form Elements</title>
+  <title>AdminLTE 3 | Simple Tables</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -151,14 +150,13 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-left">
                 <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                <li class="breadcrumb-item active">Quản lý bài viết</li>
+                <li class="breadcrumb-item active">Quản lý banner</li>
               </ol>
             </div>
           </div>
         </div><!-- /.container-fluid -->
       </section>
       
-      <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
           <div class="row">
@@ -168,89 +166,137 @@
               <!-- Horizontal Form -->
               <div class="card card-info">
                 <div class="card-header" style="text-align: center">
-                  <h3>Thêm mới bài viết</h3>
+                  <h3>Thêm mới banner</h3>
                 </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form class="form-horizontal" action="{{route('manage-post.store')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <div class="card-body">
-                    <div class="form-group row">
-                      <label  class="col-sm-2 col-form-label">Tên bài viết</label>
-                      <div class="col-sm-10">
-                        <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}" required>
-                      </div>
+                <div class="card">
+                  <h4 style="margin-left:10px">Vị trí hiển thị banner</h4>
+                  <div class="row">
+                    <div class="col-8">
+                      <h4 style="margin-left:10px">Trang chủ</h4>
+                      <img src="{{asset('images/index_section.png')}}" alt="" height="400" width="500" >
                     </div>
-                    
-                    <div class="form-group row">
-                      <label  class="col-sm-2 col-form-label">Ảnh đại diện bài viết</label>
-                      <div class="col-sm-10">
-                        <input type="file" name="filename" accept="image/*" required>
-                      </div>
+                    <div class="col-4">
+                      <h4 >Trang chi tiết sản phẩm</h4>
+                      <img src="{{asset('images/detail_section.png')}}" alt="" height="600" width="300">
                     </div>
-                    
-                    <div class="form-group row">
-                      <label  class="col-sm-2 col-form-label">Mô tả</label>
-                      <div class="col-sm-10">
-                        <textarea name="description" id="" cols="30" rows="10" placeholder="Phần mô tả ngắn sẽ hiện lên trang chủ cùng tiêu đề" class="form-control @error('description') is-invalid @enderror" required>{{ old('description') }}</textarea>
-                      </div>
+                    <div class="col-8">
+                      <h4>Trang danh mục sản phẩm</h4>
+                      <img src="{{asset('images/cate_section.png')}}" alt="" height="400" width="500">
                     </div>
-                    
-                    <div class="form-group row">
-                      <label  class="col-sm-2 col-form-label">Chi tiết bài viết</label>
-                      <div class="col-sm-10">
-                        <textarea name="content" class="form-control " id="editor1"></textarea>
-                      </div>
+                    <div class="col-4">
+                      <h4>Quy tắc</h4>
+                      <table class="text-center table table-bordered table-striped">
+                        <tr>
+                          <td>Khu vực</td>
+                          <td>Số lượng banner tối đa</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>4</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>5</td>
+                        </tr>
+                      </table>
                     </div>
                   </div>
-                  <!-- /.card-body -->
-                  <div class="" style="margin-left: 50%">
-                    <button type="submit" class="btn btn-info">Tạo bài viết</button>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <h3>Thêm mới Banner</h3>
                   </div>
-                  <br>
-                  <!-- /.card-footer -->
-                </form>
+                  
+                  <form action="{{route('manage-banner.store')}}" method="POST" enctype="multipart/form-data" class="form-group">
+                    <div class="card-body">
+                      @csrf
+                      <label>Chọn khu vực: </label>
+                      <select class="form-control @error('section') is-invalid @enderror" name="section" value="">
+                        <option selected value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
+                      @error('section')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
+                      <label>Tên banner: </label>
+                      <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" value="{{ old('name') }}" required>
+                      @error('name')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
+                      <label>Upload Banner</label><br>
+                      <strong>định dạng: jpeg,png,jpg,gif,svg | tối đa: 2MB mỗi ảnh</strong>
+                      <input type="file" class="form-control" name="filename[]" id="file" accept="image/*" multiple />
+                    </div>    
+                    <div class="card-footer">
+                      <div class="row">
+                        <div class="col-6 text-right">
+                          <a href="{{route('manage-banner.index')}}" class="btn btn-danger">Hủy</a>
+                        </div>
+                        <div class="col-6 text-left">
+                          <button type="submit" class="btn btn-primary">Thêm</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.content -->
               </div>
-              <!-- /.card -->
+              <!-- /.content-wrapper -->
+              <footer class="main-footer">
+                <div class="float-right d-none d-sm-block">
+                  <b>Version</b> 3.0.4
+                </div>
+                <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+                reserved.
+              </footer>
+              
+              <!-- Control Sidebar -->
+              <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+              </aside>
+              <!-- /.control-sidebar -->
             </div>
           </div>
-          <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
       </section>
-      <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.0.4
-      </div>
-      <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-      reserved.
-    </footer>
-    
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
   </div>
+  
   <!-- ./wrapper -->
   
   <!-- jQuery -->
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- bs-custom-file-input -->
-  <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      bsCustomFileInput.init();
-    });
-  </script>
 </body>
 
 </html>
