@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -123,9 +124,11 @@ class ProductController extends Controller
     public function edit($id)
     {
         if (Auth::check() && Auth::user()->role == 0) {
+            $category= Category::all();
+            $tag = Tag::all();
             $product = Product::where('id', $id)->first();
             $image = json_decode($product->image);
-            return view('backend..product.product_edit', compact('product', 'image'));
+            return view('backend..product.product_edit', compact('product', 'image', 'category', 'tag'));
         } else {
             return redirect('index');
         }
