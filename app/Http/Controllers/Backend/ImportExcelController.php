@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Imports\UsersImport;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +16,7 @@ class ImportExcelController extends Controller
 
     public function index()
     {
-        $data = DB::table('products')->orderBy('id', 'DESC')->get();
+        $data = Product::all();
         return view('backend.excel', compact('data'));
     }
 
