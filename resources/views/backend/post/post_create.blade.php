@@ -55,7 +55,7 @@
                 <div class="form-group row">
                   <label  class="col-sm-2 col-form-label">Chi tiết bài viết</label>
                   <div class="col-sm-10">
-                    <textarea name="content" class="form-control " id="editor1"></textarea>
+                    <textarea name="content" rows="10" class="form-control " id="editor1"></textarea>
                   </div>
                 </div>
               </div>

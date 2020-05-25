@@ -166,22 +166,24 @@
                             </div>
                         </div>
 
-
+                        @foreach ($categories as $category)
                         <div class="nav-products">
-                            <div class="title-category py-1 my-5" style=" overflow: auto ;
-                            white-space: nowrap;">
-                                <h5><b>BÉ ĂN - BÉ UỐNG</b></h5>
-                                <a href="#">Sửa bột</a>
-                                <a href="#">Bình sữa, phụ kiện</a>
-                                <a href="#">Đồ dùng ăn uống</a>
+                            {{-- cate here --}}
+                            <div class="title-category py-1 my-5" style="overflow: auto; white-space: nowrap;">
+                                <h5><b>{{$category->name}}</b></h5>
                                 <a href="#" class="text-left">Xem tất cả</a>
                             </div>
 
                             <div class="product-show row">
+                                {{-- product  --}}
+                                @foreach ($category->product as $product)
+                                <?php if ($count > 4) break; {
+                                    # code...
+                                } ?>
                                 <div class="col-md-3 col-6 pb-4 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
+                                    <img src="{{ asset('images/'.json_decode($product->image)[0]) }}" alt="Khong co anh">
                                     <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
+                                        {{ $product->name }}
                                     </div>
                                     <div class="curent-price-product text-center">
                                         <h6><b>765.000đ</b></h6>
@@ -190,347 +192,42 @@
                                         775.000đ
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-6 pb-4 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6 pb-4 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
+                                <?php $count++; ?>
+                                @endforeach
+                                
                             </div>
                         </div>
-                        <div class="nav-products">
-                            <div class="title-category py-1 my-5">
-                                <h5><b>BÉ ĂN - BÉ UỐNG</b></h5>
-                                <a href="#">Sửa bột</a>
-                                <a href="#">Bình sữa, phụ kiện</a>
-                                <a href="#">Đồ dùng ăn uống</a>
-                                <a href="#" class="text-left">Xem tất cả</a>
-                            </div>
-                            <div class="product-show row">
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-products">
-                            <div class="title-category py-1 my-5">
-                                <h5><b>BÉ ĂN - BÉ UỐNG</b></h5>
-                                <a href="#">Sửa bột</a>
-                                <a href="#">Bình sữa, phụ kiện</a>
-                                <a href="#">Đồ dùng ăn uống</a>
-                                <a href="#" class="text-left">Xem tất cả</a>
-                            </div>
-                            <div class="product-show row">
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-products">
-                            <div class="title-category py-1 my-5">
-                                <h5><b>BÉ ĂN - BÉ UỐNG</b></h5>
-                                <a href="#">Sửa bột</a>
-                                <a href="#">Bình sữa, phụ kiện</a>
-                                <a href="#">Đồ dùng ăn uống</a>
-                                <a href="#" class="text-left">Xem tất cả</a>
-                            </div>
-                            <div class="product-show row">
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-products">
-                            <div class="title-category py-1 my-5">
-                                <h5><b>BÉ ĂN - BÉ UỐNG</b></h5>
-                                <a href="#">Sửa bột</a>
-                                <a href="#">Bình sữa, phụ kiện</a>
-                                <a href="#">Đồ dùng ăn uống</a>
-                                <a href="#" class="text-left">Xem tất cả</a>
-                            </div>
-                            <div class="product-show row">
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav-products">
-                            <div class="title-category py-1 my-5">
-                                <h5><b>BÉ ĂN - BÉ UỐNG</b></h5>
-                                <a href="#">Sửa bột</a>
-                                <a href="#">Bình sữa, phụ kiện</a>
-                                <a href="#">Đồ dùng ăn uống</a>
-                                <a href="#" class="text-left">Xem tất cả</a>
-                            </div>
-                            <div class="product-show row">
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                                <div class="col-md-3 pb-4 col-6 text-center">
-                                    <img src="assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" alt="">
-                                    <div class="title-product-show text-center pt-4">
-                                        Sữa bột dinh dưỡng Aptamil Đức
-                                    </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
+                        
                     </div>
                     <div class="col-3 d-lg-block d-none">
                         <div class="info-address my-4">
                             <div class="notice text-center row">
                                 <div class="user-account">
-                                    <i class="fas fa-user pr-1"></i> Tài khoản
-                                    <i class="fas fa-sort-down pl-2"></i>
+                                    @if (Auth::user())
+                                        <div class="dropdown">
+                                            <button class="dropbtn">
+                                                <i class="fas fa-user pr-1"></i> Xin chào {{ Auth::user()->name }}
+                                                <i class="fas fa-sort-down pl-2"></i>
+                                            </button>
+                                            <div class="dropdown-content">
+                                                <a href="#">Chi tiết tài khoản</a>
+                                                <a href="{{ route('logoutt') }}">Đăng Xuất</a>
+                                            </div>
+                                        </div>
+                                    @else
+                                    <div class="dropdown">
+                                        <button class="dropbtn">
+                                            <i class="fas fa-user pr-1"></i> Tài khoản
+                                            <i class="fas fa-sort-down pl-2"></i>
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <a href="{{ route('loginn') }}">Đăng nhập</a>
+                                            <a href="{{ route('register') }}">Tạo tài khoản</a>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    
                                 </div>
                                 <div class="px-3"><b>|</b></div>
                                 <div class="user-card">
@@ -545,31 +242,9 @@
                                             <i class="fas fa-map-marked-alt"></i>
                                         </div>
                                         <div class="col-9 pl-0 text-info">
-                                            <p class="bold-text"><b>địa chỉ cửa hàng</b></p>
-                                            <p1>442, Đội Cấn, Đống Đa Hà Nội</p1>
-                                            <p1>442, Đội Cấn, Đống Đa Hà Nội</p1>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="contact my-3 py-3">
-                                    <div class="shop-adress row">
-                                        <div class="col-3 pr-0 text-center ">
-                                            <i class="fas fa-map-marked-alt"></i>
-                                        </div>
-                                        <div class="col-9 pl-0 text-info">
-                                            <p class="bold-text"><b>địa chỉ cửa hàng</b></p>
-                                            <p1>442, Đội Cấn, Đống Đa Hà Nội</p1>
-                                            <p1>442, Đội Cấn, Đống Đa Hà Nội</p1>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="contact my-3 py-3">
-                                    <div class="shop-adress row">
-                                        <div class="col-3 pr-0 text-center ">
-                                            <i class="fas fa-map-marked-alt"></i>
-                                        </div>
-                                        <div class="col-9 pl-0 text-info">
-                                            <p class="bold-text"><b>địa chỉ cửa hàng</b></p>
+                                            <p class="bold-text">
+                                                <b>địa chỉ cửa hàng</b>
+                                            </p>
                                             <p1>442, Đội Cấn, Đống Đa Hà Nội</p1>
                                             <p1>442, Đội Cấn, Đống Đa Hà Nội</p1>
                                         </div>
@@ -607,38 +282,16 @@
                                 <h6 style="margin-bottom: 0;"><b>TIN TỨC</b></h6>
                             </div>
                             <div class="col">
+                                @foreach ($posts as $post)
                                 <div class="box-news row py-3 ">
                                     <div class="col-4">
-                                        <img src="assets/img/15fb5ddf48ce92d5109334693786a818.jpg" class="img-fluid" alt="">
+                                        <img src="{{ asset('images/'.$post->image) }}" class="img-fluid" alt="khong co anh">
                                     </div>
                                     <div class="col-8 text-box-news">
-                                        <a href="#">Mách mẹ 4 kỹ năng chọn sữa thông minh</a>
+                                        <a href="#">{{$post->title}}</a>
                                     </div>
                                 </div>
-                                <div class="box-news row py-3">
-                                    <div class="col-4">
-                                        <img src="assets/img/15fb5ddf48ce92d5109334693786a818.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="col-8 text-box-news">
-                                        <a href="#">Mách mẹ 4 kỹ năng chọn sữa thông minh</a>
-                                    </div>
-                                </div>
-                                <div class="box-news row py-3">
-                                    <div class="col-4">
-                                        <img src="assets/img/15fb5ddf48ce92d5109334693786a818.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="col-8 text-box-news">
-                                        <a href="#">Mách mẹ 4 kỹ năng chọn sữa thông minh</a>
-                                    </div>
-                                </div>
-                                <div class="box-news row py-3">
-                                    <div class="col-4">
-                                        <img src="assets/img/15fb5ddf48ce92d5109334693786a818.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="col-8 text-box-news">
-                                        <a href="#">Mách mẹ 4 kỹ năng chọn sữa thông minh</a>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -707,7 +360,6 @@
                         <a href="#">Đồ dùng ăn uống</a>
                         <a href="#">Ăn dặm</a>
                     </div>
-
                 </div>
             </div>
             <div class="footer">
@@ -769,6 +421,3 @@
 </body>
 
 </html>
-<li class="nav-item d-none d-sm-inline-block">
-  <a href="{{ route('logoutt') }}" class="nav-link">Đăng Xuất</a>
-</li>
