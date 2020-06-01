@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Models\Banner;
@@ -15,7 +15,7 @@ use App\Models\FooterPost;
 use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
 
-class IndexController extends Controller
+class CartController extends Controller
 {
     
     /**
@@ -23,15 +23,16 @@ class IndexController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-    public function index()
+    public function addCart(Request $request)
     {
-        if (!Auth::check()) {
-            session_start();
-        }
-        $posts = Post::all();
-        $categories = Category::all();
-        $count = 1;
-        return view ('index',compact('posts','categories','count'));
+        $user_id = $request->get('user');
+        $product_id = $request->get('product');
+        Cart::create([
+            'user_session_id' => $user_id,
+            'product_id' => $product_id,
+            'quantity' => '5'
+        ]);
+        return response()->json(['success'=>'Got Simple Ajax Request.']);
     }
     
     public function show($slug)

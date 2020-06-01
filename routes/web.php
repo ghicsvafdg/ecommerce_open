@@ -53,3 +53,6 @@ Route::resource('manage-banner', 'Backend\BannerController');
 Route::get('/import_excel', 'Backend\ImportExcelController@index')->name('import_excel');
 Route::post('import_excel/import', 'Backend\ImportExcelController@import');
 Route::get('export', 'Backend\ImportExcelController@export')->name('export');
+
+// add product to cart
+Route::post('/addtocart', 'Frontend\CartController@addCart');

@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Azzara Bootstrap 4 Admin Dashboard</title>
-    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
     <meta charset="utf-8">
-    <link rel="icon" href="assets/img/logo_without_text.png" class="img-fluid" type="image/x-icon" />
+    <link rel="icon" href="assets/img/logo_without_text.png" class="img-fluid" type="image/x-icon"/>
 
     <!-- Fonts and icons -->
     <script src="https://kit.fontawesome.com/ac2db3b359.js" crossorigin="anonymous"></script>
     <!-- Slide -->
-    <script src="OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js"></script>
-    <script src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    {{-- <script src="OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js"></script>
+    <script src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script> --}}
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="assets/css/customFrontend.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
 <body>
@@ -53,43 +54,17 @@
                                     <div class="head-title text-center py-2">
                                         <i class="fas fa-align-justify pr-3"></i> Danh mục sản phẩm
                                     </div>
-                                    <div class="list-cate">
-                                        <div class="detail-cate row pt-2 ">
-                                            <div class="col-3 px-0 pl-2 text-center"><i class="fas fa-utensils"></i></div>
-                                            <div class="col-9 pl-0">
-                                                <p><b>Bé ăn - Bé uống</b></p>
-                                                <p2>Sữa bột, bỉm sữa, phụ kiện, bột cháo đỏ</p2>
-                                            </div>
-                                        </div>
-
-                                        <div class="detail-cate row ">
-                                            <div class="col-3 px-0 pl-2 text-center"><i class="fas fa-utensils"></i></div>
-                                            <div class="col-9 pl-0">
-                                                <p><b>Bé ăn - Bé uống</b></p>
-                                                <p2>Sữa bột, bỉm sữa, phụ kiện, bột cháo đỏ</p2>
-                                            </div>
-                                        </div>
+                                    <div class="list-cate-active">
+                                        @foreach ($categories as $category)
                                         <div class="detail-cate row pt-2">
-                                            <div class="col-3 px-0 pl-2 text-center"><i class="fas fa-utensils"></i></div>
+                                            <div class="col-3 px-0 pl-2 text-center">
+                                                <i class="fas fa-utensils"></i>
+                                            </div>
                                             <div class="col-9 pl-0">
-                                                <p><b>Bé ăn - Bé uống</b></p>
-                                                <p2>Sữa bột, bỉm sữa, phụ kiện, bột cháo đỏ</p2>
+                                                <a href="#"><p><b>{{$category->name}}</b></p></a>
                                             </div>
                                         </div>
-                                        <div class="detail-cate row pt-2">
-                                            <div class="col-3 px-0 pl-2 text-center"><i class="fas fa-utensils"></i></div>
-                                            <div class="col-9 pl-0">
-                                                <p><b>Bé ăn - Bé uống</b></p>
-                                                <p2>Sữa bột, bỉm sữa, phụ kiện, bột cháo đỏ</p2>
-                                            </div>
-                                        </div>
-                                        <div class="detail-cate row pt-2">
-                                            <div class="col-3 px-0 pl-2 text-center"><i class="fas fa-utensils"></i></div>
-                                            <div class="col-9 pl-0">
-                                                <p><b>Bé ăn - Bé uống</b></p>
-                                                <p2>Sữa bột, bỉm sữa, phụ kiện, bột cháo đỏ</p2>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
 
@@ -177,28 +152,41 @@
                             <div class="product-show row">
                                 {{-- product  --}}
                                 @foreach ($category->product as $product)
-                                <?php if ($count > 4) break; {
-                                    # code...
-                                } ?>
+                                <?php if ($count > 4) break; ?>
+                                
                                 <div class="col-md-3 col-6 pb-4 text-center">
                                     <img src="{{ asset('images/'.json_decode($product->image)[0]) }}" alt="Khong co anh">
                                     <div class="title-product-show text-center pt-4">
-                                        {{ $product->name }}
+                                        <a href="#">{{ $product->name }}</a>
                                     </div>
-                                    <div class="curent-price-product text-center">
-                                        <h6><b>765.000đ</b></h6>
-                                    </div>
-                                    <div class="abondon-price-product text-center">
-                                        775.000đ
+                                    @if ($product->promotion != null)
+                                        <div class="curent-price-product text-center">
+                                            <h6><b>{{number_format($product->promotion*1000, 0, ',', '.' )}}đ</b></h6>
+                                        </div>
+                                        <div class="abondon-price-product text-center">
+                                            {{number_format($product->price*1000, 0, ',', '.' )}}đ
+                                        </div>
+                                    @else
+                                        <div class="curent-price-product text-center">
+                                            <h6><b>{{number_format($product->price*1000, 0, ',', '.' )}}đ</b></h6>
+                                        </div>
+                                    @endif
+                                    <div class="row py-2 icon-view-details text-center">
+                                        <form action="">
+                                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                                            <input type="text" name="userid" value="{{session_id()}}" hidden>
+                                            <input type="text" name="productid" value="{{$product->id}}" hidden>
+                                            <button class="btn-btn-cart btn-submit">
+                                                <i class="fas fa-cart-plus" ></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 <?php $count++; ?>
                                 @endforeach
-                                
                             </div>
                         </div>
                         @endforeach
-                        
                     </div>
                     <div class="col-3 d-lg-block d-none">
                         <div class="info-address my-4">
@@ -414,8 +402,42 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        
+        $(".btn-submit").click(function(e){
+            e.preventDefault();
+            var user = $("input[name=userid]").val();
+            var product = $("input[name=productid]").val();
+            $.ajax({
+                type:'POST',
+                url:'/addtocart',
+                data:{
+                    user : user,
+                    product : product
+                },
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data, textStatus, errorThrown) {
+                    console.log(data);
+
+                },
+                // success:function(data){
+                //     alert(data.success);
+                // }
+            });
+        });
+    
+    </script>
+
     <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.3.2.1.min.js"></script>
+    {{-- <script src="assets/js/core/jquery.3.2.1.min.js"></script> --}}
     <script src="assets/js/core/popper.min.js"></script>
     <script src="assets/js/core/bootstrap.min.js"></script>
 </body>
