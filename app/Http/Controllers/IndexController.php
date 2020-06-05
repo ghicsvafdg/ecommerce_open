@@ -29,10 +29,9 @@ class IndexController extends Controller
             session_start();
         }
         $posts = Post::all();
-        // dd($posts);
-        $categories = Category::limit(5)->get();
+        $categories = Category::all();
         $count = 1;
-        return view ('frontend/index',compact('posts','categories','count'));
+        return view ('index',compact('posts','categories','count'));
     }
     
     public function show($slug)

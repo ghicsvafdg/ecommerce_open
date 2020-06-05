@@ -64,3 +64,4 @@ Route::get('detail_product/{id}', 'Frontend\ProductController@detail')->name('de
 
 // post 
 Route::get('post', 'Frontend\PostsController@index')->name('posts');
+Route::get('/showproductincart','Frontend\CartController@showProduct');

@@ -1,0 +1,111 @@
+@extends('layouts.frontend.app')
+@section('content')
+<div class="headline-title row ">
+    <div class="text-left col-md-11 col-10">
+        <p>SẢN PHẨM NỔI BẬT</p>
+    </div>
+    <div class="text-right">
+        <i class="far fa-arrow-alt-circle-left pr-1"></i>
+        <i class="far fa-arrow-alt-circle-right "></i>
+    </div>
+</div>
+
+<div class="product-popular row">
+    <div class="col-md-4 col-12 px-0">
+        <img src="assets/img/HTB1uDkyAuSSBuNjy0Flq6zBpVXaP.jpg_q50.jpg" class="img-fluid" alt="">
+    </div>
+    <div class="col-md-4 col-12 px-0">
+        <div class="product-info row">
+            <div class="col-md-5 col-6 px-0">
+                <a href="#"><img src="assets/img/Bottle-800x800.jpg" class="img-fluid" alt=""></a>
+            </div>
+            <div class="col-md-7 p-4 p-lg-0 col-6 px-0 text-center text-product">
+                <p><b>Củi gỗ Jpan</b></p>
+                <p class="abondon-price">2.500.000đ</p>
+                <p class="current-price">2.350.000đ</p>
+                <button type="button" class="cf-buy">MUA NGAY</button>
+            </div>
+        </div>
+        <div class="product-info row">
+            <div class="col-md-5 col-6 px-0">
+                <a href="#"><img src="assets/img/Bottle-800x800.jpg" class="img-fluid" alt=""></a>
+            </div>
+            <div class="col-md-7 p-4 p-lg-0 col-6 px-0 text-center text-product">
+                <p><b>Củi gỗ Jpan</b></p>
+                <p class="abondon-price">2.500.000đ</p>
+                <p class="current-price">2.350.000đ</p>
+                <button type="button" class="cf-buy">MUA NGAY</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-12 px-0">
+        <div class="product-info row">
+            <div class="col-5 col-md-5 col-6 px-0">
+                <a href="#"><img src="assets/img/Bottle-800x800.jpg" class="img-fluid" alt=""></a>
+            </div>
+            <div class="col-md-7 p-4 p-lg-0 col-6 px-0 text-center text-product">
+                <p><b>Củi gỗ Jpan</b></p>
+                <p class="abondon-price">2.500.000đ</p>
+                <p class="current-price">2.350.000đ</p>
+                <button type="button" class="cf-buy">MUA NGAY</button>
+            </div>
+        </div>
+        <div class="product-info row">
+            <div class="col-5 col-md-5 col-6 px-0">
+                <a href="#"><img src="assets/img/Bottle-800x800.jpg" class="img-fluid" alt=""></a>
+            </div>
+            <div class="col-md-7 p-4 p-lg-0 col-6 px-0 text-center text-product">
+                <p><b>Củi gỗ Jpan</b></p>
+                <p class="abondon-price">2.500.000đ</p>
+                <p class="current-price">2.350.000đ</p>
+                <button type="button" class="cf-buy">MUA NGAY</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach ($categories as $category)
+<div class="nav-products">
+    {{-- cate here --}}
+    <div class="title-category py-1 my-5" style="overflow: auto; white-space: nowrap;">
+        <h5><b>{{$category->name}}</b></h5>
+        <a href="#" class="text-left">Xem tất cả</a>
+    </div>
+
+    <div class="product-show row">
+        {{-- product  --}}
+        @foreach ($category->product as $product)
+        <?php if ($count > 4) break; ?>
+        
+        <div class="col-md-3 col-6 pb-4 text-center">
+            <img src="{{ asset('images/'.json_decode($product->image)[0]) }}" alt="Khong co anh">
+            <div class="title-product-show text-center pt-4">
+                <a href="#">{{ $product->name }}</a>
+            </div>
+            @if ($product->promotion != null)
+                <div class="curent-price-product text-center">
+                    <h6><b>{{number_format($product->promotion*1000, 0, ',', '.' )}}đ</b></h6>
+                </div>
+                <div class="abondon-price-product text-center">
+                    {{number_format($product->price*1000, 0, ',', '.' )}}đ
+                </div>
+            @else
+                <div class="curent-price-product text-center">
+                    <h6><b>{{number_format($product->price*1000, 0, ',', '.' )}}đ</b></h6>
+                </div>
+            @endif
+            <div class="row py-2 icon-view-details text-center">
+                <form action="">
+                    <input type="hidden" name="_token" value="{{ Session::token() }}">
+                    <input type="text" name="userid" value="{{session_id()}}" hidden>
+                    <input type="text" name="productid" value="{{$product->id}}" hidden>
+                    <input type="button" id="product{{$product->id}}" value="Add to cart" class="btn-btn-cart btn-submit" onClick = "cartAdd('{{$product->id}}')"/>
+                </form>
+            </div>
+        </div>
+        <?php $count++; ?>
+        @endforeach
+    </div>
+</div>
+@endforeach
+@endsection

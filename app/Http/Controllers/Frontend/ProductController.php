@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function detail($slug){
+    public function detail($slug) {
         $categories = Category::take(5)->get();
         $product = Product::where('slug', '=', $slug)->first();
         $sameCate = Product::where('category_id', '=', $product->category_id)->get();

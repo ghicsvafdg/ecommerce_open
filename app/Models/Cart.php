@@ -12,4 +12,7 @@ class Cart extends Model
         'user_id', 'product_id','user_session_id','size','color','quantity'
     ];
 
+    public function productInCart(){
+        return $this->belongsTo('App\Models\Product','product_id','id');
+    }
 }

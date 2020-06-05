@@ -32,11 +32,35 @@ class CartController extends Controller
             'product_id' => $product_id,
             'quantity' => '5'
         ]);
-        return response()->json(['success'=>'Got Simple Ajax Request.']);
+        return response()->json(['success'=>'Thêm sản phẩm vào giỏ hàng thành công!']);
     }
     
-    public function show($slug)
+    public function showProduct(Request $request)
     {
-        
+        $session_id = $request->get('user');
+        $productInCart = Cart::where('user_session_id',$session_id)->get();
+        // echo session_id();
+        foreach ($productInCart as $product) {
+            $price = 0;
+            if ($product->productInCart->promotion != null) {
+                $price = number_format($product->productInCart->promotion*1000, 0, ',', '.' );
+            } else {
+                $price = number_format($product->productInCart->price*1000, 0, ',', '.' );
+            }
+            echo '<tr>
+            <th scope="col">
+                <img src="'.asset('images/'.json_decode($product->productInCart->image)[0]).'" style="width: 80px; height: 80px;" alt="no photo" class="img-fluid">
+            </th>
+            <th scope="col" class="info-card">
+                '. $product->productInCart->name . '<br>
+                <span style="color: #ff7f0b;">'.$price.'đ</span>
+            </th>
+            <th scope="col">
+                <button type="submit" class="my-2 btn-btn-delete">
+                    <i class="mr-1 fas fa-trash-alt"></i> Xóa
+                </button>
+            </th>
+        </tr>';
+        }
     }
 }   
