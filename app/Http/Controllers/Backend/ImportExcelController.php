@@ -6,7 +6,6 @@ use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Imports\UsersImport;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -23,7 +22,7 @@ class ImportExcelController extends Controller
     public function export()
     {
 
-        return Excel::download(new UsersExport, 'users.xlsx');
+        return Excel::download(new UsersExport, 'san_pham.xlsx');
     }
 
     public function import(Request $request)
