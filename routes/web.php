@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController@index');
-Route::get('index', 'IndexController@index');
+Route::get('index', 'IndexController@index')->name('index');
 
 //authentication
 Auth::routes();
@@ -56,3 +56,11 @@ Route::get('export', 'Backend\ImportExcelController@export')->name('export');
 
 // add product to cart
 Route::post('/addtocart', 'Frontend\CartController@addCart');
+
+
+// ===Frontend===
+// detail product
+Route::get('detail_product/{id}', 'Frontend\ProductController@detail')->name('detail_product');
+
+// post 
+Route::get('post', 'Frontend\PostsController@index')->name('posts');
