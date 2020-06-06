@@ -64,4 +64,5 @@ Route::get('detail_product/{id}', 'Frontend\ProductController@detail')->name('de
 
 // post 
 Route::get('post', 'Frontend\PostsController@index')->name('posts');
+Route::get('detail-post/{slug}', 'Frontend\PostsController@detail')->name('detail-post');
 Route::get('/showproductincart','Frontend\CartController@showProduct');

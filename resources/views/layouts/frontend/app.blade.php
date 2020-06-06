@@ -3,10 +3,11 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Azzara Bootstrap 4 Admin Dashboard</title>
+    <base href="{{asset('')}}">
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
     <meta charset="utf-8">
     <link rel="icon" href="assets/img/logo_without_text.png" class="img-fluid" type="image/x-icon"/>
-
+    
     <!-- Fonts and icons -->
     <script src="https://kit.fontawesome.com/ac2db3b359.js" crossorigin="anonymous"></script>
     <!-- Slide -->
@@ -38,7 +39,7 @@
                             <li><a href="#">liên hệ</a></li>
                         </ul>
                     </div>
-
+                    
                     <div class="dathang-nutsave">
                         <p>(04) 6672332</p>
                         <p>8:00AM-19:00PM</p>
@@ -84,16 +85,19 @@
                             <div class="notice text-center row">
                                 <div class="user-account">
                                     @if (Auth::user())
-                                        <div class="dropdown">
-                                            <button class="dropbtn">
-                                                <i class="fas fa-user pr-1"></i> Xin chào {{ Auth::user()->name }}
-                                                <i class="fas fa-sort-down pl-2"></i>
-                                            </button>
-                                            <div class="dropdown-content">
-                                                <a href="#">Chi tiết tài khoản</a>
-                                                <a href="{{ route('logoutt') }}">Đăng Xuất</a>
-                                            </div>
+                                    <div class="dropdown">
+                                        <button class="dropbtn">
+                                            <i class="fas fa-user pr-1"></i> Xin chào {{ Auth::user()->name }}
+                                            <i class="fas fa-sort-down pl-2"></i>
+                                        </button>
+                                        <div class="dropdown-content">
+                                            @if(Auth::user()->role==0)
+                                            <a href="{{route('home')}}">Trang admin</a>
+                                            @endif
+                                            <a href="#">Chi tiết tài khoản</a>
+                                            <a href="{{ route('logoutt') }}">Đăng Xuất</a>
                                         </div>
+                                    </div>
                                     @else
                                     <div class="dropdown">
                                         <button class="dropbtn">
@@ -153,7 +157,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                         </div>
                         <div class="feedback">
                             <img src="assets/img/arashmil.jpg" alt="" class="rounded-circle">
@@ -172,7 +176,7 @@
                                 <div class="col-7 pl-0 pt-1 text-center text-product">
                                     <p><b>Củi gỗ Jpan</b></p>
                                     <p class="current-price">2.350.000đ</p>
-
+                                    
                                 </div>
                             </div>
                         </div>
@@ -181,7 +185,7 @@
                         </div>
                         <div class="news my-3">
                             <div class="title-news py-2 pl-4 mb-3">
-                                <h6 style="margin-bottom: 0;"><b>TIN TỨC</b></h6>
+                                <a href="{{route('posts')}}"><h6 style="margin-bottom: 0;"><b>TIN TỨC</b></h6></a>
                             </div>
                             <div class="col">
                                 @foreach ($posts as $post)
@@ -190,7 +194,8 @@
                                         <img src="{{ asset('images/'.$post->image) }}" class="img-fluid" alt="khong co anh">
                                     </div>
                                     <div class="col-8 text-box-news">
-                                        <a href="#">{{$post->title}}</a>
+                                        <a href="{{route('detail-post', $post->slug)}}">{{$post->title}}</a>
+                                    <h6 style="font-size: 10px">{{$post->created_at}}</h6>
                                     </div>
                                 </div>
                                 @endforeach
@@ -316,7 +321,7 @@
             </div>
         </div>
     </div>
-
+    
     <script src="{{asset('js/cartAction.js')}}"></script>
     {{-- <script src="{{asset('js/loadProductInCart.js')}}"></script> --}}
     
