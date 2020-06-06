@@ -80,7 +80,7 @@
         <div class="col-md-3 col-6 pb-4 text-center">
             <img src="{{ asset('images/'.json_decode($product->image)[0]) }}" alt="Khong co anh">
             <div class="title-product-show text-center pt-4">
-                <a href="#">{{ $product->name }}</a>
+            <a href="{{route('detail_product', $product->slug)}}">{{ $product->name }}</a>
             </div>
             @if ($product->promotion != null)
                 <div class="curent-price-product text-center">

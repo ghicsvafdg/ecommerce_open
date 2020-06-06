@@ -11,7 +11,15 @@ use Illuminate\Http\Request;
 class PostsController extends Controller
 {
     public function index(){
-    $posts = Post:: all();
-    return view('frontent.news.news', compact('posts'));
+        $categories=Category::all();
+        $posts = Post:: all();
+        return view('frontend.news.news', compact('posts', 'categories' ));
+    }
+
+    public function detail($slug){
+        $categories=Category::all();
+        $posts=Post::all();
+        $detail=Post::where('slug', '=', $slug)->first();
+        return view('frontend.news.news-detail', compact('posts', 'categories', 'detail' ));
     }
 }
