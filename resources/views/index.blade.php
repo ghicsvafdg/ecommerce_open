@@ -96,8 +96,6 @@
             @endif
             <div class="row py-2 icon-view-details text-center">
                 <form action="">
-                    <input type="hidden" name="_token" value="{{ Session::token() }}">
-                    <input type="text" name="userid" value="{{session_id()}}" hidden>
                     <input type="text" name="productid" value="{{$product->id}}" hidden>
                     <input type="button" id="product{{$product->id}}" value="Add to cart" class="btn-btn-cart btn-submit" onClick = "cartAdd('{{$product->id}}')"/>
                 </form>

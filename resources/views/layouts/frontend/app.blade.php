@@ -52,10 +52,10 @@
                         <div class="category-product row">
                             <div class="col-md-4 col-12">
                                 <div class="box-category my-4">
-                                    <div class="head-title text-center py-2">
+                                    <div class="head-title button-pr text-center py-2">
                                         <i class="fas fa-align-justify pr-3"></i> Danh mục sản phẩm
                                     </div>
-                                    <div class="list-cate-active">
+                                    <div class="list-cate">
                                         @foreach ($categories as $category)
                                         <div class="detail-cate row pt-2">
                                             <div class="col-3 px-0 pl-2 text-center">
@@ -75,9 +75,13 @@
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </form>
                                 {{-- banner --}}
+                                @if (Request::is('index') || Request::is('/'))
                                 <img src="assets/img/pck-kids.jpg" class="img-fluid py-4" alt="">
+                                @endif
                             </div>
                         </div>
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        <input type="text" name="userid" value="{{session_id()}}" hidden>
                         @yield('content')
                     </div>
                     <div class="col-3 d-lg-block d-none">
@@ -110,35 +114,31 @@
                                         </div>
                                     </div>
                                     @endif
-                                    
                                 </div>
                                 <div class="px-3"><b>|</b></div>
                                 <div class="user-card">
                                     <div class="card-dropdown">
-                                        <button class="card-dropbtn">
+                                        <button class="icon-card-user">
                                             <i class="fas fa-cart-plus pr-1"></i> Giỏ hàng
                                             <i class="fas fa-sort-down pl-2"></i>
                                         </button>
-                                        <div class="card-dropdown-content">
+                                        <div class="content-card-user">
                                             <div class="pb-3" style="color: #44a4d7;">
                                                 <b>Sản phẩm được thêm vào giỏ hàng</b> 
                                             </div>
                                             <table class="table table-borderless">
                                                 {{ csrf_field() }}
                                                 <thead id="product_data">
-                                                    
+                                                {{-- product in cart show here --}}
                                                 </thead>
                                             </table>
                                             <div class="button-card">
                                                 <button type="submit" class="my-2 btn-card">
                                                     <a href="card-user.html"> Xem giỏ hàng</a> 
                                                 </button>
-                                                
                                             </div>
-                                            
                                         </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                             <div class="support-contact">
@@ -157,7 +157,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                         <div class="feedback">
                             <img src="assets/img/arashmil.jpg" alt="" class="rounded-circle">
@@ -176,7 +175,6 @@
                                 <div class="col-7 pl-0 pt-1 text-center text-product">
                                     <p><b>Củi gỗ Jpan</b></p>
                                     <p class="current-price">2.350.000đ</p>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -322,13 +320,41 @@
         </div>
     </div>
     
-    <script src="{{asset('js/cartAction.js')}}"></script>
+    <script src="{{ asset('js/cartAction.js') }}"></script>
     {{-- <script src="{{asset('js/loadProductInCart.js')}}"></script> --}}
     
     <!--   Core JS Files   -->
     {{-- <script src="assets/js/core/jquery.3.2.1.min.js"></script> --}}
     <script src="assets/js/core/popper.min.js"></script>
     <script src="assets/js/core/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var buttoncategory = document.querySelector('.head-title');
+            var listcate = document.querySelector('.list-cate');
+            var buttonpr = document.getElementsByClassName('button-pr');   // vì lấy nhiều nên bắt buộc phải dùng class
+            var contentpr = document.getElementsByClassName('content-pr');
+            var btncard = document.querySelector('.icon-card-user');
+            var dropdowncontent = document.querySelector('.content-card-user');
+            var active = document.querySelector('.active');
+        
+            for (i = 0; i < buttonpr.length; i++) {
+                buttonpr[i].onclick = function() {
+                    var nd = this.getAttribute('data-mk');
+                    var phantushow = document.getElementById(nd);
+                    for (k = 0; k < buttonpr.length; k++) {
+                        contentpr[k].classList.remove('show');
+                    }
+                    phantushow.classList.toggle('show');
+                }
+            }
+            buttoncategory.onclick = function() {
+                listcate.classList.toggle('show');
+            }
+            btncard.onclick = function() {
+                dropdowncontent.classList.toggle('show');
+            }
+        });
+    </script>
+    @yield('js')
 </body>
-
 </html>

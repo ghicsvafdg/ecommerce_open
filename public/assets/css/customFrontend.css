@@ -74,7 +74,7 @@ body {
     display: block;
 }
 
-.card-dropbtn {
+.icon-card-user {
     cursor: pointer;
     color: black;
     padding: 0;
@@ -87,14 +87,14 @@ body {
     display: inline-block;
 }
 
-.card-dropdown-content {
+.content-card-user {
     display: none;
     position: absolute;
     background-color: #fafafa;
     min-width: 400px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: -220px;
+    left: -225px;
     margin-top: 1px;
     padding: 10px 0;
 }
@@ -200,10 +200,6 @@ input:hover,
 .dathang-nutsave p {
     margin-bottom: 1px;
     font-weight: bold;
-}
-
-.box-category {
-    border: 2px solid #44a4d7;
 }
 
 .category-product .head-title {
@@ -396,6 +392,10 @@ form.example::after {
     white-space: nowrap;
 }
 
+button:focus {
+    outline: none;
+}
+
 .content-pr {
     display: none;
 }
@@ -403,8 +403,11 @@ form.example::after {
 .list-cate {
     display: none;
     transition: 0.4s;
-    position: absolute !important;
-    z-index: 3 !important;
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    width: 88%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .img-news img {
@@ -720,12 +723,31 @@ icon-view-details a {
     height: 97px;
 }
 
+.price-products {
+    display: flex;
+    margin-left: 20px;
+}
+
 .curent-price-product {
     color: red;
 }
 
 .abondon-price-product {
     text-decoration: line-through;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.rating-star {
+    margin-left: 40px;
+}
+
+#star {
+    font-size: 10px;
+}
+
+.rating-star .checked {
+    color: #ff9500;
 }
 
 .list-cate-footer a {
