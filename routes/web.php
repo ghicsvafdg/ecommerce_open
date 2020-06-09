@@ -45,6 +45,8 @@ Route::resource('manage-category', 'Backend\CategoryController');
 
 Route::resource('manage-banner', 'Backend\BannerController');
 
+Route::resource('manage-voucher', 'Backend\VoucherController');
+
 //excel
 // Route::get('export', 'MyController@export')->name('export');
 // Route::get('importExportView', 'MyController@importExportView');
