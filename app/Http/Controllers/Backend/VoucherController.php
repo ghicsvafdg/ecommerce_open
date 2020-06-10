@@ -75,7 +75,6 @@ class VoucherController extends Controller
         if (Auth::check() && Auth::user()->role == 0) {
 
             $rules = ([
-
                 'code' => ['required'],
                 'time_use' => ['required', 'integer'],
                 'value' => ['required', 'integer']

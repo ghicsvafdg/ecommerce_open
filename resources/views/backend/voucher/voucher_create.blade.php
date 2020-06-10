@@ -57,16 +57,16 @@
               </div>
               
               <div class="form-group row">
-                <label  class="col-sm-2 col-form-label">Số lần sử dụng</label>
+                <label  class="col-sm-2 col-form-label">Số lần sử dụng (*dạng số)</label>
                 <div class="col-sm-10">
-                  <input type="text" name="time_use" class="form-control" required>
+                  <input type="number" name="time_use" class="form-control" required>
                 </div>
               </div>
               
               <div class="form-group row" >
-                <label  class="col-sm-2 col-form-label">Giá trị</label>
+                <label  class="col-sm-2 col-form-label">Giá trị voucher (*dạng số)</label>
                 <div class="col-sm-10">
-                  <input type="text" name="value" class="form-control" required>
+                  <input type="number" name="value" class="form-control" required>
                 </div>
               </div>
             </div>

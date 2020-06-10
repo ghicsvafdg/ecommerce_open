@@ -76,12 +76,16 @@ class CreateDatabaseTable extends Migration
 
             $table->string('code');
             
+            $table->unsignedInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+
             $table->integer('times_use');
             $table->integer('value');
             
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
+
 
         Schema::create('posts', function(Blueprint $table){
 
