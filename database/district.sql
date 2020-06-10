@@ -480,7 +480,7 @@ INSERT INTO district (id, name, type, province_id) VALUES
 ('615', 'Huyện Đắk Hà', 'Huyện', '62'),
 ('616', 'Huyện Sa Thầy', 'Huyện', '62'),
 ('617', 'Huyện Tu Mơ Rông', 'Huyện', '62'),
-('618', 'Huyện Ia H\' Drai', 'Huyện', '62'),
+('618', 'Huyện Ia H Drai', 'Huyện', '62'),
 ('622', 'Thành phố Pleiku', 'Thành phố', '64'),
 ('623', 'Thị xã An Khê', 'Thị xã', '64'),
 ('624', 'Thị xã Ayun Pa', 'Thị xã', '64'),
