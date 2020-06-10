@@ -14,21 +14,21 @@ class CreateAddressTables extends Migration
     public function up()
     {
         Schema::create('province', function (Blueprint $table) {
-            $table->char('id',6)->collation('utf8_unicode_ci');
-            $table->string('name',45)->collation('utf8_unicode_ci');
-            $table->string('type',45)->collation('utf8_unicode_ci');
+            $table->char('id',6);
+            $table->string('name',45);
+            $table->string('type',45);
         });
         Schema::create('district', function (Blueprint $table) {
-            $table->char('id',6)->collation('utf8_unicode_ci');
-            $table->string('name',45)->collation('utf8_unicode_ci');
-            $table->string('type',45)->collation('utf8_unicode_ci');
-            $table->char('province_id',6)->collation('utf8_unicode_ci');
+            $table->char('id',6);
+            $table->string('name',45);
+            $table->string('type',45);
+            $table->char('province_id',6);
         });
         Schema::create('ward', function (Blueprint $table) {
-            $table->char('id',6)->collation('utf8_unicode_ci');
-            $table->string('name',45)->collation('utf8_unicode_ci');
-            $table->string('type',45)->collation('utf8_unicode_ci');
-            $table->char('district_id',6)->collation('utf8_unicode_ci');
+            $table->char('id',6);
+            $table->string('name',45);
+            $table->string('type',45);
+            $table->char('district_id',6);
         });
     }
 
