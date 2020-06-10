@@ -19,20 +19,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: 'tungnguyen_vanchuyenmy'
+-- Database: "tungnguyen_vanchuyenmy"
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table 'province'
+-- Table structure for table "province"
 --
 
 --
--- Dumping data for table 'province'
+-- Dumping data for table "province"
 --
 
-INSERT INTO province (id, name, type) VALUES
+INSERT INTO "province" ("id", "name", "type") VALUES
 ('01', 'Thành phố Hà Nội', 'Thành phố Trung ương'),
 ('02', 'Tỉnh Hà Giang', 'Tỉnh'),
 ('04', 'Tỉnh Cao Bằng', 'Tỉnh'),
@@ -102,10 +102,10 @@ INSERT INTO province (id, name, type) VALUES
 --
 
 --
--- Indexes for table 'province'
+-- Indexes for table "province"
 --
-ALTER TABLE province
-  ADD PRIMARY KEY (id);
+ALTER TABLE "province"
+  ADD PRIMARY KEY ("id");
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

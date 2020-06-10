@@ -19,20 +19,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: tungnguyen_vanchuyenmy
+-- Database: "tungnguyen_vanchuyenmy"
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table ward
+-- Table structure for table "ward"
 --
 
 --
--- Dumping data for table ward
+-- Dumping data for table "ward"
 --
 
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO "ward" ("id", "name", "type", "district_id") VALUES
 ('00001', 'Phường Phúc Xá', 'Phường', '001'),
 ('00004', 'Phường Trúc Bạch', 'Phường', '001'),
 ('00006', 'Phường Vĩnh Phúc', 'Phường', '001'),
@@ -1306,7 +1306,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('03577', 'Xã Bản Lang', 'Xã', '109'),
 ('03580', 'Xã Hoang Thèn', 'Xã', '109'),
 ('03583', 'Xã Khổng Lào', 'Xã', '109');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO "ward" ("id", "name", "type", "district_id") VALUES
 ('03586', 'Xã Nậm Xe', 'Xã', '109'),
 ('03589', 'Xã Mường So', 'Xã', '109'),
 ('03592', 'Xã Sin Suối Hồ', 'Xã', '109'),
@@ -2595,7 +2595,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('07414', 'Xã Yên Mỹ', 'Xã', '217'),
 ('07417', 'Xã Tân Hưng', 'Xã', '217'),
 ('07420', 'Xã Mỹ Thái', 'Xã', '217');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO "ward" ("id", "name", "type", "district_id") VALUES
 ('07423', 'Xã Phi Mô', 'Xã', '217'),
 ('07426', 'Xã Xương Lâm', 'Xã', '217'),
 ('07429', 'Xã Xuân Hương', 'Xã', '217'),
@@ -3894,7 +3894,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('11272', 'Xã Hùng Sơn', 'Xã', '300'),
 ('11275', 'Xã Ngũ Hùng', 'Xã', '300'),
 ('11278', 'Xã Cao Thắng', 'Xã', '300');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO "ward" ("id", "name", "type", "district_id") VALUES
 ('11281', 'Xã Chi Lăng Bắc', 'Xã', '300'),
 ('11284', 'Xã Chi Lăng Nam', 'Xã', '300'),
 ('11287', 'Xã Thanh Giang', 'Xã', '300'),
@@ -5175,7 +5175,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('15082', 'Xã Ngọc Khê', 'Xã', '389'),
 ('15085', 'Xã Quang Trung', 'Xã', '389'),
 ('15088', 'Xã Đồng Thịnh', 'Xã', '389');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO "ward" ("id", "name", "type", "district_id") VALUES
 ('15091', 'Xã Ngọc Liên', 'Xã', '389'),
 ('15094', 'Xã Ngọc Sơn', 'Xã', '389'),
 ('15097', 'Xã Lộc Thịnh', 'Xã', '389'),
@@ -6476,7 +6476,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('18958', 'Xã Thanh Hóa', 'Xã', '453'),
 ('18961', 'Xã Thanh Thạch', 'Xã', '453'),
 ('18964', 'Xã Thuận Hóa', 'Xã', '453');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO "ward" ("id", "name", "type", "district_id") VALUES
 ('18967', 'Xã Lâm Hóa', 'Xã', '453'),
 ('18970', 'Xã Lê Hóa', 'Xã', '453'),
 ('18973', 'Xã Sơn Hóa', 'Xã', '453'),
@@ -7746,7 +7746,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('22618', 'Xã Khánh Trung', 'Xã', '573'),
 ('22621', 'Xã Khánh Đông', 'Xã', '573'),
 ('22624', 'Xã Khánh Thượng', 'Xã', '573');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO "ward" ("id", "name", "type", "district_id") VALUES
 ('22627', 'Xã Khánh Nam', 'Xã', '573'),
 ('22630', 'Xã Sông Cầu', 'Xã', '573'),
 ('22633', 'Xã Giang Ly', 'Xã', '573'),
@@ -9035,7 +9035,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('26083', 'Phường Xuân Hoà', 'Phường', '732'),
 ('26086', 'Phường Phú Bình', 'Phường', '732'),
 ('26089', 'Xã Bình Lộc', 'Xã', '732');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO "ward" ("id", "name", "type", "district_id") VALUES
 ('26092', 'Xã Bảo Quang', 'Xã', '732'),
 ('26095', 'Xã Suối Tre', 'Xã', '732'),
 ('26098', 'Xã Bảo Vinh', 'Xã', '732'),
@@ -10302,7 +10302,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('29797', 'Xã Tân Bình', 'Xã', '863'),
 ('29800', 'Xã Thành Lợi', 'Xã', '863'),
 ('29803', 'Xã Tân Quới', 'Xã', '863');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO "ward" ("id", "name", "type", "district_id") VALUES
 ('29806', 'Xã Thuận An', 'Xã', '861'),
 ('29809', 'Xã Đông Thạnh', 'Xã', '861'),
 ('29812', 'Xã Đông Bình', 'Xã', '861'),
@@ -11209,10 +11209,10 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 --
 
 --
--- Indexes for table ward
+-- Indexes for table "ward"
 --
-ALTER TABLE ward
-  ADD PRIMARY KEY (id);
+ALTER TABLE "ward"
+  ADD PRIMARY KEY ("id");
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
