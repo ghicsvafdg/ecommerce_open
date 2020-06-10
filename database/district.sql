@@ -32,7 +32,7 @@ SET time_zone = "+00:00";
 -- Dumping data for table `district`
 --
 
-INSERT INTO `district` (`id`, `name`, `type`, `province_id`) VALUES
+INSERT INTO district (id, name, type, province_id) VALUES
 ('001', 'Quận Ba Đình', 'Quận', '01'),
 ('002', 'Quận Hoàn Kiếm', 'Quận', '01'),
 ('003', 'Quận Tây Hồ', 'Quận', '01'),
@@ -750,8 +750,8 @@ INSERT INTO `district` (`id`, `name`, `type`, `province_id`) VALUES
 --
 -- Indexes for table `district`
 --
-ALTER TABLE `district`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE district
+  ADD PRIMARY KEY (id);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
