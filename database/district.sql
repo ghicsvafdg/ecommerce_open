@@ -7,6 +7,10 @@
 -- Server version: 10.2.22-MariaDB
 -- PHP Version: 5.6.40
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -15,20 +19,20 @@
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: tungnguyen_vanchuyenmy
+-- Database: `tungnguyen_vanchuyenmy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table district
+-- Table structure for table `district`
 --
 
 --
--- Dumping data for table district
+-- Dumping data for table `district`
 --
 
-INSERT INTO district (id, name, type, province_id) VALUES
+INSERT INTO `district` (`id`, `name`, `type`, `province_id`) VALUES
 ('001', 'Quận Ba Đình', 'Quận', '01'),
 ('002', 'Quận Hoàn Kiếm', 'Quận', '01'),
 ('003', 'Quận Tây Hồ', 'Quận', '01'),
@@ -480,7 +484,7 @@ INSERT INTO district (id, name, type, province_id) VALUES
 ('615', 'Huyện Đắk Hà', 'Huyện', '62'),
 ('616', 'Huyện Sa Thầy', 'Huyện', '62'),
 ('617', 'Huyện Tu Mơ Rông', 'Huyện', '62'),
-('618', 'Huyện Ia H Drai', 'Huyện', '62'),
+('618', 'Huyện Ia H\' Drai', 'Huyện', '62'),
 ('622', 'Thành phố Pleiku', 'Thành phố', '64'),
 ('623', 'Thị xã An Khê', 'Thị xã', '64'),
 ('624', 'Thị xã Ayun Pa', 'Thị xã', '64'),
@@ -500,14 +504,14 @@ INSERT INTO district (id, name, type, province_id) VALUES
 ('639', 'Huyện Chư Pưh', 'Huyện', '64'),
 ('643', 'Thành phố Buôn Ma Thuột', 'Thành phố', '66'),
 ('644', 'Thị Xã Buôn Hồ', 'Thị xã', '66'),
-('645', 'Huyện Ea H leo', 'Huyện', '66'),
+('645', 'Huyện Ea H\'leo', 'Huyện', '66'),
 ('646', 'Huyện Ea Súp', 'Huyện', '66'),
 ('647', 'Huyện Buôn Đôn', 'Huyện', '66'),
-('648', 'Huyện Cư M gar', 'Huyện', '66'),
+('648', 'Huyện Cư M\'gar', 'Huyện', '66'),
 ('649', 'Huyện Krông Búk', 'Huyện', '66'),
 ('650', 'Huyện Krông Năng', 'Huyện', '66'),
 ('651', 'Huyện Ea Kar', 'Huyện', '66'),
-('652', 'Huyện M Đrắk', 'Huyện', '66'),
+('652', 'Huyện M\'Đrắk', 'Huyện', '66'),
 ('653', 'Huyện Krông Bông', 'Huyện', '66'),
 ('654', 'Huyện Krông Pắc', 'Huyện', '66'),
 ('655', 'Huyện Krông A Na', 'Huyện', '66'),
@@ -519,7 +523,7 @@ INSERT INTO district (id, name, type, province_id) VALUES
 ('663', 'Huyện Đắk Mil', 'Huyện', '67'),
 ('664', 'Huyện Krông Nô', 'Huyện', '67'),
 ('665', 'Huyện Đắk Song', 'Huyện', '67'),
-('666', 'Huyện Đắk R Lấp', 'Huyện', '67'),
+('666', 'Huyện Đắk R\'Lấp', 'Huyện', '67'),
 ('667', 'Huyện Tuy Đức', 'Huyện', '67'),
 ('672', 'Thành phố Đà Lạt', 'Thành phố', '68'),
 ('673', 'Thành phố Bảo Lộc', 'Thành phố', '68'),
@@ -744,10 +748,10 @@ INSERT INTO district (id, name, type, province_id) VALUES
 --
 
 --
--- Indexes for table district
+-- Indexes for table `district`
 --
-ALTER TABLE district
-  ADD PRIMARY KEY (id);
+ALTER TABLE `district`
+  ADD PRIMARY KEY (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

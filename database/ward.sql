@@ -7,6 +7,10 @@
 -- Server version: 10.2.22-MariaDB
 -- PHP Version: 5.6.40
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -15,20 +19,20 @@
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: tungnguyen_vanchuyenmy
+-- Database: `tungnguyen_vanchuyenmy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table ward
+-- Table structure for table `ward`
 --
 
 --
--- Dumping data for table ward
+-- Dumping data for table `ward`
 --
 
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO `ward` (`id`, `name`, `type`, `district_id`) VALUES
 ('00001', 'Phường Phúc Xá', 'Phường', '001'),
 ('00004', 'Phường Trúc Bạch', 'Phường', '001'),
 ('00006', 'Phường Vĩnh Phúc', 'Phường', '001'),
@@ -1302,7 +1306,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('03577', 'Xã Bản Lang', 'Xã', '109'),
 ('03580', 'Xã Hoang Thèn', 'Xã', '109'),
 ('03583', 'Xã Khổng Lào', 'Xã', '109');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO `ward` (`id`, `name`, `type`, `district_id`) VALUES
 ('03586', 'Xã Nậm Xe', 'Xã', '109'),
 ('03589', 'Xã Mường So', 'Xã', '109'),
 ('03592', 'Xã Sin Suối Hồ', 'Xã', '109'),
@@ -2591,7 +2595,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('07414', 'Xã Yên Mỹ', 'Xã', '217'),
 ('07417', 'Xã Tân Hưng', 'Xã', '217'),
 ('07420', 'Xã Mỹ Thái', 'Xã', '217');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO `ward` (`id`, `name`, `type`, `district_id`) VALUES
 ('07423', 'Xã Phi Mô', 'Xã', '217'),
 ('07426', 'Xã Xương Lâm', 'Xã', '217'),
 ('07429', 'Xã Xuân Hương', 'Xã', '217'),
@@ -3890,7 +3894,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('11272', 'Xã Hùng Sơn', 'Xã', '300'),
 ('11275', 'Xã Ngũ Hùng', 'Xã', '300'),
 ('11278', 'Xã Cao Thắng', 'Xã', '300');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO `ward` (`id`, `name`, `type`, `district_id`) VALUES
 ('11281', 'Xã Chi Lăng Bắc', 'Xã', '300'),
 ('11284', 'Xã Chi Lăng Nam', 'Xã', '300'),
 ('11287', 'Xã Thanh Giang', 'Xã', '300'),
@@ -5171,7 +5175,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('15082', 'Xã Ngọc Khê', 'Xã', '389'),
 ('15085', 'Xã Quang Trung', 'Xã', '389'),
 ('15088', 'Xã Đồng Thịnh', 'Xã', '389');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO `ward` (`id`, `name`, `type`, `district_id`) VALUES
 ('15091', 'Xã Ngọc Liên', 'Xã', '389'),
 ('15094', 'Xã Ngọc Sơn', 'Xã', '389'),
 ('15097', 'Xã Lộc Thịnh', 'Xã', '389'),
@@ -6472,7 +6476,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('18958', 'Xã Thanh Hóa', 'Xã', '453'),
 ('18961', 'Xã Thanh Thạch', 'Xã', '453'),
 ('18964', 'Xã Thuận Hóa', 'Xã', '453');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO `ward` (`id`, `name`, `type`, `district_id`) VALUES
 ('18967', 'Xã Lâm Hóa', 'Xã', '453'),
 ('18970', 'Xã Lê Hóa', 'Xã', '453'),
 ('18973', 'Xã Sơn Hóa', 'Xã', '453'),
@@ -6980,10 +6984,10 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('20428', 'Phường Cẩm Nam', 'Phường', '503'),
 ('20431', 'Xã Cẩm Thanh', 'Xã', '503'),
 ('20434', 'Xã Tân Hiệp', 'Xã', '503'),
-('20437', 'Xã Ch ơm', 'Xã', '504'),
+('20437', 'Xã Ch\'ơm', 'Xã', '504'),
 ('20440', 'Xã Ga Ri', 'Xã', '504'),
 ('20443', 'Xã A Xan', 'Xã', '504'),
-('20446', 'Xã Tr Hy', 'Xã', '504'),
+('20446', 'Xã Tr\'Hy', 'Xã', '504'),
 ('20449', 'Xã Lăng', 'Xã', '504'),
 ('20452', 'Xã A Nông', 'Xã', '504'),
 ('20455', 'Xã A Tiêng', 'Xã', '504'),
@@ -7742,7 +7746,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('22618', 'Xã Khánh Trung', 'Xã', '573'),
 ('22621', 'Xã Khánh Đông', 'Xã', '573'),
 ('22624', 'Xã Khánh Thượng', 'Xã', '573');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO `ward` (`id`, `name`, `type`, `district_id`) VALUES
 ('22627', 'Xã Khánh Nam', 'Xã', '573'),
 ('22630', 'Xã Sông Cầu', 'Xã', '573'),
 ('22633', 'Xã Giang Ly', 'Xã', '573'),
@@ -8133,8 +8137,8 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('23689', 'Xã Kon Gang', 'Xã', '626'),
 ('23692', 'Xã Hà Bầu', 'Xã', '626'),
 ('23695', 'Xã Nam Yang', 'Xã', '626'),
-('23698', 'Xã K  Dang', 'Xã', '626'),
-('23701', 'Xã H  Neng', 'Xã', '626'),
+('23698', 'Xã K\' Dang', 'Xã', '626'),
+('23701', 'Xã H\' Neng', 'Xã', '626'),
 ('23704', 'Xã Tân Bình', 'Xã', '626'),
 ('23707', 'Xã Glar', 'Xã', '626'),
 ('23710', 'Xã A Dơk', 'Xã', '626'),
@@ -8321,7 +8325,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24175', 'Xã Hòa Khánh', 'Xã', '643'),
 ('24178', 'Xã Hòa Xuân', 'Xã', '643'),
 ('24181', 'Thị trấn Ea Drăng', 'Thị xã', '645'),
-('24184', 'Xã Ea H leo', 'Xã', '645'),
+('24184', 'Xã Ea H\'leo', 'Xã', '645'),
 ('24187', 'Xã Ea Sol', 'Xã', '645'),
 ('24190', 'Xã Ea Ral', 'Xã', '645'),
 ('24193', 'Xã Ea Wy', 'Xã', '645'),
@@ -8341,7 +8345,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24223', 'Xã Ea Lê', 'Xã', '646'),
 ('24226', 'Xã Cư KBang', 'Xã', '646'),
 ('24229', 'Xã Ea Bung', 'Xã', '646'),
-('24232', 'Xã Cư M Lan', 'Xã', '646'),
+('24232', 'Xã Cư M\'Lan', 'Xã', '646'),
 ('24235', 'Xã Krông Na', 'Xã', '647'),
 ('24238', 'Xã Ea Huar', 'Xã', '647'),
 ('24241', 'Xã Ea Wer', 'Xã', '647'),
@@ -8355,15 +8359,15 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24264', 'Xã Ea Kuêh', 'Xã', '648'),
 ('24265', 'Xã Ea Kiết', 'Xã', '648'),
 ('24268', 'Xã Ea Tar', 'Xã', '648'),
-('24271', 'Xã Cư Dliê M nông', 'Xã', '648'),
-('24274', 'Xã Ea H đinh', 'Xã', '648'),
+('24271', 'Xã Cư Dliê M\'nông', 'Xã', '648'),
+('24274', 'Xã Ea H\'đinh', 'Xã', '648'),
 ('24277', 'Xã Ea Tul', 'Xã', '648'),
 ('24280', 'Xã Ea KPam', 'Xã', '648'),
-('24283', 'Xã Ea M DRóh', 'Xã', '648'),
+('24283', 'Xã Ea M\'DRóh', 'Xã', '648'),
 ('24286', 'Xã Quảng Hiệp', 'Xã', '648'),
-('24289', 'Xã Cư M gar', 'Xã', '648'),
-('24292', 'Xã Ea D Rơng', 'Xã', '648'),
-('24295', 'Xã Ea M nang', 'Xã', '648'),
+('24289', 'Xã Cư M\'gar', 'Xã', '648'),
+('24292', 'Xã Ea D\'Rơng', 'Xã', '648'),
+('24295', 'Xã Ea M\'nang', 'Xã', '648'),
 ('24298', 'Xã Cư Suê', 'Xã', '648'),
 ('24301', 'Xã Cuor Đăng', 'Xã', '648'),
 ('24305', 'Phường An Lạc', 'Phường', '644'),
@@ -8413,15 +8417,15 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24404', 'Xã Cư ELang', 'Xã', '651'),
 ('24406', 'Xã Cư Bông', 'Xã', '651'),
 ('24409', 'Xã Cư Jang', 'Xã', '651'),
-('24412', 'Thị trấn M Đrắk', 'Thị xã', '652'),
+('24412', 'Thị trấn M\'Đrắk', 'Thị xã', '652'),
 ('24415', 'Xã Cư Prao', 'Xã', '652'),
 ('24418', 'Xã Ea Pil', 'Xã', '652'),
 ('24421', 'Xã Ea Lai', 'Xã', '652'),
-('24424', 'Xã Ea H MLay', 'Xã', '652'),
+('24424', 'Xã Ea H\'MLay', 'Xã', '652'),
 ('24427', 'Xã Krông Jing', 'Xã', '652'),
-('24430', 'Xã Ea M  Doal', 'Xã', '652'),
+('24430', 'Xã Ea M\' Doal', 'Xã', '652'),
 ('24433', 'Xã Ea Riêng', 'Xã', '652'),
-('24436', 'Xã Cư M ta', 'Xã', '652'),
+('24436', 'Xã Cư M\'ta', 'Xã', '652'),
 ('24439', 'Xã Cư K Róa', 'Xã', '652'),
 ('24442', 'Xã Krông Á', 'Xã', '652'),
 ('24444', 'Xã Cư San', 'Xã', '652'),
@@ -8482,23 +8486,23 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24601', 'Xã Đắk Nuê', 'Xã', '656'),
 ('24604', 'Xã Krông Nô', 'Xã', '656'),
 ('24607', 'Xã Nam Ka', 'Xã', '656'),
-('24610', 'Xã Ea R Bin', 'Xã', '656'),
+('24610', 'Xã Ea R\'Bin', 'Xã', '656'),
 ('24611', 'Phường Nghĩa Đức', 'Phường', '660'),
 ('24612', 'Phường Nghĩa Thành', 'Phường', '660'),
 ('24614', 'Phường Nghĩa Phú', 'Phường', '660'),
 ('24615', 'Phường Nghĩa Tân', 'Phường', '660'),
 ('24616', 'Xã Quảng Sơn', 'Xã', '661'),
 ('24617', 'Phường Nghĩa Trung', 'Phường', '660'),
-('24618', 'Xã Đăk R Moan', 'Xã', '660'),
+('24618', 'Xã Đăk R\'Moan', 'Xã', '660'),
 ('24619', 'Xã Quảng Thành', 'Xã', '660'),
 ('24620', 'Xã Quảng Hoà', 'Xã', '661'),
 ('24622', 'Xã Đắk Ha', 'Xã', '661'),
-('24625', 'Xã Đắk R Măng', 'Xã', '661'),
+('24625', 'Xã Đắk R\'Măng', 'Xã', '661'),
 ('24628', 'Xã Đắk Nia', 'Xã', '660'),
 ('24631', 'Xã Quảng Khê', 'Xã', '661'),
 ('24634', 'Xã Đắk Plao', 'Xã', '661'),
 ('24637', 'Xã Đắk Som', 'Xã', '661'),
-('24640', 'Thị trấn Ea T Ling', 'Thị xã', '662'),
+('24640', 'Thị trấn Ea T\'Ling', 'Thị xã', '662'),
 ('24643', 'Xã Đắk Wil', 'Xã', '662'),
 ('24646', 'Xã Ea Pô', 'Xã', '662'),
 ('24649', 'Xã Nam Dong', 'Xã', '662'),
@@ -8508,10 +8512,10 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24661', 'Xã Trúc Sơn', 'Xã', '662'),
 ('24664', 'Thị trấn Đắk Mil', 'Thị xã', '663'),
 ('24667', 'Xã  Đắk Lao', 'Xã', '663'),
-('24670', 'Xã Đắk R La', 'Xã', '663'),
+('24670', 'Xã Đắk R\'La', 'Xã', '663'),
 ('24673', 'Xã Đắk Gằn', 'Xã', '663'),
 ('24676', 'Xã Đức Mạnh', 'Xã', '663'),
-('24677', 'Xã Đắk N Drót', 'Xã', '663'),
+('24677', 'Xã Đắk N\'Drót', 'Xã', '663'),
 ('24678', 'Xã Long Sơn', 'Xã', '663'),
 ('24679', 'Xã Đắk Sắk', 'Xã', '663'),
 ('24682', 'Xã Thuận An', 'Xã', '663'),
@@ -8527,21 +8531,21 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24706', 'Xã Đức Xuyên', 'Xã', '664'),
 ('24709', 'Xã Đắk Nang', 'Xã', '664'),
 ('24712', 'Xã Quảng Phú', 'Xã', '664'),
-('24715', 'Xã Nâm N Đir', 'Xã', '664'),
+('24715', 'Xã Nâm N\'Đir', 'Xã', '664'),
 ('24717', 'Thị trấn Đức An', 'Thị xã', '665'),
 ('24718', 'Xã Đắk Môl', 'Xã', '665'),
 ('24719', 'Xã Đắk Hòa', 'Xã', '665'),
 ('24721', 'Xã Nam Bình', 'Xã', '665'),
 ('24722', 'Xã Thuận Hà', 'Xã', '665'),
 ('24724', 'Xã Thuận Hạnh', 'Xã', '665'),
-('24727', 'Xã Đắk N Dung', 'Xã', '665'),
-('24728', 'Xã Nâm N Jang', 'Xã', '665'),
+('24727', 'Xã Đắk N\'Dung', 'Xã', '665'),
+('24728', 'Xã Nâm N\'Jang', 'Xã', '665'),
 ('24730', 'Xã Trường Xuân', 'Xã', '665'),
 ('24733', 'Thị trấn Kiến Đức', 'Thị xã', '666'),
 ('24736', 'Xã Quảng Trực', 'Xã', '667'),
 ('24739', 'Xã Đắk Búk So', 'Xã', '667'),
 ('24740', 'Xã Quảng Tâm', 'Xã', '667'),
-('24742', 'Xã Đắk R Tíh', 'Xã', '667'),
+('24742', 'Xã Đắk R\'Tíh', 'Xã', '667'),
 ('24745', 'Xã Quảng Tín', 'Xã', '666'),
 ('24746', 'Xã Đắk Ngo', 'Xã', '667'),
 ('24748', 'Xã Quảng Tân', 'Xã', '667'),
@@ -8574,7 +8578,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24817', 'Phường Lộc Tiến', 'Phường', '673'),
 ('24820', 'Phường 2', 'Phường', '673'),
 ('24823', 'Phường 1', 'Phường', '673'),
-('24826', 'Phường B lao', 'Phường', '673'),
+('24826', 'Phường B\'lao', 'Phường', '673'),
 ('24829', 'Phường Lộc Sơn', 'Phường', '673'),
 ('24832', 'Xã Đạm Bri', 'Xã', '673'),
 ('24835', 'Xã Lộc Thanh', 'Xã', '673'),
@@ -8587,7 +8591,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24850', 'Xã Đưng KNớ', 'Xã', '675'),
 ('24853', 'Xã Đạ Tông', 'Xã', '674'),
 ('24856', 'Xã Đạ Long', 'Xã', '674'),
-('24859', 'Xã Đạ M  Rong', 'Xã', '674'),
+('24859', 'Xã Đạ M\' Rong', 'Xã', '674'),
 ('24862', 'Xã Lát', 'Xã', '675'),
 ('24865', 'Xã Đạ Sar', 'Xã', '675'),
 ('24868', 'Thị trấn Nam Ban', 'Thị xã', '676'),
@@ -8598,7 +8602,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24880', 'Xã Phú Sơn', 'Xã', '676'),
 ('24883', 'Xã Phi Tô', 'Xã', '676'),
 ('24886', 'Xã Phi Liêng', 'Xã', '674'),
-('24889', 'Xã Đạ K  Nàng', 'Xã', '674'),
+('24889', 'Xã Đạ K\' Nàng', 'Xã', '674'),
 ('24892', 'Xã Mê Linh', 'Xã', '676'),
 ('24895', 'Xã Đạ Đờn', 'Xã', '676'),
 ('24898', 'Xã Phúc Thọ', 'Xã', '676'),
@@ -8611,7 +8615,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24919', 'Xã Liên Hà', 'Xã', '676'),
 ('24922', 'Xã Đan Phượng', 'Xã', '676'),
 ('24925', 'Xã Nam Hà', 'Xã', '676'),
-('24928', 'Thị trấn D Ran', 'Thị xã', '677'),
+('24928', 'Thị trấn D\'Ran', 'Thị xã', '677'),
 ('24931', 'Thị trấn Thạnh Mỹ', 'Thị xã', '677'),
 ('24934', 'Xã Lạc Xuân', 'Xã', '677'),
 ('24937', 'Xã Đạ Ròn', 'Xã', '677'),
@@ -8626,7 +8630,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('24964', 'Xã Liên Hiệp', 'Xã', '678'),
 ('24967', 'Xã Hiệp Thạnh', 'Xã', '678'),
 ('24970', 'Xã Bình Thạnh', 'Xã', '678'),
-('24973', 'Xã N Thol Hạ', 'Xã', '678'),
+('24973', 'Xã N\'Thol Hạ', 'Xã', '678'),
 ('24976', 'Xã Tân Hội', 'Xã', '678'),
 ('24979', 'Xã Tân Thành', 'Xã', '678'),
 ('24982', 'Xã Phú Hội', 'Xã', '678'),
@@ -8660,7 +8664,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('25060', 'Xã Lộc Lâm', 'Xã', '680'),
 ('25063', 'Xã Lộc Phú', 'Xã', '680'),
 ('25066', 'Xã Lộc Bắc', 'Xã', '680'),
-('25069', 'Xã B  Lá', 'Xã', '680'),
+('25069', 'Xã B\' Lá', 'Xã', '680'),
 ('25072', 'Xã Lộc Ngãi', 'Xã', '680'),
 ('25075', 'Xã Lộc Quảng', 'Xã', '680'),
 ('25078', 'Xã Lộc Tân', 'Xã', '680'),
@@ -8669,9 +8673,9 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('25087', 'Xã Tân Lạc', 'Xã', '680'),
 ('25090', 'Xã Lộc Thành', 'Xã', '680'),
 ('25093', 'Xã Lộc Nam', 'Xã', '680'),
-('25096', 'Thị trấn Đạ M ri', 'Thị xã', '681'),
+('25096', 'Thị trấn Đạ M\'ri', 'Thị xã', '681'),
 ('25099', 'Thị trấn Ma Đa Guôi', 'Thị xã', '681'),
-('25102', 'Xã Đạ M ri', 'Xã', '681'),
+('25102', 'Xã Đạ M\'ri', 'Xã', '681'),
 ('25105', 'Xã Hà Lâm', 'Xã', '681'),
 ('25108', 'Xã Đạ Tồn', 'Xã', '681'),
 ('25111', 'Xã Đạ Oai', 'Xã', '681'),
@@ -9031,7 +9035,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('26083', 'Phường Xuân Hoà', 'Phường', '732'),
 ('26086', 'Phường Phú Bình', 'Phường', '732'),
 ('26089', 'Xã Bình Lộc', 'Xã', '732');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO `ward` (`id`, `name`, `type`, `district_id`) VALUES
 ('26092', 'Xã Bảo Quang', 'Xã', '732'),
 ('26095', 'Xã Suối Tre', 'Xã', '732'),
 ('26098', 'Xã Bảo Vinh', 'Xã', '732'),
@@ -10298,7 +10302,7 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 ('29797', 'Xã Tân Bình', 'Xã', '863'),
 ('29800', 'Xã Thành Lợi', 'Xã', '863'),
 ('29803', 'Xã Tân Quới', 'Xã', '863');
-INSERT INTO ward (id, name, type, district_id) VALUES
+INSERT INTO `ward` (`id`, `name`, `type`, `district_id`) VALUES
 ('29806', 'Xã Thuận An', 'Xã', '861'),
 ('29809', 'Xã Đông Thạnh', 'Xã', '861'),
 ('29812', 'Xã Đông Bình', 'Xã', '861'),
@@ -11205,10 +11209,10 @@ INSERT INTO ward (id, name, type, district_id) VALUES
 --
 
 --
--- Indexes for table ward
+-- Indexes for table `ward`
 --
-ALTER TABLE ward
-  ADD PRIMARY KEY (id);
+ALTER TABLE `ward`
+  ADD PRIMARY KEY (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
