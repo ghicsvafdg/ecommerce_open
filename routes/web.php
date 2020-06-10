@@ -56,15 +56,22 @@ Route::get('/import_excel', 'Backend\ImportExcelController@index')->name('import
 Route::post('import_excel/import', 'Backend\ImportExcelController@import');
 Route::get('export', 'Backend\ImportExcelController@export')->name('export');
 
-// add product to cart
-Route::post('/addtocart', 'Frontend\CartController@addCart');
-
-
 // ===Frontend===
+// select address
+Route::get('get-district-list','Frontend\OrderController@getDistrictList');
+Route::get('get-ward-list','Frontend\OrderController@getWardList');
+
 // detail product
-Route::get('detail_product/{id}', 'Frontend\ProductController@detail')->name('detail_product');
+Route::get('detail-product/{id}', 'Frontend\ProductController@detail')->name('detail-product');
 
 // post 
 Route::get('post', 'Frontend\PostsController@index')->name('posts');
 Route::get('detail-post/{slug}', 'Frontend\PostsController@detail')->name('detail-post');
+
+// cart
+Route::post('/addtocart', 'Frontend\CartController@addCart');             // add product to cart
 Route::get('/showproductincart','Frontend\CartController@showProduct');
+Route::get('cart','Frontend\PaymentController@index')->name('paymentindex');
+
+// order
+Route::get('order-info','Frontend\OrderController@index')->name('orderinfo');

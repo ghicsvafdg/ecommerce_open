@@ -134,7 +134,7 @@
                                             </table>
                                             <div class="button-card">
                                                 <button type="submit" class="my-2 btn-card">
-                                                    <a href="card-user.html"> Xem giỏ hàng</a> 
+                                                    <a href="{{ route('paymentindex') }}"> Xem giỏ hàng</a> 
                                                 </button>
                                             </div>
                                         </div>
@@ -355,6 +355,57 @@
             }
         });
     </script>
+    {{-- select address --}}
+    <script type="text/javascript">
+        $('#country').change(function(){
+            var provinceID = $(this).val();    
+            if(provinceID){
+                $.ajax({
+                    type:"GET",
+                    url:"{{url('get-district-list')}}?province_id="+provinceID,
+                    success:function(res){               
+                        if(res){
+                            $("#state").empty();
+                            $("#state").append('<option value="">Chọn Quận/Huyện</option>');
+                            $.each(res,function(key,value){
+                                $("#state").append('<option value="'+key+'">'+value+'</option>');
+                            });
+                            
+                        }else{
+                            $("#state").empty();
+                        }
+                    }
+                });
+            }else{
+                $("#state").empty();
+                $("#city").empty();
+            }      
+        });
+        $('#state').on('change',function(){
+            var districtID = $(this).val();    
+            if(districtID){
+                $.ajax({
+                    type:"GET",
+                    url:"{{url('get-ward-list')}}?district_id="+districtID,
+                    success:function(res){               
+                        if(res){
+                            $("#city").empty();
+                            $("#city").append('<option value="">Chọn Phường/Xã</option>');
+                            $.each(res,function(key,value){
+                                $("#city").append('<option value="'+key+'">'+value+'</option>');
+                            });
+                            
+                        }else{
+                            $("#city").empty();
+                        }
+                    }
+                });
+            }else{
+                $("#city").empty();
+            }
+        });
+    </script> 
+    {{-- end select address --}}
     @yield('js')
 </body>
 </html>

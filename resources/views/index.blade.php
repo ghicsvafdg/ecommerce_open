@@ -80,7 +80,7 @@
         <div class="col-md-3 col-6 pb-4 text-center">
             <img src="{{ asset('images/'.json_decode($product->image)[0]) }}" alt="Khong co anh">
             <div class="title-product-show text-center pt-4">
-            <a href="{{route('detail_product', $product->slug)}}">{{ $product->name }}</a>
+            <a href="{{route('detail-product', $product->slug)}}">{{ $product->name }}</a>
             </div>
             @if ($product->promotion != null)
                 <div class="curent-price-product text-center">
@@ -96,7 +96,9 @@
             @endif
             <div class="row py-2 icon-view-details text-center">
                 <form action="">
-                    <input type="text" name="productid" value="{{$product->id}}" hidden>
+                    <input type="radio" name="productsize" value="{{explode(',',$product->size)[0]}}" hidden checked>
+                    <input type="radio" name="productcolor" value="{{explode(',',$product->color)[0]}}" hidden checked>
+                    <input type="text" name="productquantity" value="1" hidden>
                     <input type="button" id="product{{$product->id}}" value="Add to cart" class="btn-btn-cart btn-submit" onClick = "cartAdd('{{$product->id}}')"/>
                 </form>
             </div>

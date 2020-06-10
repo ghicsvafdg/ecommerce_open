@@ -29,13 +29,13 @@
             </p>
             <hr>
             
-            <form action="" class="form-paying" method="post">
+            <form action="">
                 <div class="row pt-4">
                     <div class="col-3"><b>Màu sắc:</b></div>
                     <div class="col-9 pl-0">
                         <div class="radio-toolbar">
                             @foreach (explode(',',$product->color) as $color)
-                            <input type="radio" id="{{$color}}" name="color" value="{{$color}}"  checked>
+                            <input type="radio" id="{{$color}}" name="productcolor" value="{{$color}}" checked>
                             <label for="{{$color}}">{{$color}}</label>
                             @endforeach
                         </div>
@@ -43,17 +43,16 @@
                 </div>
                 
                 <div class="row py-3">
-                    <div class="col-3"><b>Kích thước :</b></div>
+                    <div class="col-3"><b>Kích thước:</b></div>
                     <div class="col-9 pl-0">
                         <div class="radio-toolbar">
                             @foreach (explode(',',$product->size) as $size)
-                            <input type="radio" id="{{$size}}" name="size" value="{{$size}}" checked>
+                            <input type="radio" id="{{$size}}" name="productsize" value="{{$size}}" checked>
                             <label for="{{$size}}">{{$size}}</label>
                             @endforeach
                         </div>
                     </div>
                 </div>
-                
                 
                 <div class="px-3 py-1">
                     <div class="row">
@@ -64,7 +63,7 @@
                             <span class="ns-btn">
                                 <a data-dir="dwn"><span class="icon-minus"></span></a>
                             </span>
-                            <input type="text" class="pl-ns-value" value="1" maxlength=2>
+                            <input type="text" class="pl-ns-value" name="productquantity" value="1" maxlength=2>
                             <span class="ns-btn">
                                 <a data-dir="up"><span class="icon-plus"></span></a>
                             </span>
@@ -72,14 +71,12 @@
                     </div>
                     <div class="pt-4 px-0" id="row-pay"> 
                         <div class="row">
-                            <input type="text" value="25" name="product_id" hidden="">
-                            <button type="submit" class="btn-cart" id="alert_demo_1">
-                                <i class="fas fa-cart-plus" style="margin-right: 7px; "></i>THÊM VÀO GIỎ HÀNG
+                            <button type="button" class="btn-cart" id="product{{$product->id}}" onClick="cartAdd('{{$product->id}}')">
+                                <i class="fas fa-cart-plus" style="margin-right: 7px;"></i>THÊM VÀO GIỎ HÀNG
                             </button>
                             &nbsp;
                             <a href="pay-method.html"><button type="button" class="btn-pay">MUA NGAY</button></a>
                         </div>
-                        
                     </div>
                 </div>
             </form>
@@ -90,7 +87,6 @@
         <div class="nav-products">
             <div class="title-category py-1 my-5" style=" overflow: auto ; white-space: nowrap;">
                 <h5>Sản phẩm cùng danh mục</b></h5>
-                
             </div>
             
             <div class="product-show row">
@@ -114,4 +110,32 @@
 @endsection
 <!-- logo -->
 @section('js')
+<script>
+var numberSpinner = (function() {
+    $('.number-spinner>.ns-btn>a').click(function() {
+        var btn = $(this),
+        oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+        newVal = 0;
+        
+        if (btn.attr('data-dir') === 'up') {
+            newVal = parseInt(oldValue) + 1;
+        } else {
+            if (oldValue > 1) {
+                newVal = parseInt(oldValue) - 1;
+            } else {
+                newVal = 1;
+            }
+        }
+        btn.closest('.number-spinner').find('input').val(newVal);
+    });
+    $('.number-spinner>input').keypress(function(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    });
+})();
+</script>
 @endsection

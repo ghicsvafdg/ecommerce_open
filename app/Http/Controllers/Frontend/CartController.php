@@ -27,10 +27,15 @@ class CartController extends Controller
     {
         $user_id = $request->get('user');
         $product_id = $request->get('product');
+        $product_color = $request->get('product_color');
+        $product_size = $request->get('product_size');
+        $product_quantity = $request->get('product_quantity');
         Cart::create([
             'user_session_id' => $user_id,
             'product_id' => $product_id,
-            'quantity' => '5'
+            'color' => $product_color,
+            'size' => $product_size,
+            'quantity' => $product_quantity
         ]);
         return response()->json(['success'=>'Thêm sản phẩm vào giỏ hàng thành công!']);
     }
