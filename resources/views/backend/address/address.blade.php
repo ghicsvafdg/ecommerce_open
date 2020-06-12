@@ -24,7 +24,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 style="text-align: center">Quản lý sản phẩm</h3>
+                        <h3 style="text-align: center">Quản lý địa chỉ</h3>
                     </div>
                     
                     @if(session()->has('msg'))
@@ -36,11 +36,11 @@
                     
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="{{route('manage-voucher.create')}}" class="btn btn-primary btn-small" style="width: 17%">
+                    <a href="{{route('manage-address.create')}}" class="btn btn-primary btn-small" style="width: 17%">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
-                            Tạo mới voucher
+                            Tạo mới địa chỉ
                         </a>
                         <p></p>
                         <table class="table table-bordered">
@@ -53,19 +53,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($voucher as $vc)
+                                {{-- @foreach ($voucher as $vc) --}}
                                 <tr>
                                     
-                                    <td>{{$vc->code}}</td>
-                                    <td>{{$vc->times_use}}</td>
-                                    <td>{{$vc->value}}</td>
+                                    <td>Xã</td>
+                                    <td>Huyện</td>
+                                    <td>Tỉnh, thành phố</td>
                                     <td>
                                         <div class="row">
                                            
                                             <div class="col-4">
-                                                <a href="{{route('manage-voucher.edit', $vc->id)}}" data-toggle="tooltip" data-placement="bottom" title="Edit" class="btn btn-icon btn-secondary btn-xs"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="" data-toggle="tooltip" data-placement="bottom" title="Edit" class="btn btn-icon btn-secondary btn-xs"><i class="fas fa-pencil-alt"></i></a>
                                             </div>
-                                            <form action="{{route('manage-voucher.destroy', $vc->id)}}" method="post" class="test col-4">
+                                            <form action="" method="post" class="test col-4">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="btn btn-icon btn-danger btn-xs" onclick="return confirm('Bạn có muốn xóa voucher này không?');" data-toggle="tooltip" data-placement="bottom" title="Delete">
@@ -75,7 +75,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                @endforeach
+                                {{-- @endforeach --}}
                                 
                             </tbody>
                         </table>

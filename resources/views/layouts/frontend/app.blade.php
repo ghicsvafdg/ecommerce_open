@@ -18,6 +18,8 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="assets/css/customFrontend.css">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
@@ -129,7 +131,7 @@
                                             <table class="table table-borderless">
                                                 {{ csrf_field() }}
                                                 <thead id="product_data">
-                                                {{-- product in cart show here --}}
+                                                    {{-- product in cart show here --}}
                                                 </thead>
                                             </table>
                                             <div class="button-card">
@@ -193,7 +195,7 @@
                                     </div>
                                     <div class="col-8 text-box-news">
                                         <a href="{{route('detail-post', $post->slug)}}">{{$post->title}}</a>
-                                    <h6 style="font-size: 10px">{{$post->created_at}}</h6>
+                                        <h6 style="font-size: 10px">{{$post->created_at}}</h6>
                                     </div>
                                 </div>
                                 @endforeach
@@ -336,7 +338,7 @@
             var btncard = document.querySelector('.icon-card-user');
             var dropdowncontent = document.querySelector('.content-card-user');
             var active = document.querySelector('.active');
-        
+            
             for (i = 0; i < buttonpr.length; i++) {
                 buttonpr[i].onclick = function() {
                     var nd = this.getAttribute('data-mk');

@@ -77,3 +77,7 @@ Route::get('cart','Frontend\PaymentController@index')->name('paymentindex');
 
 // order
 Route::get('order-info','Frontend\OrderController@index')->name('orderinfo');
+
+
+Route::get('get-district-list','Backend\AddressController@getDistrictList');
+Route::get('get-ward-list','Backend\AddressController@getWardList');

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Address;
+use App\Models\District;
+use App\Models\Province;
+use App\Models\Ward;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
@@ -15,7 +18,8 @@ class AddressController extends Controller
      */
     public function index()
     {
-        $address= Address::all();
+        // $address= Address::all();
+        return view('backend.address.address');
     }
 
     /**
@@ -25,7 +29,20 @@ class AddressController extends Controller
      */
     public function create()
     {
-        //
+        $provinces = Province::pluck("name","id");
+        return view('backend.address.address_create', compact('provinces'));
+    }
+
+    public function getDistrictList(Request $request)
+    {
+        $districts = District::where("province_id",$request->province_id)->pluck("name","id");
+        return response()->json($districts);
+    }
+
+    public function getWardList(Request $request)
+    {
+        $wards = Ward::where("district_id",$request->district_id)->pluck("name","id");
+        return response()->json($wards);
     }
 
     /**
