@@ -19,40 +19,40 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($productInCart as $product)
+                @foreach ($productInCart['products'] as $product)
                 <tr class="text-center">
                     <th scope="row">
-                        <img src="{{asset('images/'.json_decode($product->productInCart->image)[0])}}" style="width: 80px; height: 80px;" alt="" class="img-fluid">
+                        <img src="{{asset('images/'.$product['product_img'])}}" style="width: 80px; height: 80px;" alt="" class="img-fluid">
                     </th>
                     <td class="text-left" width="30%"> 
-                        <a href="{{ route('detail-product',$product->productInCart->slug) }}"><p>{{$product->productInCart->name}}</p></a>
+                        <a href="{{ route('detail-product',$product['product_slug']) }}"><p>{{$product['product_name']}}</p></a>
                         <p></p>
                         <hr>
-                        Còn lại: {{$product->productInCart->quantity}} sản phẩm
+                        Còn lại: {{$product['quantity_origin']}} sản phẩm
                     </td>
                     <td> 
-                        Đã chọn màu: <b>{{$product->color}}</b>
+                        Đã chọn màu: <b>{{$product['color']}}</b>
                         <br>
-                        Đã chọn size: <b>{{$product->size}}</b>
+                        Đã chọn size: <b>{{$product['size']}}</b>
                     </td>
                     <td>  
-                        @if ($product->productInCart->promotion != null)
-                        <h6 style="color:rgb(64, 64, 206);"> {{number_format( $product->productInCart->promotion*1000, 0, ',', '.' )}}đ </h6> 
-                        <span style="text-decoration:line-through; font-size: 12px;">{{number_format( $product->productInCart->price*1000, 0, ',', ' ' )}}đ</span>
+                        @if ($product['product_promotion'] != null)
+                        <h6 style="color:rgb(64, 64, 206);"> {{number_format( $product['product_promotion']*1000, 0, ',', '.' )}}đ </h6> 
+                        <span style="text-decoration:line-through; font-size: 12px;">{{number_format( $product['product_price']*1000, 0, ',', ' ' )}}đ</span>
                         @else
-                        <h6 style="color:rgb(64, 64, 206);"> {{number_format( $product->productInCart->price*1000, 0, ',', '.' )}}đ </h6> 
+                        <h6 style="color:rgb(64, 64, 206);"> {{number_format( $product['product_price']*1000, 0, ',', '.' )}}đ </h6> 
                         @endif
                     </td>
                     <td width="10%" class="text-center">
-                        {{$product->quantity}}
+                        {{$product['quantity']}}
                     </td>
                     <td style="color: #f09819;">
                         <h6>
                             <span>
-                               @if ($product->productInCart->promotion != null)
-                               {{number_format( $product->productInCart->promotion*1000*$product->quantity, 0, ',', '.' )}}
+                               @if ($product['product_promotion'] != null)
+                               {{number_format( $product['product_promotion']*1000*$product['quantity'], 0, ',', '.' )}}
                                @else
-                               {{number_format( $product->productInCart->price*1000*$product->quantity, 0, ',', '.' )}}
+                               {{number_format( $product['product_price']*1000*$product['quantity'], 0, ',', '.' )}}
                                @endif
                             </span>đ
                         </h6>

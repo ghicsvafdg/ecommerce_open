@@ -14,6 +14,7 @@ use App\Models\Category;
 use App\Models\FooterPost;
 use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
@@ -30,34 +31,40 @@ class CartController extends Controller
         $product_color = $request->get('product_color');
         $product_size = $request->get('product_size');
         $product_quantity = $request->get('product_quantity');
-        Cart::create([
-            'user_session_id' => $user_id,
-            'product_id' => $product_id,
+
+        $product = Product::where('id',$product_id)->first();
+        $data = [
+            'product_name' => $product->name,
+            'product_slug' => $product->slug,
             'color' => $product_color,
             'size' => $product_size,
-            'quantity' => $product_quantity
-        ]);
+            'quantity' => $product_quantity,
+            'quantity_origin' => $product->quantity,
+            'product_promotion' => $product->promotion,
+            'product_price' => $product->price,
+            'product_img' => json_decode($product->image)[0]
+        ];
+        Session::push('products', $data);
         return response()->json(['success'=>'Thêm sản phẩm vào giỏ hàng thành công!']);
     }
     
     public function showProduct(Request $request)
     {
-        $session_id = $request->get('user');
-        $productInCart = Cart::where('user_session_id',$session_id)->get();
-        // echo session_id();
-        foreach ($productInCart as $product) {
+        // $session_id = $request->get('user');
+        $productInCart = Session::all();
+        foreach ($productInCart['products'] as $product) {
             $price = 0;
-            if ($product->productInCart->promotion != null) {
-                $price = number_format($product->productInCart->promotion*1000, 0, ',', '.' );
+            if ($product['product_promotion'] != null) {
+                $price = number_format($product['product_promotion']*1000, 0, ',', '.' );
             } else {
-                $price = number_format($product->productInCart->price*1000, 0, ',', '.' );
+                $price = number_format($product['product_price']*1000, 0, ',', '.' );
             }
             echo '<tr>
             <th scope="col">
-                <img src="'.asset('images/'.json_decode($product->productInCart->image)[0]).'" style="width: 80px; height: 80px;" alt="no photo" class="img-fluid">
+                <img src="'.asset('images/'.$product['product_img']).'" style="width: 80px; height: 80px;" alt="no photo" class="img-fluid">
             </th>
             <th scope="col" class="info-card">
-                '. $product->productInCart->name . '<br>
+                '. $product['product_name'] . '<br>
                 <span style="color: #ff7f0b;">'.$price.'đ</span>
             </th>
             <th scope="col">
@@ -77,14 +84,13 @@ class CartController extends Controller
         $categories = Category::all();
         $session_id = session_id();
         $count = 1;
-        $productInCart = Cart::where('user_session_id',$session_id)->get();
+        $productInCart = Session::all();
         $sum = 0;
-
-        foreach($productInCart as $product) {
-            if ($product->productInCart->promotion != null) {
-                $sum = $sum + $product->quantity*$product->productInCart->promotion;
+        foreach($productInCart['products'] as $product) {
+            if ($product['product_promotion'] != null) {
+                $sum = $sum + $product['quantity']*$product['product_promotion'];
             } else {
-                $sum = $sum + $product->quantity*$product->productInCart->price;
+                $sum = $sum + $product['quantity']*$product['product_price'];
             }
         }
         return view('frontend.cart.cart-detail',compact('productInCart','posts','categories','count','sum'));

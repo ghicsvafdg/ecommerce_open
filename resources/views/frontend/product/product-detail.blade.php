@@ -35,7 +35,7 @@
                     <div class="col-9 pl-0">
                         <div class="radio-toolbar">
                             @foreach (explode(',',$product->color) as $color)
-                            <input type="radio" id="{{$color}}" name="productcolor" value="{{$color}}" checked>
+                            <input type="radio" id="{{$color}}" name="productcolor{{$product->id}}" value="{{$color}}" checked>
                             <label for="{{$color}}">{{$color}}</label>
                             @endforeach
                         </div>
@@ -47,7 +47,7 @@
                     <div class="col-9 pl-0">
                         <div class="radio-toolbar">
                             @foreach (explode(',',$product->size) as $size)
-                            <input type="radio" id="{{$size}}" name="productsize" value="{{$size}}" checked>
+                            <input type="radio" id="{{$size}}" name="productsize{{$product->id}}" value="{{$size}}" checked>
                             <label for="{{$size}}">{{$size}}</label>
                             @endforeach
                         </div>

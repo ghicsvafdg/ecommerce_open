@@ -96,8 +96,8 @@
                 @endif
             </div>
             <form action="">
-                <input type="radio" name="productsize" value="{{explode(',',$product->size)[0]}}" hidden checked>
-                <input type="radio" name="productcolor" value="{{explode(',',$product->color)[0]}}" hidden checked>
+                <input type="radio" name="productsize{{$product->id}}" value="{{explode(',',$product->size)[0]}}" hidden checked>
+                <input type="radio" name="productcolor{{$product->id}}" value="{{explode(',',$product->color)[0]}}" hidden checked>
                 <input type="text" name="productquantity" value="1" hidden>
                 <input type="button" value="Thêm vào giỏ hàng" class="cf-buy" onClick="cartAdd('{{$product->id}}')"/>
             </form>

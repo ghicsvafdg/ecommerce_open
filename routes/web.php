@@ -77,14 +77,11 @@ Route::get('cart','Frontend\CartController@detailCart')->name('detailcart');
 
 // order
 Route::get('order-info','Frontend\OrderController@index')->name('orderinfo');
-<<<<<<< Updated upstream
 
 
 Route::get('get-district-list','Backend\AddressController@getDistrictList');
 Route::get('get-ward-list','Backend\AddressController@getWardList');
-=======
 //vouchertobill
 Route::post('/checkvoucher','Frontend\OrderController@checkVoucher');
 
 Route::post('/saveorder','Frontend\OrderController@createOrder')->name('createorder');
->>>>>>> Stashed changes

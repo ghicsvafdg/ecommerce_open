@@ -20,6 +20,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Voucher;
 use App\Models\Ward;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
@@ -37,14 +38,13 @@ class OrderController extends Controller
         $provinces = Province::pluck("name","id");
         $posts = Post::all();
         $categories = Category::all();
-        $session_id = session_id();
-        $productInCart = Cart::where('user_session_id',$session_id)->get();
+        $productInCart = Session::all();
         $sum = 0;
-        foreach($productInCart as $product) {
-            if ($product->productInCart->promotion != null) {
-                $sum = $sum + $product->quantity*$product->productInCart->promotion;
+        foreach($productInCart['products'] as $product) {
+            if ($product['product_promotion'] != null) {
+                $sum = $sum + $product['quantity']*$product['product_promotion'];
             } else {
-                $sum = $sum + $product->quantity*$product->productInCart->price;
+                $sum = $sum + $product['quantity']*$product['product_price'];
             }
         }
         return view('frontend.order.order-info',compact('productInCart','posts','categories','provinces','sum'));

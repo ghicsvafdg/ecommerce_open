@@ -24,8 +24,10 @@ function load_product(_token) {
 // add product in cart
 function cartAdd(product_code) {
     var product = product_code;
-    var product_color = $("input[name=productcolor]:checked").val();
-    var product_size = $("input[name=productsize]:checked").val();
+    var color = `input[name=productcolor${product_code}]:checked`;
+    var size = `input[name=productsize${product_code}]:checked`;
+    var product_color = $(color).val();
+    var product_size = $(size).val();
     var product_quantity = $("input[name=productquantity]").val();
     $.ajax({
         url: '/addtocart',
