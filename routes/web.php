@@ -73,11 +73,18 @@ Route::get('detail-post/{slug}', 'Frontend\PostsController@detail')->name('detai
 // cart
 Route::post('/addtocart', 'Frontend\CartController@addCart');             // add product to cart
 Route::get('/showproductincart','Frontend\CartController@showProduct');
-Route::get('cart','Frontend\PaymentController@index')->name('paymentindex');
+Route::get('cart','Frontend\CartController@detailCart')->name('detailcart');
 
 // order
 Route::get('order-info','Frontend\OrderController@index')->name('orderinfo');
+<<<<<<< Updated upstream
 
 
 Route::get('get-district-list','Backend\AddressController@getDistrictList');
 Route::get('get-ward-list','Backend\AddressController@getWardList');
+=======
+//vouchertobill
+Route::post('/checkvoucher','Frontend\OrderController@checkVoucher');
+
+Route::post('/saveorder','Frontend\OrderController@createOrder')->name('createorder');
+>>>>>>> Stashed changes

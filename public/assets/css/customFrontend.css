@@ -202,6 +202,14 @@ input:hover,
     font-weight: bold;
 }
 
+.navbar-payment {
+    display: flex;
+    background-color: #b1e4ff;
+    color: #0c6bb9;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
 .category-product .head-title {
     text-transform: uppercase;
     background-color: #44a4d7;
@@ -438,6 +446,20 @@ button:focus {
 
 .content-post a:hover {
     text-decoration: none;
+}
+
+#myTab li {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px 10px;
+    border: 1px solid #e2e2e2;
+}
+
+.tab-content .tab-pane {
+    background-color: white;
+    padding: 30px 0;
+    font-weight: bold;
+    color: #f09819;
 }
 
 .show {
@@ -738,17 +760,17 @@ icon-view-details a {
     margin-left: 5px;
 }
 
-.rating-star {
-    margin-left: 40px;
-}
 
-#star {
+/* .rating-star{
+    margin-left: 40px;
+    
+}
+#star{
     font-size: 10px;
 }
-
-.rating-star .checked {
+.rating-star .checked{
     color: #ff9500;
-}
+} */
 
 .list-cate-footer a {
     display: block;

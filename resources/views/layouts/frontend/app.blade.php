@@ -136,7 +136,7 @@
                                             </table>
                                             <div class="button-card">
                                                 <button type="submit" class="my-2 btn-card">
-                                                    <a href="{{ route('paymentindex') }}"> Xem giỏ hàng</a> 
+                                                    <a href="{{ route('detailcart') }}"> Xem giỏ hàng</a> 
                                                 </button>
                                             </div>
                                         </div>

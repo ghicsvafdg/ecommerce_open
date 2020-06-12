@@ -74,8 +74,6 @@
                             <button type="button" class="btn-cart" id="product{{$product->id}}" onClick="cartAdd('{{$product->id}}')">
                                 <i class="fas fa-cart-plus" style="margin-right: 7px;"></i>THÊM VÀO GIỎ HÀNG
                             </button>
-                            &nbsp;
-                            <a href="pay-method.html"><button type="button" class="btn-pay">MUA NGAY</button></a>
                         </div>
                     </div>
                 </div>

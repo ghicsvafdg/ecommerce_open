@@ -59,6 +59,7 @@
                     </td>
                     <td id="follow" style="width:12%">
                         <form action="#" method="post">
+                            <button type="submit" class="my-2 btn-btn-delete">
                                 <i class="mr-1 fas fa-trash-alt"></i> Xóa
                             </button>
                         </form>

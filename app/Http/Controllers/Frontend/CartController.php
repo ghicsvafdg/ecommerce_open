@@ -68,4 +68,25 @@ class CartController extends Controller
         </tr>';
         }
     }
+
+    public function detailCart(Request $request) {
+        if (!Auth::check()) {
+            session_start();
+        }
+        $posts = Post::all();
+        $categories = Category::all();
+        $session_id = session_id();
+        $count = 1;
+        $productInCart = Cart::where('user_session_id',$session_id)->get();
+        $sum = 0;
+
+        foreach($productInCart as $product) {
+            if ($product->productInCart->promotion != null) {
+                $sum = $sum + $product->quantity*$product->productInCart->promotion;
+            } else {
+                $sum = $sum + $product->quantity*$product->productInCart->price;
+            }
+        }
+        return view('frontend.cart.cart-detail',compact('productInCart','posts','categories','count','sum'));
+    }
 }   

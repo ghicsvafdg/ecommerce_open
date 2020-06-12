@@ -76,32 +76,31 @@
         {{-- product  --}}
         @foreach ($category->product as $product)
         <?php if ($count > 4) break; ?>
-        
         <div class="col-md-3 col-6 pb-4 text-center">
             <img src="{{ asset('images/'.json_decode($product->image)[0]) }}" alt="Khong co anh">
             <div class="title-product-show text-center pt-4">
             <a href="{{route('detail-product', $product->slug)}}">{{ $product->name }}</a>
             </div>
-            @if ($product->promotion != null)
-                <div class="curent-price-product text-center">
+            <div class="price-products">
+                @if ($product->promotion != null)
+                <div class="curent-price-product">
                     <h6><b>{{number_format($product->promotion*1000, 0, ',', '.' )}}đ</b></h6>
                 </div>
-                <div class="abondon-price-product text-center">
+                <div class="abondon-price-product">
                     {{number_format($product->price*1000, 0, ',', '.' )}}đ
                 </div>
-            @else
-                <div class="curent-price-product text-center">
+                @else
+                <div class="curent-price-product">
                     <h6><b>{{number_format($product->price*1000, 0, ',', '.' )}}đ</b></h6>
                 </div>
-            @endif
-            <div class="row py-2 icon-view-details text-center">
-                <form action="">
-                    <input type="radio" name="productsize" value="{{explode(',',$product->size)[0]}}" hidden checked>
-                    <input type="radio" name="productcolor" value="{{explode(',',$product->color)[0]}}" hidden checked>
-                    <input type="text" name="productquantity" value="1" hidden>
-                    <input type="button" id="product{{$product->id}}" value="Add to cart" class="btn-btn-cart btn-submit" onClick = "cartAdd('{{$product->id}}')"/>
-                </form>
+                @endif
             </div>
+            <form action="">
+                <input type="radio" name="productsize" value="{{explode(',',$product->size)[0]}}" hidden checked>
+                <input type="radio" name="productcolor" value="{{explode(',',$product->color)[0]}}" hidden checked>
+                <input type="text" name="productquantity" value="1" hidden>
+                <input type="button" value="Thêm vào giỏ hàng" class="cf-buy" onClick="cartAdd('{{$product->id}}')"/>
+            </form>
         </div>
         <?php $count++; ?>
         @endforeach
