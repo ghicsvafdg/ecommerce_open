@@ -33,38 +33,67 @@ class CartController extends Controller
         $product_quantity = $request->get('product_quantity');
 
         $product = Product::where('id',$product_id)->first();
-        $data = [
-            'product_name' => $product->name,
-            'product_slug' => $product->slug,
-            'color' => $product_color,
-            'size' => $product_size,
-            'quantity' => $product_quantity,
-            'quantity_origin' => $product->quantity,
-            'product_promotion' => $product->promotion,
-            'product_price' => $product->price,
-            'product_img' => json_decode($product->image)[0]
-        ];
-        Session::push('products', $data);
+
+        if (!Auth::check()) {
+            $productInfo = [
+                // product info
+                'id' => $product->id,
+                'name' => $product->name,
+                'slug' => $product->slug,
+                'quantity' => $product->quantity,
+                'promotion' => $product->promotion,
+                'price' => $product->price,
+                'image' => $product->image,
+            ];
+
+            $productCart = [
+                // product info in cart
+                'id' => $product->id,
+                'color' => $product_color,
+                'size' => $product_size,
+                'quantity' => $product_quantity,
+                'productInCart' => (object) $productInfo
+            ];
+
+            Session::push('products', (object) $productCart);
+        } else {
+            $cart = Cart::create([
+                'product_id' => $product->id,
+                'user_id' => Auth::user()->id,
+                'size' => $product_size,
+                'color' => $product_color,
+                'quantity' => $product_quantity
+            ]);
+        }
+       
         return response()->json(['success'=>'Thêm sản phẩm vào giỏ hàng thành công!']);
     }
     
     public function showProduct(Request $request)
     {
-        // $session_id = $request->get('user');
-        $productInCart = Session::all();
-        foreach ($productInCart['products'] as $product) {
+
+        if (Auth::check()) {
+            $productInCart = Cart::where('user_id',Auth::user()->id)->get();
+            
+        } else {
+            $getProductInCart = Session::all();
+            $productInCart = (object) $getProductInCart['products'];
+        }
+        
+        foreach ($productInCart as $product) {
+            // print_r($product->productInCart->name);
             $price = 0;
-            if ($product['product_promotion'] != null) {
-                $price = number_format($product['product_promotion']*1000, 0, ',', '.' );
+            if ($product->productInCart->promotion != null) {
+                $price = number_format($product->productInCart->promotion*1000, 0, ',', '.' );
             } else {
-                $price = number_format($product['product_price']*1000, 0, ',', '.' );
+                $price = number_format($product->productInCart->promotion*1000, 0, ',', '.' );
             }
             echo '<tr>
             <th scope="col">
-                <img src="'.asset('images/'.$product['product_img']).'" style="width: 80px; height: 80px;" alt="no photo" class="img-fluid">
+                <img src="'.asset('images/'.json_decode($product->productInCart->image)[0]).'" style="width: 80px; height: 80px;" alt="no photo" class="img-fluid">
             </th>
             <th scope="col" class="info-card">
-                '. $product['product_name'] . '<br>
+                '. $product->productInCart->name . '<br>
                 <span style="color: #ff7f0b;">'.$price.'đ</span>
             </th>
             <th scope="col">
@@ -79,18 +108,20 @@ class CartController extends Controller
     public function detailCart(Request $request) {
         if (!Auth::check()) {
             session_start();
+            $getProductInCart = Session::all();
+            $productInCart = (object) $getProductInCart['products'];
+        } else {
+            $productInCart = Cart::where('user_id',Auth::user()->id)->get();
         }
         $posts = Post::all();
         $categories = Category::all();
-        $session_id = session_id();
         $count = 1;
-        $productInCart = Session::all();
         $sum = 0;
-        foreach($productInCart['products'] as $product) {
-            if ($product['product_promotion'] != null) {
-                $sum = $sum + $product['quantity']*$product['product_promotion'];
+        foreach($productInCart as $product) {
+            if ($product->productInCart->promotion != null) {
+                $sum = $sum + $product->quantity*$product->productInCart->promotion;
             } else {
-                $sum = $sum + $product['quantity']*$product['product_price'];
+                $sum = $sum + $product->quantity*$product->productInCart->promotion;
             }
         }
         return view('frontend.cart.cart-detail',compact('productInCart','posts','categories','count','sum'));

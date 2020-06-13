@@ -33,18 +33,21 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         if (!Auth::check()) {
-            session_start();
+            $getProductInCart = Session::all();
+            $productInCart = (object) $getProductInCart['products'];
+        } else {
+            $productInCart = Cart::where('user_id',Auth::user()->id)->get();
         }
         $provinces = Province::pluck("name","id");
         $posts = Post::all();
         $categories = Category::all();
-        $productInCart = Session::all();
+        
         $sum = 0;
-        foreach($productInCart['products'] as $product) {
-            if ($product['product_promotion'] != null) {
-                $sum = $sum + $product['quantity']*$product['product_promotion'];
+        foreach($productInCart as $product) {
+            if ($product->productInCart->promotion != null) {
+                $sum = $sum + $product->quantity*$product->productInCart->promotion;
             } else {
-                $sum = $sum + $product['quantity']*$product['product_price'];
+                $sum = $sum + $product->quantity*$product->productInCart->price;
             }
         }
         return view('frontend.order.order-info',compact('productInCart','posts','categories','provinces','sum'));
@@ -78,7 +81,11 @@ class OrderController extends Controller
                 'text'  => "Thêm mã thành công!"
             ];
             return response()->json($data);
-        } else {
+        } else if ($getVoucher->times_used < 1) {
+            $price = number_format($total*1000, 0, ',', '.' )."đ";
+            return response()->json(['error' => $price]);
+        }
+        else {
             $price = number_format($total*1000, 0, ',', '.' )."đ";
             return response()->json(['error' => $price]);
         }
@@ -88,14 +95,16 @@ class OrderController extends Controller
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $user = null;
-        $products = null;
+        $productInCart = null;
         if (Auth::check()) {
             $user = Auth::user()->id;
-            $products = Cart::where('user_id',$user)->get();
+            $productInCart = Cart::where('user_id',$user)->get();
         } else {
-            session_start();
-            $products = Cart::where('user_session_id',session_id())->get();
+            $products = Session::all();
+            $productInCart = (object) $products['products'];
+
         }
+        // dd($productInCart);
         $name = $request->get('name');
         $phone = $request->get('phone');
         $email = $request->get('email');
@@ -138,10 +147,10 @@ class OrderController extends Controller
 
         $order_code = Order::orderBy('created_at', 'desc')->first();
         // save in detail order table
-        foreach ($products as $product) {
+        foreach ($productInCart as $product) {
             $saveOrder = new OrderDetail();
             $saveOrder->order_id = $order_code->id;
-            $saveOrder->product_id = $product->product_id;
+            $saveOrder->product_id = $product->productInCart->id;
             $saveOrder->quantity = $product->quantity;
             $saveOrder->size = $product->size;
             $saveOrder->color = $product->color;
@@ -152,7 +161,7 @@ class OrderController extends Controller
         if (Auth::check()){
             Cart::where('user_id',$user)->delete();
         } else {
-            Cart::where('user_session_id',session_id())->delete();
+            // Cart::where('user_session_id',session_id())->delete();
         }
 
         return redirect()->route('index')->with('success','Đặt hàng thành công!');
