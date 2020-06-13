@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Post;
@@ -30,8 +31,9 @@ class IndexController extends Controller
         }
         $posts = Post::all();
         $categories = Category::all();
+        $address= Address::all();
         $count = 1;
-        return view ('index',compact('posts','categories','count'));
+        return view ('index',compact('posts','categories','count', 'address'));
     }
     
     public function show($slug)

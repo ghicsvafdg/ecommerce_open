@@ -53,19 +53,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($voucher as $vc) --}}
+                                @foreach ($address as $vc)
                                 <tr>
                                     
-                                    <td>Xã</td>
-                                    <td>Huyện</td>
-                                    <td>Tỉnh, thành phố</td>
+                                    <td>{{$vc->ward}}</td>
+                                    <td>{{$vc->district}}</td>
+                                    <td>{{$vc->city}}</td>
                                     <td>
                                         <div class="row">
                                            
                                             <div class="col-4">
-                                                <a href="" data-toggle="tooltip" data-placement="bottom" title="Edit" class="btn btn-icon btn-secondary btn-xs"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="{{route('manage-address.edit', $vc->id)}}" data-toggle="tooltip" data-placement="bottom" title="Edit" class="btn btn-icon btn-secondary btn-xs"><i class="fas fa-pencil-alt"></i></a>
                                             </div>
-                                            <form action="" method="post" class="test col-4">
+                                        <form action="{{route('manage-address.destroy', $vc->id)}}" method="post" class="test col-4">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="btn btn-icon btn-danger btn-xs" onclick="return confirm('Bạn có muốn xóa voucher này không?');" data-toggle="tooltip" data-placement="bottom" title="Delete">
@@ -75,7 +75,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                                 
                             </tbody>
                         </table>

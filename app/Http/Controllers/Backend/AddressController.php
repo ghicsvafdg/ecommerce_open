@@ -8,6 +8,7 @@ use App\Models\District;
 use App\Models\Province;
 use App\Models\Ward;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddressController extends Controller
 {
@@ -18,8 +19,8 @@ class AddressController extends Controller
      */
     public function index()
     {
-        // $address= Address::all();
-        return view('backend.address.address');
+        $address= Address::all();
+        return view('backend.address.address', compact('address'));
     }
 
     /**
@@ -29,21 +30,11 @@ class AddressController extends Controller
      */
     public function create()
     {
-        $provinces = Province::pluck("name","id");
-        return view('backend.address.address_create', compact('provinces'));
+        
+        return view('backend.address.address_create');
     }
 
-    public function getDistrictList(Request $request)
-    {
-        $districts = District::where("province_id",$request->province_id)->pluck("name","id");
-        return response()->json($districts);
-    }
-
-    public function getWardList(Request $request)
-    {
-        $wards = Ward::where("district_id",$request->district_id)->pluck("name","id");
-        return response()->json($wards);
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -54,6 +45,16 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         //
+       if(Auth::check() && Auth::user()->role==0){
+           $address = new Address();
+           $address->ward= $request->get('ward');
+           $address->district = $request->get('district');
+           $address->city = $request->get('city');
+           $address->save();
+           return redirect()->route('manage-address.index')->with('msg', "Thêm mới địa chỉ thành công");
+       }else{
+           return back();
+       }
     }
 
     /**
@@ -75,7 +76,10 @@ class AddressController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(Auth::check()&&Auth::user()->role==0){
+            $address = Address::find($id);
+            return view('backend.address.address_edit', compact('address'));
+        }
     }
 
     /**
@@ -87,7 +91,14 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(Auth::check()&&Auth::user()->role==0){
+            $address = Address::find($id);
+            $address->ward= $request->get('ward');
+            $address->district= $request->get('district');
+            $address->city= $request->get('city');
+            $address->save();
+            return redirect()->route('manage-address.index')->with('msg', 'Cập nhật địa chỉ thành công');
+        }
     }
 
     /**
@@ -98,6 +109,10 @@ class AddressController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Auth::check()&&Auth::user()->role==0){
+            $address= Address::find($id);
+            $address->delete();
+            return back()->with('msg', 'Xóa địa chỉ thành công');
+        }
     }
 }

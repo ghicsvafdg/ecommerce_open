@@ -153,8 +153,11 @@
                                             <p class="bold-text">
                                                 <b>địa chỉ cửa hàng</b>
                                             </p>
-                                            <p1>442, Đội Cấn, Đống Đa Hà Nội</p1>
-                                            <p1>442, Đội Cấn, Đống Đa Hà Nội</p1>
+                                            <hr>
+                                            @foreach ($address as $ad)
+                                            <p>{{$ad->ward}}, {{$ad->district}}, {{$ad->city}}</p>
+                                            <hr>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -276,7 +279,11 @@
                             <p>
                                 <h6><b> LIÊN HỆ VỚI CHÚNG TÔI</b></h6>
                             </p>
-                            <p><i class="fas fa-map-marker-alt"></i> Tòa nhà Hanoi Group - 442 Đội Cấn - Ba Đình - Hà Nội</p>
+                            
+                            @foreach ($address as $ad)
+                            <p><i class="fas fa-map-marker-alt"></i>{{$ad->ward}}, {{$ad->district}}, {{$ad->city}}</p>
+                            <hr>
+                            @endforeach
                             <p><i class="fas fa-phone-square-alt"></i> (04) 6678329 653 - (04) 543829 439</p>
                             <p><i class="fas fa-globe-americas"></i> Trực 8h00 -20h00 từ thứ 2 đến thứ 6</p>
                         </div>
