@@ -81,3 +81,6 @@ Route::get('order-info','Frontend\OrderController@index')->name('orderinfo');
 Route::post('/checkvoucher','Frontend\OrderController@checkVoucher');
 
 Route::post('/saveorder','Frontend\OrderController@createOrder')->name('createorder');
+
+//get product by cat]
+Route::get('product-category/{id}', 'Frontend\ProductCategory@index')->name('pc');

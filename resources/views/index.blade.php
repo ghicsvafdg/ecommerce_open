@@ -69,7 +69,7 @@
     {{-- cate here --}}
     <div class="title-category py-1 my-5" style="overflow: auto; white-space: nowrap;">
         <h5><b>{{$category->name}}</b></h5>
-        <a href="#" class="text-left">Xem tất cả</a>
+    <a href="{{route('pc', $category->id )}}" class="text-left">Xem tất cả</a>
     </div>
 
     <div class="product-show row">
