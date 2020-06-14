@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
+use App\Models\Address;
 use App\Models\Banner;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -115,6 +116,7 @@ class CartController extends Controller
         }
         $posts = Post::all();
         $categories = Category::all();
+        $address= Address::all();
         $count = 1;
         $sum = 0;
         foreach($productInCart as $product) {
@@ -124,6 +126,6 @@ class CartController extends Controller
                 $sum = $sum + $product->quantity*$product->productInCart->promotion;
             }
         }
-        return view('frontend.cart.cart-detail',compact('productInCart','posts','categories','count','sum'));
+        return view('frontend.cart.cart-detail',compact('productInCart','posts','categories','count','sum','address'));
     }
 }   

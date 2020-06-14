@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
+use App\Models\Address;
 use App\Models\Banner;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -41,6 +42,7 @@ class OrderController extends Controller
         $provinces = Province::pluck("name","id");
         $posts = Post::all();
         $categories = Category::all();
+        $address= Address::all();
         
         $sum = 0;
         foreach($productInCart as $product) {
@@ -50,7 +52,7 @@ class OrderController extends Controller
                 $sum = $sum + $product->quantity*$product->productInCart->price;
             }
         }
-        return view('frontend.order.order-info',compact('productInCart','posts','categories','provinces','sum'));
+        return view('frontend.order.order-info',compact('productInCart','posts','categories','provinces','sum','address'));
     }
     
     // get district list
