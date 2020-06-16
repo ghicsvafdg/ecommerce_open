@@ -90,9 +90,9 @@
             <div class="product-show row">
                 @foreach($sameCate as $same)
                 <div class="col-md-3 col-6 pb-4 text-center">
-                    <a href="products-detail.html"><img src="{{ asset('images/'.json_decode($same->image)[0]) }}" alt=""></a> 
+                    <a href="{{route('detail-product', $same->slug)}}"><img src="{{ asset('images/'.json_decode($same->image)[0]) }}" alt=""></a> 
                     <div class="title-product-show text-center pt-4">
-                        {{$same->name}}
+                        <a href="{{route('detail-product', $same->slug)}}">{{ $same->name }}</a>
                     </div>
                     <div class="curent-price-product text-center">
                         <h6><b>{{$same->promotion}}</b></h6>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Product;
@@ -20,6 +21,7 @@ class ProductController extends Controller
         $sameCate = Product::where('category_id', '=', $product->category_id)->get();
         $posts = Post::all();
         $count = 1;
-        return view('frontend.product.product-detail', compact('product', 'categories', 'count', 'posts', 'sameCate'));
+        $address= Address::all();
+        return view('frontend.product.product-detail', compact('address','product', 'categories', 'count', 'posts', 'sameCate'));
     }
 }

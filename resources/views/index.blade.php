@@ -75,11 +75,12 @@
     <div class="product-show row">
         {{-- product  --}}
         @foreach ($category->product as $product)
-        <?php if ($count > 4) break; ?>
         <div class="col-md-3 col-6 pb-4 text-center">
             <img src="{{ asset('images/'.json_decode($product->image)[0]) }}" alt="Khong co anh">
             <div class="title-product-show text-center pt-4">
             <a href="{{route('detail-product', $product->slug)}}">{{ $product->name }}</a>
+            <br>
+            Tag: <a href="{{route('pt', $product->categories->id )}}">{{$product->tags->name}}</a> Category: <a href="{{route('pc', $product->categories->id )}}">{{$product->categories->name}}</a>
             </div>
             <div class="price-products">
                 @if ($product->promotion != null)

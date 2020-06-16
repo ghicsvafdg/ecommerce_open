@@ -64,7 +64,7 @@
                                                 <i class="fas fa-utensils"></i>
                                             </div>
                                             <div class="col-9 pl-0">
-                                                <a href="#"><p><b>{{$category->name}}</b></p></a>
+                                                <a href="{{route('pc', $category->id )}}"><p><b>{{$category->name}}</b></p></a>
                                             </div>
                                         </div>
                                         @endforeach
