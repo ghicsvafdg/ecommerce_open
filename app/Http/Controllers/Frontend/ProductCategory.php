@@ -12,10 +12,11 @@ use Illuminate\Http\Request;
 
 class ProductCategory extends Controller
 {
-    public function index($id){
+    public function index($slug){
         $posts = Post::all();
         $categories = Category::all();
-        $name1 = Category::where('id', '=', $id)->first();
+        $name1 = Category::where('slug', '=', $slug)->first();
+        $id= $name1->id;
         $name= $name1->name;
         $address= Address::all();
         $count = 1;
