@@ -64,7 +64,7 @@ Route::get('get-district-list','Frontend\OrderController@getDistrictList');
 Route::get('get-ward-list','Frontend\OrderController@getWardList');
 
 // detail product
-Route::get('detail-product/{id}', 'Frontend\ProductController@detail')->name('detail-product');
+Route::get('detail-product/{slug}', 'Frontend\ProductController@detail')->name('detail-product');
 
 // post 
 Route::get('post', 'Frontend\PostsController@index')->name('posts');
@@ -83,5 +83,5 @@ Route::post('/checkvoucher','Frontend\OrderController@checkVoucher');
 Route::post('/saveorder','Frontend\OrderController@createOrder')->name('createorder');
 
 //get product by cat]
-Route::get('product-category/{id}', 'Frontend\ProductCategory@index')->name('pc');
+Route::get('product-category/{slug}', 'Frontend\ProductCategory@index')->name('pc');
 Route::get('product-tag/{id}', 'Frontend\ProductTagController@index')->name('pt');

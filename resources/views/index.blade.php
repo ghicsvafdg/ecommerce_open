@@ -79,8 +79,7 @@
             <img src="{{ asset('images/'.json_decode($product->image)[0]) }}" alt="Khong co anh">
             <div class="title-product-show text-center pt-4">
             <a href="{{route('detail-product', $product->slug)}}">{{ $product->name }}</a>
-            <br>
-            Tag: <a href="{{route('pt', $product->categories->id )}}">{{$product->tags->name}}</a> Category: <a href="{{route('pc', $product->categories->slug )}}">{{$product->categories->name}}</a>
+            
             </div>
             <div class="price-products">
                 @if ($product->promotion != null)
