@@ -62,6 +62,9 @@ Route::post('import_excel/import', 'Backend\ImportExcelController@import');
 Route::get('export', 'Backend\ImportExcelController@export')->name('export');
 
 // ===Frontend===
+// user
+Route::get('user/{id}',"Frontend\UserController@detail")->name('user');
+
 // select address
 Route::get('get-district-list','Frontend\OrderController@getDistrictList');
 Route::get('get-ward-list','Frontend\OrderController@getWardList');

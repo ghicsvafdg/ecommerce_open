@@ -102,7 +102,7 @@
                                             @if(Auth::user()->role==0)
                                             <a href="{{route('home')}}">Trang admin</a>
                                             @endif
-                                            <a href="#">Chi tiết tài khoản</a>
+                                            <a href="{{route('user',Auth::user()->id)}}">Chi tiết tài khoản</a>
                                             <a href="{{ route('logoutt') }}">Đăng Xuất</a>
                                         </div>
                                     </div>
