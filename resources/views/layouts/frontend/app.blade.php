@@ -41,7 +41,6 @@
                             <li><a href="#">liên hệ</a></li>
                         </ul>
                     </div>
-                    
                     <div class="dathang-nutsave">
                         <p>(04) 6672332</p>
                         <p>8:00AM-19:00PM</p>
@@ -72,8 +71,8 @@
                                 </div>
                             </div>
                             <div class="col-md-8 col-12 my-4">
-                                <form class="example" action="/action_page.php" style="margin:auto;">
-                                    <input type="text" placeholder="Nhập nội dung tìm kiếm" name="search2">
+                                <form class="example" action="{{route('search')}}" style="margin:auto;">
+                                    <input type="text" placeholder="Nhập nội dung tìm kiếm" name="search">
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </form>
                                 {{-- banner --}}
@@ -84,7 +83,8 @@
                         </div>
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                         <input type="text" name="userid" value="{{session_id()}}" hidden>
-
+                        
+                        {{-- content webpage --}}
                         @yield('content')
 
                     </div>

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController@index');
 Route::get('index', 'IndexController@index')->name('index');
+Route::get('/search','IndexController@search')->name('search');
 
 //authentication
 Auth::routes();
