@@ -31,7 +31,7 @@
             </div>
             <div class="menu">
                 <div class="container list-menu">
-                <a href="#"><img class="img-fluid" src="{{asset('images/icon.png')}}" alt="Chania"></a>
+                <a href="#"><img class="img-fluid" height="60px" width="120px" src="{{asset('images/icon.png')}}" alt="Chania"></a>
                     <div class="d-lg-block d-none">
                         <ul>
                             <li><a href="#">trang chủ</a></li>
@@ -64,7 +64,7 @@
                                                 <i class="fas fa-utensils"></i>
                                             </div>
                                             <div class="col-9 pl-0">
-                                                <a href="{{route('pc', $category->id )}}"><p><b>{{$category->name}}</b></p></a>
+                                                <a href="{{route('pc', $category->slug )}}"><p><b>{{$category->name}}</b></p></a>
                                             </div>
                                         </div>
                                         @endforeach
@@ -84,7 +84,9 @@
                         </div>
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                         <input type="text" name="userid" value="{{session_id()}}" hidden>
+
                         @yield('content')
+
                     </div>
                     <div class="col-3 d-lg-block d-none">
                         <div class="info-address my-4">
@@ -134,6 +136,7 @@
                                                     {{-- product in cart show here --}}
                                                 </thead>
                                             </table>
+                                            {{-- <span id="product_data2"></span> --}}
                                             <div class="button-card">
                                                 <button type="submit" class="my-2 btn-card">
                                                     <a href="{{ route('detailcart') }}"> Xem giỏ hàng</a> 

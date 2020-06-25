@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => 'nxt963852741@gmail.com',
+        'name' => 'Sieuthivbb',
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => 'nxt963852741@gmail.com',
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => 'hahalala',
 
     /*
     |--------------------------------------------------------------------------
@@ -100,6 +100,7 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
+    'pretend' => false,
 
     /*
     |--------------------------------------------------------------------------

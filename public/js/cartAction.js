@@ -46,3 +46,18 @@ function cartAdd(product_code) {
         error: function() {}
     });
 }
+
+function removeProduct(product_id) {
+    var product = product_id;
+    $.ajax({
+        url: '/removefromcart',
+        data: {
+            product: product,
+        },
+        type: "POST",
+        success: function(data) {
+            load_product(_token)
+        },
+        error: function() {}
+    });
+}

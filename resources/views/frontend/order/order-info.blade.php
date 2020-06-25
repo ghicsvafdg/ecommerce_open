@@ -189,10 +189,10 @@ function addVoucher() {
         },
         type: "POST",
         success: function(data) {
-            if (data.error) {
+            if (data.error == 'error' ) {
                 $('#info').css('color','rgb(255, 0, 43)');
-                $('#info').html("Mã hết lượt dùng hoặc không có!");
-                $("#price").html(data.error);
+                $('#info').html(data.text);
+                $("#price").html(data.price);
             } else {
                 $('#info').css('color','#07f743');
                 $('#info').html(data.text);

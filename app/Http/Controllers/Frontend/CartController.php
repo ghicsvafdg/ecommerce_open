@@ -27,7 +27,6 @@ class CartController extends Controller
     */
     public function addCart(Request $request)
     {
-        $user_id = $request->get('user');
         $product_id = $request->get('product');
         $product_color = $request->get('product_color');
         $product_size = $request->get('product_size');
@@ -72,13 +71,12 @@ class CartController extends Controller
     
     public function showProduct(Request $request)
     {
-
         if (Auth::check()) {
             $productInCart = Cart::where('user_id',Auth::user()->id)->get();
             
         } else {
             $getProductInCart = Session::all();
-            $productInCart = (object) $getProductInCart['products'];
+            $productInCart = $getProductInCart['products'];
         }
         
         foreach ($productInCart as $product) {
@@ -87,7 +85,7 @@ class CartController extends Controller
             if ($product->productInCart->promotion != null) {
                 $price = number_format($product->productInCart->promotion*1000, 0, ',', '.' );
             } else {
-                $price = number_format($product->productInCart->promotion*1000, 0, ',', '.' );
+                $price = number_format($product->productInCart->price*1000, 0, ',', '.' );
             }
             echo '<tr>
             <th scope="col">
@@ -98,7 +96,7 @@ class CartController extends Controller
                 <span style="color: #ff7f0b;">'.$price.'đ</span>
             </th>
             <th scope="col">
-                <button type="submit" class="my-2 btn-btn-delete">
+                <button type="button" class="my-2 btn-btn-delete" onClick="removeProduct('.$product->productInCart->id.')">
                     <i class="mr-1 fas fa-trash-alt"></i> Xóa
                 </button>
             </th>
@@ -123,9 +121,29 @@ class CartController extends Controller
             if ($product->productInCart->promotion != null) {
                 $sum = $sum + $product->quantity*$product->productInCart->promotion;
             } else {
-                $sum = $sum + $product->quantity*$product->productInCart->promotion;
+                $sum = $sum + $product->quantity*$product->productInCart->price;
             }
         }
         return view('frontend.cart.cart-detail',compact('productInCart','posts','categories','count','sum','address'));
+    }
+
+    public function delete(Request $request)
+    {
+        $productID = $request->get('product');
+        if (Auth::check()) {
+            $product = Cart::where([['user_id',Auth::user()->id],
+                                    ['product_id',$productID]]);
+            $product->delete();
+        } else {
+            $getProductInCart = Session::all();
+            $productInCart = $getProductInCart['products'];
+            foreach ($productInCart as $product) {
+                $pro = (object) $product;
+                if ($productID == $pro->productInCart->id) {
+                    $string = "products.".array_search($product, $productInCart);
+                    $request->session()->pull($string, 'default');
+                }
+            }
+        }
     }
 }   

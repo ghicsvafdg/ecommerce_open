@@ -15,7 +15,6 @@
                     <th>Đơn giá</th>
                     <th>Số lượng</th>
                     <th>Thành tiền</th>
-                    <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,9 +37,9 @@
                     <td>  
                         @if ($product->productInCart->promotion != null)
                         <h6 style="color:rgb(64, 64, 206);"> {{number_format( $product->productInCart->promotion*1000, 0, ',', '.' )}}đ </h6> 
-                        <span style="text-decoration:line-through; font-size: 12px;">{{number_format( $product->productInCart->price*1000, 0, ',', ' ' )}}đ</span>
+                        <span style="text-decoration:line-through; font-size: 12px;">{{number_format( $product->productInCart->promotion*1000, 0, ',', ' ' )}}đ</span>
                         @else
-                        <h6 style="color:rgb(64, 64, 206);"> {{number_format( $product->productInCart->promotion*1000, 0, ',', '.' )}}đ </h6> 
+                        <h6 style="color:rgb(64, 64, 206);"> {{number_format( $product->productInCart->price*1000, 0, ',', '.' )}}đ </h6> 
                         @endif
                     </td>
                     <td width="10%" class="text-center">
@@ -56,14 +55,6 @@
                                @endif
                             </span>đ
                         </h6>
-                    </td>
-                    <td id="follow" style="width:12%">
-                        <form action="#" method="post">
-                            <button type="submit" class="my-2 btn-btn-delete">
-                                <i class="mr-1 fas fa-trash-alt"></i> Xóa
-                            </button>
-                        </form>
-                        <button type="button" onclick="openForm100()" class="btn-btn-delete"><i class="mr-1 fas fa-edit"></i>Chỉnh sửa</button>
                     </td>
                 </tr>
                 @endforeach

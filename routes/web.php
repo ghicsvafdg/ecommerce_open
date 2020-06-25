@@ -49,6 +49,8 @@ Route::resource('manage-voucher', 'Backend\VoucherController');
 
 Route::resource('manage-address', 'Backend\AddressController');
 
+Route::resource('manage-order', 'Backend\OrderController');
+
 //excel
 // Route::get('export', 'MyController@export')->name('export');
 // Route::get('importExportView', 'MyController@importExportView');
@@ -67,21 +69,24 @@ Route::get('get-ward-list','Frontend\OrderController@getWardList');
 Route::get('detail-product/{slug}', 'Frontend\ProductController@detail')->name('detail-product');
 
 // post 
-Route::get('post', 'Frontend\PostsController@index')->name('posts');
-Route::get('detail-post/{slug}', 'Frontend\PostsController@detail')->name('detail-post');
+Route::get('post', 'Frontend\PostController@index')->name('posts');
+Route::get('detail-post/{slug}', 'Frontend\PostController@detail')->name('detail-post');
 
 // cart
 Route::post('/addtocart', 'Frontend\CartController@addCart');             // add product to cart
 Route::get('/showproductincart','Frontend\CartController@showProduct');
 Route::get('cart','Frontend\CartController@detailCart')->name('detailcart');
+Route::post('/removefromcart', 'Frontend\CartController@delete');
 
 // order
 Route::get('order-info','Frontend\OrderController@index')->name('orderinfo');
-//vouchertobill
+Route::get('order-details/{id}','Frontend\OrderController@orderDetail')->name('order-detail');
+
+//voucher to bill   
 Route::post('/checkvoucher','Frontend\OrderController@checkVoucher');
 
 Route::post('/saveorder','Frontend\OrderController@createOrder')->name('createorder');
 
-//get product by cat]
+//get product by cat
 Route::get('product-category/{slug}', 'Frontend\ProductCategory@index')->name('pc');
 Route::get('product-tag/{id}', 'Frontend\ProductTagController@index')->name('pt');

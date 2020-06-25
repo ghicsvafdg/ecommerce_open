@@ -21,6 +21,8 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Voucher;
 use App\Models\Ward;
+use App\Mail\MailNotify;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
@@ -74,22 +76,42 @@ class OrderController extends Controller
         $voucher = $request->get('voucher_code');
         $total = $request->get('total');
         $getVoucher = Voucher::where('code',$voucher)->first();
-        if ($getVoucher != null) {
-            $newPrice = $total - $getVoucher->value;
-            $price = number_format($newPrice*1000, 0, ',', '.' )."đ";
-
-            $data = [
-                'price' => $price,
-                'text'  => "Thêm mã thành công!"
-            ];
-            return response()->json($data);
-        } else if ($getVoucher->times_used < 1) {
-            $price = number_format($total*1000, 0, ',', '.' )."đ";
-            return response()->json(['error' => $price]);
-        }
+        if (!empty($getVoucher)) {
+            if ($getVoucher->times_use <= 0) {
+                $price = number_format($total*1000, 0, ',', '.' )."đ";
+                $data = [
+                    'error' => 'error',
+                    'price' => $price,
+                    'text'  => "Mã hết lượt dùng"
+                ];
+                return response()->json($data);
+            } else if ($total - $getVoucher->value <= 0) {
+                $price = number_format($total*1000, 0, ',', '.' )."đ";
+                $data = [
+                    'error' => 'error',
+                    'price' => $price,
+                    'text'  => "Mã không hợp lệ với đơn hàng"
+                ];
+                return response()->json($data);
+            } else {
+                $newPrice = $total - $getVoucher->value;
+                $price = number_format($newPrice*1000, 0, ',', '.' )."đ";
+    
+                $data = [
+                    'price' => $price,
+                    'text'  => "Thêm mã thành công!"
+                ];
+                return response()->json($data);
+            }
+        } 
         else {
             $price = number_format($total*1000, 0, ',', '.' )."đ";
-            return response()->json(['error' => $price]);
+            $data = [
+                'error' => 'error',
+                'price' => $price,
+                'text'  => "Mã không tồn tại"
+            ];
+            return response()->json($data);
         }
     }
 
@@ -106,7 +128,7 @@ class OrderController extends Controller
             $productInCart = (object) $products['products'];
 
         }
-        // dd($productInCart);
+
         $name = $request->get('name');
         $phone = $request->get('phone');
         $email = $request->get('email');
@@ -162,10 +184,27 @@ class OrderController extends Controller
         // delete in cart
         if (Auth::check()){
             Cart::where('user_id',$user)->delete();
-        } else {
-            // Cart::where('user_session_id',session_id())->delete();
         }
+        $getOrder = Order::where('code',$code)->orderBy('created_at','desc')->first();
+        $getOrderDetail = OrderDetail::where('order_id',$getOrder->id)->get();
+        
+        // sending mail
+        $user = $request->get('email');
+        Mail::to($user)->send(new MailNotify($getOrder,$getOrderDetail));
+        
+        return redirect()->route('order-detail',$getOrder->id)->with('success','Đặt hàng thành công!');
+    }
 
-        return redirect()->route('index')->with('success','Đặt hàng thành công!');
+    public function orderDetail($id) 
+    {
+        $posts = Post::all();
+        $categories = Category::all();
+        $address= Address::all();
+        $order = Order::where('id',$id)->first();
+        if (!empty($order)) {
+            $orderItems = OrderDetail::where('order_id',$order->id)->get();
+            return view('frontend.order.order-details',compact('order','posts','categories','address','orderItems'));
+        }
+        return view('frontend.order.order-details',compact('order','posts','categories','address'));
     }
 }   
