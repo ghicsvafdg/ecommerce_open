@@ -63,7 +63,7 @@ Route::get('export', 'Backend\ImportExcelController@export')->name('export');
 
 // ===Frontend===
 // user
-Route::get('user/{id}',"Frontend\UserController@detail")->name('user');
+Route::get('user/{id}',"Frontend\UserController@detail")->name('userInfo');
 
 // select address
 Route::get('get-district-list','Frontend\OrderController@getDistrictList');
@@ -72,7 +72,7 @@ Route::get('get-ward-list','Frontend\OrderController@getWardList');
 // detail product
 Route::get('detail-product/{slug}', 'Frontend\ProductController@detail')->name('detail-product');
 
-// post 
+// post
 Route::get('post', 'Frontend\PostController@index')->name('posts');
 Route::get('detail-post/{slug}', 'Frontend\PostController@detail')->name('detail-post');
 
@@ -86,7 +86,7 @@ Route::post('/removefromcart', 'Frontend\CartController@delete');
 Route::get('order-info','Frontend\OrderController@index')->name('orderinfo');
 Route::get('order-details/{id}','Frontend\OrderController@orderDetail')->name('order-detail');
 
-//voucher to bill   
+//voucher to bill
 Route::post('/checkvoucher','Frontend\OrderController@checkVoucher');
 
 Route::post('/saveorder','Frontend\OrderController@createOrder')->name('createorder');

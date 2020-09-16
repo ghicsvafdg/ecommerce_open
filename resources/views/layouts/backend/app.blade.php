@@ -18,7 +18,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-    
+
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
@@ -36,7 +36,7 @@
           <a href="{{ route('logoutt') }}" class="nav-link">Đăng Xuất</a>
         </li>
       </ul>
-      
+
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
@@ -47,24 +47,24 @@
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <a href="#" class="dropdown-item">
-              
+
             </a>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item">
-              
+
             </a>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item">
-              
+
             </a>
-            
+
           </div>
         </li>
-        
+
       </ul>
     </nav>
     <!-- /.navbar -->
-    
+
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Sidebar -->
@@ -78,7 +78,7 @@
             <a href="#" class="d-block">{{Auth::user()->name}}</a>
           </div>
         </div>
-        
+
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -166,14 +166,14 @@
       </div>
       <!-- /.sidebar -->
     </aside>
-    
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        
+
         @yield('content')
-      
+
     </div>
-    
+
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
@@ -182,7 +182,7 @@
         <b>Version</b> 3.0.4
       </div>
     </footer>
-    
+
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->

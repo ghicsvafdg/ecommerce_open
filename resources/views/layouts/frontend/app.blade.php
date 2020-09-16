@@ -7,7 +7,7 @@
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
     <meta charset="utf-8">
     <link rel="icon" href="assets/img/logo_without_text.png" class="img-fluid" type="image/x-icon"/>
-    
+
     <!-- Fonts and icons -->
     <script src="https://kit.fontawesome.com/ac2db3b359.js" crossorigin="anonymous"></script>
     <!-- Slide -->
@@ -83,7 +83,7 @@
                         </div>
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                         <input type="text" name="userid" value="{{session_id()}}" hidden>
-                        
+
                         {{-- content webpage --}}
                         @yield('content')
 
@@ -102,7 +102,7 @@
                                             @if(Auth::user()->role==0)
                                             <a href="{{route('home')}}">Trang admin</a>
                                             @endif
-                                            <a href="{{route('user',Auth::user()->id)}}">Chi tiết tài khoản</a>
+                                            <a href="{{route('userInfo',Auth::user()->id)}}">Chi tiết tài khoản</a>
                                             <a href="{{ route('logoutt') }}">Đăng Xuất</a>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@
                                         </button>
                                         <div class="content-card-user">
                                             <div class="pb-3" style="color: #44a4d7;">
-                                                <b>Sản phẩm được thêm vào giỏ hàng</b> 
+                                                <b>Sản phẩm được thêm vào giỏ hàng</b>
                                             </div>
                                             <table class="table table-borderless">
                                                 {{ csrf_field() }}
@@ -139,7 +139,7 @@
                                             {{-- <span id="product_data2"></span> --}}
                                             <div class="button-card">
                                                 <button type="submit" class="my-2 btn-card">
-                                                    <a href="{{ route('detailcart') }}"> Xem giỏ hàng</a> 
+                                                    <a href="{{ route('detailcart') }}"> Xem giỏ hàng</a>
                                                 </button>
                                             </div>
                                         </div>
@@ -282,7 +282,7 @@
                             <p>
                                 <h6><b> LIÊN HỆ VỚI CHÚNG TÔI</b></h6>
                             </p>
-                            
+
                             @foreach ($address as $ad)
                             <p><i class="fas fa-map-marker-alt"></i>{{$ad->ward}}, {{$ad->district}}, {{$ad->city}}</p>
                             <hr>
@@ -331,10 +331,10 @@
             </div>
         </div>
     </div>
-    
+
     <script src="{{ asset('js/cartAction.js') }}"></script>
     {{-- <script src="{{asset('js/loadProductInCart.js')}}"></script> --}}
-    
+
     <!--   Core JS Files   -->
     {{-- <script src="assets/js/core/jquery.3.2.1.min.js"></script> --}}
     <script src="assets/js/core/popper.min.js"></script>
@@ -348,7 +348,7 @@
             var btncard = document.querySelector('.icon-card-user');
             var dropdowncontent = document.querySelector('.content-card-user');
             var active = document.querySelector('.active');
-            
+
             for (i = 0; i < buttonpr.length; i++) {
                 buttonpr[i].onclick = function() {
                     var nd = this.getAttribute('data-mk');
@@ -370,19 +370,19 @@
     {{-- select address --}}
     <script type="text/javascript">
         $('#country').change(function(){
-            var provinceID = $(this).val();    
+            var provinceID = $(this).val();
             if(provinceID){
                 $.ajax({
                     type:"GET",
                     url:"{{url('get-district-list')}}?province_id="+provinceID,
-                    success:function(res){               
+                    success:function(res){
                         if(res){
                             $("#state").empty();
                             $("#state").append('<option value="">Chọn Quận/Huyện</option>');
                             $.each(res,function(key,value){
                                 $("#state").append('<option value="'+key+'">'+value+'</option>');
                             });
-                            
+
                         }else{
                             $("#state").empty();
                         }
@@ -391,22 +391,22 @@
             }else{
                 $("#state").empty();
                 $("#city").empty();
-            }      
+            }
         });
         $('#state').on('change',function(){
-            var districtID = $(this).val();    
+            var districtID = $(this).val();
             if(districtID){
                 $.ajax({
                     type:"GET",
                     url:"{{url('get-ward-list')}}?district_id="+districtID,
-                    success:function(res){               
+                    success:function(res){
                         if(res){
                             $("#city").empty();
                             $("#city").append('<option value="">Chọn Phường/Xã</option>');
                             $.each(res,function(key,value){
                                 $("#city").append('<option value="'+key+'">'+value+'</option>');
                             });
-                            
+
                         }else{
                             $("#city").empty();
                         }
@@ -416,7 +416,7 @@
                 $("#city").empty();
             }
         });
-    </script> 
+    </script>
     {{-- end select address --}}
     @yield('js')
 </body>
