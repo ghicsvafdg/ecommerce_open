@@ -10,7 +10,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class ProductCategory extends Controller
+class ProductCategoryController extends Controller
 {
     public function index($slug){
         $posts = Post::all();

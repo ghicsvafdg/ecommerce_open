@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
@@ -24,9 +25,10 @@ class PostsController extends Controller
         if (!Auth::check()) {
             session_start();
         }
-        $categories=Category::all();
-        $posts=Post::all();
-        $detail=Post::where('slug', '=', $slug)->first();
-        return view('frontend.news.news-detail', compact('posts', 'categories', 'detail' ));
+        $categories = Category::all();
+        $posts = Post::all();
+        $detail = Post::where('slug', '=', $slug)->first();
+        $address = Address::all();
+        return view('frontend.news.news-detail', compact('posts', 'categories', 'detail', 'address' ));
     }
 }

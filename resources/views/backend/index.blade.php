@@ -18,7 +18,7 @@
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
-  
+
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
@@ -28,7 +28,7 @@
           <div class="small-box bg-info">
             <div class="inner">
               <h3>{{$orders}}</h3>
-              
+
               <p>Số lượng đơn hàng</p>
             </div>
             <div class="icon">
@@ -57,7 +57,7 @@
           <div class="small-box bg-warning">
             <div class="inner">
               <h3>{{$user}}</h3>
-              
+
               <p>Số người dùng đăng ký</p>
             </div>
             <div class="icon">
@@ -72,7 +72,7 @@
           <div class="small-box bg-danger">
             <div class="inner">
               <h3>{{$orderDone}}</h3>
-              
+
               <p>Đơn hàng đã xử lý</p>
             </div>
             <div class="icon">
@@ -142,7 +142,7 @@
                           </tr>
                           @endforeach
                       </table>
-                    
+
                   </div>
               </div>
           </div>
@@ -158,7 +158,7 @@
     var order = $('#lineChart').data('order');
     var listOfValue = [];
     var listOfMonth = [];
-    
+
         order.forEach(function(element){
             listOfMonth.push("T"+element.getMonth+"-"+element.getYear);
             listOfValue.push(element.value);
@@ -183,7 +183,7 @@
             }]
         },
         options : {
-            responsive: true, 
+            responsive: true,
             maintainAspectRatio: false,
             legend: {
                 position: 'bottom',
@@ -206,13 +206,13 @@
             }
         }
     });
-    
+
     //the number of orders register in latest 12 months
     var barChart = document.getElementById('barChart').getContext('2d')
     var order = $('#barChart').data('order');
     var listOfValueOrder = [];
     var listOfMonthOrder = [];
-    
+
         order.forEach(function(element){
             listOfMonthOrder.push("T"+element.getMonth+"-"+element.getYear);
             listOfValueOrder.push(element.value);
@@ -229,7 +229,7 @@
             }],
         },
         options: {
-            responsive: true, 
+            responsive: true,
             maintainAspectRatio: false,
             scales: {
                 yAxes: [{
@@ -246,7 +246,7 @@
     var orderProfit = $('#profitLineChart').data('order');
     var listOfValueProfit = [];
     var listOfMonthProfit = [];
-    
+
         orderProfit.forEach(function(element){
             listOfMonthProfit.push("T"+element.getMonth+"-"+element.getYear);
             listOfValueProfit.push(element.value);
@@ -271,7 +271,7 @@
             }]
         },
         options : {
-            responsive: true, 
+            responsive: true,
             maintainAspectRatio: false,
             legend: {
                 position: 'bottom',

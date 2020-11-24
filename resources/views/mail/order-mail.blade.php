@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8">
-    
+
     <!-- CSS Files -->
     <style>
         .border_email{
@@ -31,7 +31,7 @@
         .policy_email {
             display: flex;
             padding: 30px 70px;
-            
+
         }
         .policy_email .col-4{
             padding-right: 80px;
@@ -63,8 +63,8 @@
             width: 300px;
             text-align: right;
         }
-        
-        
+
+
         @media (max-width : 1300px) {
             .border_email{
                 margin-right: 0px !important;
@@ -73,32 +73,31 @@
             .border_email{
                 padding: 0px 142px;
             }
-            
+
         }
-        table, td, th {  
+        table, td, th {
             border: 1px solid #ddd;
             text-align: left;
         }
-        
+
         table {
             border-collapse: collapse;
             width: 100%;
         }
-        
+
         th, td {
             padding: 15px;
         }
-        
+
         .space-text{
             padding: 10px;
         }
-        
-        
+
+
         .table-hover tr:hover{
             background-color:#f5f5f5;
         }
     </style>
-    
 </head>
 <body>
     <div style="background-color: #3399cc; width: 100%;">
@@ -118,11 +117,11 @@
                     <br>
                     <div style="padding: 20px 70px;">
                         Kính chào Quý khách,
-                        <br> 
+                        <br>
                         <br>
                         chân thành cảm ơn quý khách đã mua sắm tại shop chúng tôi
-                        <br>    
-                        <br>                                    
+                        <br>
+                        <br>
                         Chúng tôi hy vọng Quý khách hài lòng với trải nghiệm mua sắm và các sản phẩm đã chọn.
                         <br>
                         Chúng tôi vừa nhận được thông tin đặt hàng của quý khách với chi tiết đơn hàng như sau:
@@ -135,7 +134,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <div style="padding: 10px;">Mã đơn hàng: {{$getOrder->code}}</div>    
+                                    <div style="padding: 10px;">Mã đơn hàng: {{$getOrder->code}}</div>
                                     <div style="padding: 10px;">Ngày / Giờ: {{$getOrder->created_at}}</div>
                                 </td>
                                 <td>
@@ -153,7 +152,7 @@
                             @foreach ($getOrderDetail as $order)
                             <tr style="border: 1px solid #ddd;">
                                 <td style="width:30%">
-                                    {{$order->productOrder->name}} 
+                                    {{$order->productOrder->name}}
                                 </td>
                                 <td style="text-align: center;">
                                     {{$order->quantity}}
@@ -172,7 +171,7 @@
                                     {{number_format($order->productOrder->price*$order->quantity*1000, 0, ',', ' ' ).'đ'}}
                                     @endif
                                 </td>
-                            </tr>  
+                            </tr>
                             @endforeach
                         </table>
                         <div style="margin-top: 20px;  border: 1px solid #ddd; text-align: left;">
@@ -216,8 +215,8 @@
                         <br>
                         <br>
                             Tổng đài Chăm sóc khách hàng: 1900 6755 hoặc Hotline : 0932 277 572
-                        <br> 
-                        <br>                         
+                        <br>
+                        <br>
                             Weshop trân trọng cảm ơn và rất hân hạnh được phục vụ Quý khách.
                         <br>
                         <br>

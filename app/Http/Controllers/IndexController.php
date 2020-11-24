@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
-    
+
     /**
     * Show the application dashboard.
     *
@@ -33,12 +33,13 @@ class IndexController extends Controller
         $categories = Category::all();
         $address= Address::all();
         $count = 1;
+        // resources/views/index.blade.php
         return view ('index',compact('posts','categories','count', 'address'));
     }
-    
+
     public function show($slug)
     {
-        
+
     }
 
     public function search(Request $request)
@@ -51,7 +52,7 @@ class IndexController extends Controller
 
         $posts = Post::all();
         $categories = Category::all();
-        $address= Address::all();                    
+        $address= Address::all();
         return view('frontend.search.productSearch',compact('input','result','posts','categories','address'));
     }
 
@@ -76,4 +77,4 @@ class IndexController extends Controller
         $str = implode('-', $str);
         return $str;
     }
-}   
+}

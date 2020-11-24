@@ -74,7 +74,7 @@ Route::get('detail-product/{slug}', 'Frontend\ProductController@detail')->name('
 
 // post
 Route::get('post', 'Frontend\PostController@index')->name('posts');
-Route::get('detail-post/{slug}', 'Frontend\PostController@detail')->name('detail-post');
+Route::get('detail-post/{slug}', 'Frontend\PostsController@detail')->name('detail-post');
 
 // cart
 Route::post('/addtocart', 'Frontend\CartController@addCart');             // add product to cart
@@ -92,5 +92,5 @@ Route::post('/checkvoucher','Frontend\OrderController@checkVoucher');
 Route::post('/saveorder','Frontend\OrderController@createOrder')->name('createorder');
 
 //get product by cat
-Route::get('product-category/{slug}', 'Frontend\ProductCategory@index')->name('pc');
+Route::get('product-category/{slug}', 'Frontend\ProductCategoryController@index')->name('pc');
 Route::get('product-tag/{id}', 'Frontend\ProductTagController@index')->name('pt');
