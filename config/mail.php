@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => 'fithanutest@gmail.com',
+        'address' => 'viet.ensight3@gmail.com',
         'name' => 'Sieuthivbb',
     ],
 
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => 'fithanutest@gmail.com',
+    'username' => 'viet.ensight3@gmail.com',
 
-    'password' => "hanu1234",
+    'password' => "Ha#nu1234",
 
     /*
     |--------------------------------------------------------------------------
