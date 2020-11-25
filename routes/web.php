@@ -32,7 +32,7 @@ Route::get('manage-user/edit/{id}', 'Backend\UserController@edit')->name('edit')
 Route::patch('manage-user/update/{id}', 'Backend\UserController@update')->name('update');
 Route::delete('manage-user/delete/{id}', 'Backend\UserController@delete')->name('delete');
 Route::get('manage-user/create','Backend\UserController@create')->name('create');
-Route::post('manage-user/store','Backend\USerController@store')->name('store');
+Route::post('manage-user/store','Backend\UserController@store')->name('store');
 
 // manage post backend
 Route::resource('manage-post', 'Backend\PostController');
@@ -73,7 +73,7 @@ Route::get('get-ward-list','Frontend\OrderController@getWardList');
 Route::get('detail-product/{slug}', 'Frontend\ProductController@detail')->name('detail-product');
 
 // post
-Route::get('post', 'Frontend\PostController@index')->name('posts');
+Route::get('post', 'Frontend\PostsController@index')->name('posts');
 Route::get('detail-post/{slug}', 'Frontend\PostsController@detail')->name('detail-post');
 
 // cart

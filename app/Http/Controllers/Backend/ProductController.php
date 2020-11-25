@@ -65,7 +65,7 @@ class ProductController extends Controller
             'name' => 'required|unique:products'
         ]);
 
-        $slugs = ProductController::convert_vi_to_en($request->get('name'));
+        $slugs = $this->convert_vi_to_en($request->get('name'));
 
         if ($request->hasfile('filename')) {
             foreach ($request->file('filename') as $image) {

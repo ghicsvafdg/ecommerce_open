@@ -129,8 +129,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'name' => [
+            'min' => 'Ô :attribute cần ít nhất :min ký tự',
         ],
     ],
 

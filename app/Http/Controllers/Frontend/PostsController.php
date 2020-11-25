@@ -18,7 +18,8 @@ class PostsController extends Controller
         }
         $categories=Category::all();
         $posts = Post:: all();
-        return view('frontend.news.news', compact('posts', 'categories' ));
+        $address = Address::all();
+        return view('frontend.news.news', compact('posts', 'categories', 'address' ));
     }
 
     public function detail($slug) {

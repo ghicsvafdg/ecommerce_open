@@ -85,17 +85,17 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //    dd($request);
-        
+
         if (Auth::check() && Auth::user()->role == 0) {
 
             $rules = ([
-
-                'name' => ['required', 'string', 'min:8', 'max:255', 'regex:/^[a-z0-9._-]{4,16}$/i', 'unique:users'],
+                'name' => ['required', 'string', 'min:3', 'max:255', 'regex:/^[a-z0-9._-]{4,16}$/i', 'unique:users'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'regex:/^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/i'],
                 'password' => ['required', 'string',  'confirmed']
             ]);
+
             $this->validate($request, $rules);
-            
+
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
