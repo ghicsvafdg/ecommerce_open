@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Azzara Bootstrap 4 Admin Dashboard</title>
+    <title>FourSeasonsShop - Cửa Hàng Quần Áo Bốn Mùa</title>
     <base href="{{asset('')}}">
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
     <meta charset="utf-8">
@@ -27,11 +27,11 @@
     <div class="wrapper">
         <div class="header">
             <div class="logo-brand d-lg-block d-none">
-                <a href="#"> <img class="img-fluid" src="{{asset('images/top.png')}}" style="width:100%" alt="Chania"></a>
+                <a href="#"> <img class="img-fluid" src="{{asset('images/banner_shop.png')}}" style="width:100%" alt="Chania"></a>
             </div>
             <div class="menu">
                 <div class="container list-menu">
-                <a href="#"><img class="img-fluid" height="60px" width="120px" src="{{asset('images/icon.png')}}" alt="Chania"></a>
+                <a href="#"><img class="img-fluid" height="60px" width="120px" src="{{asset('images/logo.png')}}" alt="Chania"></a>
                     <div class="d-lg-block d-none">
                         <ul>
                             <li><a href="#">trang chủ</a></li>
@@ -75,10 +75,6 @@
                                     <input type="text" placeholder="Nhập nội dung tìm kiếm" name="search">
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </form>
-                                {{-- banner --}}
-                                @if (Request::is('index') || Request::is('/'))
-                                <img src="assets/img/pck-kids.jpg" class="img-fluid py-4" alt="">
-                                @endif
                             </div>
                         </div>
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
@@ -167,25 +163,12 @@
                             </div>
                         </div>
                         <div class="feedback">
-                            <img src="assets/img/arashmil.jpg" alt="" class="rounded-circle">
-                            <p><i>"BabyCare là sản phẩm phân phối chính hãng..."</i></p>
-                            <p style="color: #ff7f0b;"><b>Anh Nam</b></p>
-                            <p>Thanh Ba - Phú Thọ</p>
+                            <img src="assets/img/huytran.jpg" alt="" class="rounded-circle">
+                            <p><i>"FourSeasonsShop là cửa hàng chuyên phân phối sản phẩm chính hãng..."</i></p>
+                            <p style="color: #ff7f0b;"><b>Huy Tran</b></p>
+                            <p>Đại học Hà Nội</p>
                         </div>
-                        <div class="hot-product">
-                            <div class="title-right py-2 pl-4">
-                                <h6 style="margin-bottom: 0;"><b>SẢN PHẨM HOT</b></h6>
-                            </div>
-                            <div class="product-info row">
-                                <div class="col-5 pr-0">
-                                    <a href="#"><img src="assets/img/product-img.PNG" alt=""></a>
-                                </div>
-                                <div class="col-7 pl-0 pt-1 text-center text-product">
-                                    <p><b>Củi gỗ Jpan</b></p>
-                                    <p class="current-price">2.350.000đ</p>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="my-4">
                             <img src="assets/img/pngtree-big-sale-banner-with-megaphone-and-speech-bubble-png-image_4945616.jpg" class="img-fluid" alt="">
                         </div>
@@ -212,66 +195,66 @@
                 <!-- logo -->
                 <div class="logo row my-5">
                     <div class="col-md-2 col-6">
-                        <img src="assets/img/56227ede1b558_thumb900.jpg" class="img-fluid" alt="">
+                        <img src="assets/img/shirt.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-2 col-6">
-                        <img src="assets/img/baby-logo_23-2147993851.jpg" class="img-fluid" alt="">
+                        <img src="assets/img/spring.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-2 col-6">
-                        <img src="assets/img/56227ede1b558_thumb900.jpg" class="img-fluid" alt="">
+                        <img src="assets/img/summer.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-2 col-6">
-                        <img src="assets/img/baby-logo_23-2147993851.jpg" class="img-fluid" alt="">
+                        <img src="assets/img/fall.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-2 col-6">
-                        <img src="assets/img/56227ede1b558_thumb900.jpg" class="img-fluid" alt="">
+                        <img src="assets/img/winter.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-2 col-6">
-                        <img src="assets/img/baby-logo_23-2147993851.jpg" class="img-fluid" alt="">
+                        <img src="assets/img/pants.jpg" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="category-footer row pb-5">
                     <div class="list-cate-footer col-md-2 col-6">
-                        <h6><b>BÉ ĂN - BÉ UỐNG</b></h6>
-                        <a href="#">Sữa bột</a>
-                        <a href="#">Bình sữa, phụ kiện</a>
-                        <a href="#">Đồ dùng ăn uống</a>
-                        <a href="#">Ăn dặm</a>
+                        <h6><b>Phong cách thời trang</b></h6>
+                        <a href="#">Mùa xuân</a>
+                        <a href="#">Mùa hè</a>
+                        <a href="#">Mùa thu</a>
+                        <a href="#">Mùa đông</a>
                     </div>
                     <div class="list-cate-footer col-md-2 col-6">
-                        <h6><b>BÉ ĂN - BÉ UỐNG</b></h6>
-                        <a href="#">Sữa bột</a>
-                        <a href="#">Bình sữa, phụ kiện</a>
-                        <a href="#">Đồ dùng ăn uống</a>
-                        <a href="#">Ăn dặm</a>
+                        <h6><b>Phong cách thời trang</b></h6>
+                        <a href="#">Mùa xuân</a>
+                        <a href="#">Mùa hè</a>
+                        <a href="#">Mùa thu</a>
+                        <a href="#">Mùa đông</a>
                     </div>
                     <div class="list-cate-footer col-md-2 col-6">
-                        <h6><b>BÉ ĂN - BÉ UỐNG</b></h6>
-                        <a href="#">Sữa bột</a>
-                        <a href="#">Bình sữa, phụ kiện</a>
-                        <a href="#">Đồ dùng ăn uống</a>
-                        <a href="#">Ăn dặm</a>
+                        <h6><b>Phong cách thời trang</b></h6>
+                        <a href="#">Mùa xuân</a>
+                        <a href="#">Mùa hè</a>
+                        <a href="#">Mùa thu</a>
+                        <a href="#">Mùa đông</a>
                     </div>
                     <div class="list-cate-footer col-md-2 col-6">
-                        <h6><b>BÉ ĂN - BÉ UỐNG</b></h6>
-                        <a href="#">Sữa bột</a>
-                        <a href="#">Bình sữa, phụ kiện</a>
-                        <a href="#">Đồ dùng ăn uống</a>
-                        <a href="#">Ăn dặm</a>
+                        <h6><b>Phong cách thời trang</b></h6>
+                        <a href="#">Mùa xuân</a>
+                        <a href="#">Mùa hè</a>
+                        <a href="#">Mùa thu</a>
+                        <a href="#">Mùa đông</a>
                     </div>
                     <div class="list-cate-footer col-md-2 col-6">
-                        <h6><b>BÉ ĂN - BÉ UỐNG</b></h6>
-                        <a href="#">Sữa bột</a>
-                        <a href="#">Bình sữa, phụ kiện</a>
-                        <a href="#">Đồ dùng ăn uống</a>
-                        <a href="#">Ăn dặm</a>
+                        <h6><b>Phong cách thời trang</b></h6>
+                        <a href="#">Mùa xuân</a>
+                        <a href="#">Mùa hè</a>
+                        <a href="#">Mùa thu</a>
+                        <a href="#">Mùa đông</a>
                     </div>
                     <div class="list-cate-footer col-md-2 col-6">
-                        <h6><b>BÉ ĂN - BÉ UỐNG</b></h6>
-                        <a href="#">Sữa bột</a>
-                        <a href="#">Bình sữa, phụ kiện</a>
-                        <a href="#">Đồ dùng ăn uống</a>
-                        <a href="#">Ăn dặm</a>
+                        <h6><b>Phong cách thời trang</b></h6>
+                        <a href="#">Mùa xuân</a>
+                        <a href="#">Mùa hè</a>
+                        <a href="#">Mùa thu</a>
+                        <a href="#">Mùa đông</a>
                     </div>
                 </div>
             </div>
@@ -299,33 +282,25 @@
                             <a href="#">Lịch sử mua hàng</a>
                             <a href="#">Sử dụng thông tin</a>
                         </div>
-                        <div class="col-md-2 col-12 personal-info">
-                            <p>
-                                <h6><b>HỖ TRỢ</b></h6>
-                            </p>
-                            <a href="#">Tài khoản của tôi</a>
-                            <a href="#">Sản phẩm yêu thích</a>
-                            <a href="#">Lịch sử mua hàng</a>
-                            <a href="#">Sử dụng thông tin</a>
-                        </div>
+                        >
                         <div class="col-md-2 col-12 personal-info">
                             <p>
                                 <h6><b>CHÍNH SÁCH</b></h6>
                             </p>
-                            <a href="#">Tài khoản của tôi</a>
-                            <a href="#">Sản phẩm yêu thích</a>
-                            <a href="#">Lịch sử mua hàng</a>
-                            <a href="#">Sử dụng thông tin</a>
+                            <a href="#">Chính sách bảo hành</a>
+                            <a href="#">Chính sách thanh toán</a>
+                            <a href="#">Chính sách vận chuyển</a>
+                            <a href="#">Chính sách đổi trả</a>
                         </div>
                         <div class="col-md-2 col-12 personal-info">
                             <p>
-                                <h6><b>LIÊN KẾT</b></h6>
+                            <h6><b>Theo dõi chúng tôi</b></h6>
                             </p>
-                            <a href="#">Tài khoản của tôi</a>
-                            <a href="#">Sản phẩm yêu thích</a>
-                            <a href="#">Lịch sử mua hàng</a>
-                            <a href="#">Sử dụng thông tin</a>
-                        </div>
+                            <a href="#">Facebook</a>
+                            <a href="#">Instagram</a>
+                            <a href="#">Zalo</a>
+                            <a href="#">Youtube</a>
+                        </div
                     </div>
                 </div>
             </div>
