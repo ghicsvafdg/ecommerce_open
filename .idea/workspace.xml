@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1651984a-acc8-4195-89e3-57c627a10779" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/customFrontend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/customFrontend.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/4b697dabfb32e8ca23360ecf69fcd97a.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/56227ede1b558_thumb900.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/Bottle-800x800.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/HTB1uDkyAuSSBuNjy0Flq6zBpVXaP.jpg_q50.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/arashmil.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/baby-logo_23-2147993851.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/logo-babycare.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/pck-kids.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/pool-cover-banner-1024x267.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/product-img.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/top.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +157,7 @@
       <workItem from="1606353937663" duration="5000" />
       <workItem from="1606354095915" duration="101000" />
       <workItem from="1606354210594" duration="72000" />
-      <workItem from="1606354306006" duration="6866000" />
+      <workItem from="1606354306006" duration="7585000" />
     </task>
     <servers />
   </component>
